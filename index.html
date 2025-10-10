@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CN Terrassa - Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #0891b2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 24px;
+            color: #67e8f9;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+        
+        .status {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+        }
+        
+        .info {
+            font-size: 16px;
+            color: #bae6fd;
+            line-height: 1.6;
+        }
+        
+        .files-list {
+            margin-top: 30px;
+            text-align: left;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .files-list h3 {
+            color: #22d3ee;
+            margin-bottom: 15px;
+        }
+        
+        .file-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: monospace;
+        }
+        
+        .loading {
+            font-size: 18px;
+            color: #fbbf24;
+        }
+        
+        .error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #ef4444;
+            color: #fca5a5;
+        }
+        
+        .success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+            color: #86efac;
+        }
+        
+        .btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #06b6d4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            background: #0891b2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+        }
+        
+        .author {
+            margin-top: 30px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏊 CN Terrassa</h1>
+            <p>Test de Conexión - Juvenil 25/26</p>
+        </div>
+        
+        <div class="card">
+            <div id="status" class="status loading">
+                🔄 Conectando con GitHub...
+            </div>
+            
+            <div class="info">
+                <p><strong>Repositorio:</strong> joseprico/CNT_juvenil_25_26</p>
+                <p><strong>Objetivo:</strong> Verificar conexión y archivos disponibles</p>
+            </div>
+            
+            <div id="filesContainer"></div>
+            
+            <button class="btn" onclick="testConnection()">🔄 Probar de nuevo</button>
+        </div>
+        
+        <div class="author">by Josep Rico</div>
+    </div>
+
+    <script>
+        async function testConnection() {
+            const statusDiv = document.getElementById('status');
+            const filesContainer = document.getElementById('filesContainer');
+            
+            statusDiv.className = 'status loading';
+            statusDiv.innerHTML = '🔄 Conectando con GitHub...';
+            filesContainer.innerHTML = '';
+            
+            try {
+                console.log('Intentando conectar...');
+                
+                const response = await fetch('https://api.github.com/repos/joseprico/CNT_juvenil_25_26/contents/');
+                
+                console.log('Respuesta recibida:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
+                }
+                
+                const files = await response.json();
+                console.log('Archivos encontrados:', files);
+                
+                // Filtrar archivos JSON de partidos
+                const jsonFiles = files.filter(f => 
+                    f.type === 'file' && 
+                    f.name.startsWith('cnt_stats_') && 
+                    f.name.endsWith('.json') &&
+                    !f.name.includes('example') &&
+                    !f.name.includes('template') &&
+                    f.name !== 'cnt_stats_.json'
+                );
+                
+                // Mostrar resultado exitoso
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = `✅ ¡Conexión exitosa! Se encontraron ${jsonFiles.length} partidos`;
+                
+                // Mostrar lista de archivos
+                if (files.length > 0) {
+                    filesContainer.innerHTML = `
+                        <div class="files-list">
+                            <h3>📁 Archivos en el repositorio (${files.length} total):</h3>
+                            ${files.slice(0, 20).map(file => `
+                                <div class="file-item">
+                                    ${file.type === 'file' ? '📄' : '📁'} ${file.name}
+                                </div>
+                            `).join('')}
+                            ${files.length > 20 ? `<div class="file-item">... y ${files.length - 20} más</div>` : ''}
+                        </div>
+                        
+                        <div class="files-list" style="margin-top: 20px;">
+                            <h3>⚽ Archivos de partidos encontrados (${jsonFiles.length}):</h3>
+                            ${jsonFiles.length > 0 ? jsonFiles.map(file => `
+                                <div class="file-item" style="color: #86efac;">
+                                    ✓ ${file.name}
+                                </div>
+                            `).join('') : '<div class="file-item" style="color: #fca5a5;">⚠️ No se encontraron archivos de partidos</div>'}
+                        </div>
+                    `;
+                } else {
+                    filesContainer.innerHTML = `
+                        <div class="files-list">
+                            <p style="color: #fca5a5;">⚠️ El repositorio está vacío</p>
+                        </div>
+                    `;
+                }
+                
+                // Si hay archivos, probar a cargar uno
+                if (jsonFiles.length > 0) {
+                    console.log('Intentando cargar primer archivo...');
+                    const testFile = await fetch(jsonFiles[0].download_url);
+                    const testData = await testFile.json();
+                    console.log('Datos del archivo cargados:', testData);
+                }
+                
+            } catch (error) {
+                console.error('Error detallado:', error);
+                
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `❌ Error de conexión`;
+                
+                filesContainer.innerHTML = `
+                    <div class="files-list">
+                        <h3 style="color: #ef4444;">⚠️ Detalles del error:</h3>
+                        <div class="file-item" style="color: #fca5a5;">
+                            ${error.message}
+                        </div>
+                        <div class="file-item" style="color: #bae6fd; margin-top: 15px;">
+                            <strong>Posibles causas:</strong><br>
+                            • El repositorio no existe o es privado<br>
+                            • Nombre incorrecto del repositorio<br>
+                            • Problemas de conexión a internet<br>
+                            • GitHub API temporalmente no disponible
+                        </div>
+                        <div class="file-item" style="color: #bae6fd; margin-top: 15px;">
+                            <strong>URL intentada:</strong><br>
+                            https://api.github.com/repos/joseprico/CNT_juvenil_25_26/contents/
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Ejecutar test al cargar la página
+        window.addEventListener('DOMContentLoaded', testConnection);
+    </script>
+</body>
+</html>
