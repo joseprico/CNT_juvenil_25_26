@@ -993,8 +993,12 @@ function resetAll() {
         actionsHistory = [];
         chronologicalActions = [];
         playersInWater = new Set();
-        quarterStartTimes = { q1: null, q2: null, q3: null, q4: null };
-        playerWaterChanges = [];
+        		
+		// ⭐ AFEGIR AQUESTES LÍNIES PER NETEJAR ELS TEMPS:
+        quarterStartTimes={q1:null,q2:null,q3:null,q4:null};
+        quarterRealEndTimes={q1:null,q2:null,q3:null,q4:null};
+        playerWaterChanges=[];
+        playersInWater.clear();
 
         // Actualitzar interfície
         document.getElementById('rivalTeamInput').value = 'Rival';
