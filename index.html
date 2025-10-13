@@ -352,6 +352,40 @@
             gap: 5px;
             margin-top: 8px;
         }
+		.match-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.team-section h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.score {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fde047;
+}
+
+.vs {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.6);
+}
         .quarter-badge {
             background: rgba(6, 182, 212, 0.3);
             border: 2px solid #06b6d4;
@@ -638,15 +672,7 @@
         </div>
     </div>
 
-    <!-- 3. Eficiencia por Minuto (Equipo) -->
-   <!--  <div class="card">
-        <h2 class="section-title">⚡ Eficiencia por Minuto Jugado</h2>
-        <p style="font-size: 12px; color: #bae6fd; margin-bottom: 15px;">
-            Goles y exclusiones por cada minuto de juego
-        </p>
-        <canvas id="efficiencyPerMinuteChart" style="max-height: 400px;"></canvas>
-    </div> 
-
+  
     <!-- 4. Distribución de Minutos (Pastel) -->
     <div class="card">
         <h2 class="section-title">🥧 Distribución de Minutos del Equipo</h2>
@@ -706,46 +732,70 @@
             <!-- Vista de partido individual -->
             <div id="singleMatchView" class="hidden">
                 <div class="card">
-                    <button class="btn" onclick="backToList()" style="margin-bottom: 15px;">← Volver a la lista</button>
+                    <button class="btn" onclick="backToList()" style="margin-bottom: 20px;">← Volver a la lista</button>
+    
+    <div class="card">
+        <div class="match-header">
+            <div class="team-section">
+                <h2>CN Terrassa</h2>
+                <div class="score" id="scoreCNT">0</div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team-section">
+                <h2 id="teamRival">RIVAL</h2>
+                <div class="score" id="scoreRival">0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title">ℹ️ Información del Partido</h2>
+        <div id="matchInfo"></div>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title">⚽ Desglose de Goles CN Terrassa</h2>
+        <div class="stats-breakdown" id="goalsScoredBreakdown"></div>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title">🥅 Desglose de Goles Recibidos</h2>
+        <div class="stats-breakdown" id="goalsReceivedBreakdown"></div>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title">🟥 Desglose de Exclusiones</h2>
+        <div class="stats-breakdown" id="exclusionsBreakdown"></div>
+    </div>
+	
                     
-                    <div class="scoreboard">
-                        <div class="team-score">
-                            <div class="team-name">CN TERRASSA</div>
-                            <div class="score" id="scoreCNT">0</div>
-                        </div>
-                        <div class="separator">-</div>
-                        <div class="team-score">
-                            <div class="team-name" id="teamRival">RIVAL</div>
-                            <div class="score" id="scoreRival">0</div>
-                        </div>
-                    </div>
-                </div>
+    <div class="card">
+    <h2 class="section-title">📊 Estadísticas Completas del Partido</h2>
+    <div style="overflow-x: auto;">
+        <table class="comparison-table" id="singleMatchStatsTable"></table>
+    </div>
+    <div style="margin-top: 20px; padding: 15px; background: rgba(34, 211, 238, 0.1); border-radius: 8px; border-left: 4px solid #22d3ee;">
+        <h3 style="color: #22d3ee; margin-bottom: 10px; font-size: 14px;">⭐ Criteris de Valoració MVP</h3>
+        <div style="font-size: 12px; color: #bae6fd; line-height: 1.8;">
+            <strong style="color: #22c55e;">Accions Positives:</strong><br>
+            • Gol normal/contraatac/H+/boya: +2 | Gol penalty: +1<br>
+            • Assistència: +1 | Robatori: +1 | Blocatge: +1 | Parada: +2 | Falta rebuda: +1<br><br>
+            <strong style="color: #ef4444;">Accions Negatives:</strong><br>
+            • Exclusió (normal o penalty): -1 | Penalty fallat: -2 | Pèrdua: -0.5 | Tir fallat: -0.5
+        </div>
+    </div>
+</div>
 
-                <div class="card">
-                    <h2 class="section-title">Información del Partido</h2>
-                    <div class="info-grid" id="infoGrid"></div>
-                </div>
-
-                <div class="card">
-                    <h2 class="section-title">Desglose de Goles CN Terrassa</h2>
-                    <div class="stats-breakdown" id="goalsBreakdown"></div>
-                </div>
-
+                
                 <div class="card">
                     <h2 class="section-title">📈 Evolución del Marcador por Cuartos</h2>
                     <canvas id="scoreEvolutionChart" style="max-height: 300px;"></canvas>
                 </div>
-
-                <div class="card">
-                    <h2 class="section-title">Desglose de Goles Recibidos (Rival)</h2>
-                    <div class="stats-breakdown" id="goalsReceivedBreakdown"></div>
+    <div class="card">
+                    <h2 class="section-title">Alineaciones por Cuarto</h2>
+                    <div id="lineupsContainer"></div>
                 </div>
-
-                <div class="card">
-                    <h2 class="section-title">Desglose de Exclusiones</h2>
-                    <div class="stats-breakdown" id="exclusionsBreakdown"></div>
-                </div>
-
+               
                 <div class="card">
                     <h2 class="section-title">⚖️ Balance Ofensivo vs Defensivo</h2>
                     <canvas id="offenseDefenseChart" style="max-height: 300px;"></canvas>
@@ -756,22 +806,7 @@
                     <canvas id="playerEfficiencyChart" style="max-height: 350px;"></canvas>
                 </div>
 
-                <div class="card">
-                    <h2 class="section-title">Marcadores por Periodo</h2>
-                    <div class="periods-grid" id="periodsGrid"></div>
-                </div>
-
-                <div class="card">
-                    <h2 class="section-title">🏆 Top Goleadores - CN Terrassa</h2>
-                    <div class="top-scorers" id="topScorersCNT"></div>
-                </div>
-
-                <div class="card">
-                    <h2 class="section-title">🏆 Top Goleadores - Rival</h2>
-                    <div class="top-scorers" id="topScorersRival"></div>
-                </div>
-
-                <div class="card">
+                 <div class="card">
                     <h2 class="section-title">Estadísticas CN Terrassa</h2>
                     <div class="stats-grid" id="statsCNT"></div>
                 </div>
@@ -784,10 +819,11 @@
     <h2 class="section-title">⏱️ Temps de Joc per Jugador</h2>
     <div id="playingTimesContainer"></div>
 </div>
-                <div class="card">
-                    <h2 class="section-title">Alineaciones por Cuarto</h2>
-                    <div id="lineupsContainer"></div>
-                </div>
+<div class="card">
+    <h2 class="section-title">🧤 Parades dels Porters</h2>
+    <canvas id="goalkeeperSavesChart" style="max-height: 300px;"></canvas>
+</div>
+            
 
                 <div class="card">
                     <h2 class="section-title">Observaciones</h2>
@@ -892,11 +928,21 @@
         </div>
 
         <div class="card">
-            <h2 class="section-title">📊 Comparación de Estadísticas</h2>
-            <div style="overflow-x: auto;">
-                <table class="comparison-table" id="comparisonTable"></table>
-            </div>
+    <h2 class="section-title">📊 Comparación de Estadísticas</h2>
+    <div style="overflow-x: auto;">
+        <table class="comparison-table" id="comparisonTable"></table>
+    </div>
+    <div style="margin-top: 20px; padding: 15px; background: rgba(34, 211, 238, 0.1); border-radius: 8px; border-left: 4px solid #22d3ee;">
+        <h3 style="color: #22d3ee; margin-bottom: 10px; font-size: 14px;">⭐ Criteris de Valoració MVP</h3>
+        <div style="font-size: 12px; color: #bae6fd; line-height: 1.8;">
+            <strong style="color: #22c55e;">Accions Positives:</strong><br>
+            • Gol normal/contraatac/H+/boya: +2 | Gol penalty: +1<br>
+            • Assistència: +1 | Robatori: +1 | Blocatge: +1 | Parada: +2 | Falta rebuda: +1<br><br>
+            <strong style="color: #ef4444;">Accions Negatives:</strong><br>
+            • Exclusió (normal o penalty): -1 | Penalty fallat: -2 | Pèrdua: -0.5 | Tir fallat: -0.5
         </div>
+    </div>
+</div>
 
         <div class="card">
             <h2 class="section-title">Top Goleadores (Todos los Partidos)</h2>
@@ -1072,6 +1118,48 @@ console.log('Partidos válidos después del filtrado:', allMatches.length);
         `;
     }
 }
+function getQuarterRealStartTime(match, quarter) {
+    // Prioritzar quarterRealStartTimes si existeix (nou sistema amb botó)
+    if (match.quarterRealStartTimes && match.quarterRealStartTimes[quarter]) {
+        return match.quarterRealStartTimes[quarter];
+    }
+    
+    // Fallback: usar quarterStartTimes (sistema antic)
+    return match.quarterStartTimes && match.quarterStartTimes[quarter] 
+        ? match.quarterStartTimes[quarter] 
+        : null;
+}
+function getQuarterRealStartTime(match, quarter) {
+    // Buscar la primera acción REAL del cuarto (gol, exclusión, cambio de agua)
+    const actions = match.chronologicalActions || [];
+    const quarterActions = actions.filter(a => a.quarter === quarter);
+    
+    if (quarterActions.length > 0) {
+        // Ordenar por timestamp y devolver el primero
+        quarterActions.sort((a, b) => a.timestamp - b.timestamp);
+        return quarterActions[0].timestamp;
+    }
+    
+    // Si no hay acciones, usar quarterStartTimes como fallback
+    return match.quarterStartTimes[quarter];
+}
+function getQuarterEndTime(match, quarter, quarterStartTime, quarterDuration) {
+    if (match.quarterRealEndTimes && match.quarterRealEndTimes[quarter]) {
+        return match.quarterRealEndTimes[quarter];
+    }
+    
+    const quarterOrder = ['q1', 'q2', 'q3', 'q4'];
+    const currentIndex = quarterOrder.indexOf(quarter);
+    
+    if (currentIndex < 3) {
+        const nextQuarter = quarterOrder[currentIndex + 1];
+        if (match.quarterStartTimes[nextQuarter]) {
+            return match.quarterStartTimes[nextQuarter];
+        }
+    }
+    
+    return quarterStartTime + (quarterDuration * 1000);
+}
   function displayMatchesList() {
     const container = document.getElementById('availableMatches');
     
@@ -1175,384 +1263,603 @@ console.log('Partidos válidos después del filtrado:', allMatches.length);
     }
 }
 
-        function displayMatchData() {
-            document.getElementById('scoreCNT').textContent = currentMatch.scoreCNT || 0;
-            document.getElementById('scoreRival').textContent = currentMatch.scoreRival || 0;
-            document.getElementById('teamRival').textContent = currentMatch.rivalTeam || 'RIVAL';
+ function displayMatchData() {
+    document.getElementById('scoreCNT').textContent = currentMatch.scoreCNT || 0;
+    document.getElementById('scoreRival').textContent = currentMatch.scoreRival || 0;
+    document.getElementById('teamRival').textContent = currentMatch.rivalTeam || 'RIVAL';
+// Actualitzar també el scoreboard de dalt si existeix
+if (document.getElementById('scoreboardCNT')) {
+    document.getElementById('scoreboardCNT').textContent = currentMatch.scoreCNT || 0;
+    document.getElementById('scoreboardRival').textContent = currentMatch.scoreRival || 0;
+    document.getElementById('scoreboardRivalName').textContent = currentMatch.rivalTeam || 'RIVAL';
+}
+    const date = new Date(currentMatch.data);
+    const locationIcon = (currentMatch.matchLocation === 'home' || !currentMatch.matchLocation) ? '🏠' : '✈️';
+    const locationText = (currentMatch.matchLocation === 'home' || !currentMatch.matchLocation) ? 'Casa' : 'Fuera';
+    const totalExcCNT = currentMatch.jugadors.reduce((sum, j) => sum + j.estadistiques.exclusions, 0);
+    const totalExcRival = currentMatch.rivalStats.reduce((sum, j) => sum + j.exclusions, 0);
 
-            const date = new Date(currentMatch.data);
-			const locationIcon = (currentMatch.matchLocation === 'home' || !currentMatch.matchLocation) ? '🏠' : '✈️';
-const locationText = (currentMatch.matchLocation === 'home' || !currentMatch.matchLocation) ? 'Casa' : 'Fuera';
-            const totalExcCNT = currentMatch.jugadors.reduce((sum, j) => sum + j.estadistiques.exclusions, 0);
-            const totalExcRival = currentMatch.rivalStats.reduce((sum, j) => sum + j.exclusions, 0);
+    // Parades dels porters
+    const totalParadesCNT = currentMatch.jugadors.reduce((sum, j) => {
+        return sum + (j.estadistiques.parades || 0);
+    }, 0);
+    
+    // Calcular totalGoals abans d'utilitzar-lo
+    const totalGoals = currentMatch.jugadors.reduce((sum, j) => sum + j.estadistiques.gols, 0);
+    
+    // Noves accions
+    const totalAssistenciesCNT = currentMatch.jugadors.reduce((sum, j) => {
+        return sum + (j.estadistiques.assistencies || 0);
+    }, 0);
 
-        // Conversión H+ del CNT (goles H+ CNT / exclusiones normales rival)
-let totalHPlusCNT = 0;
-let totalExclusionsNoPenaltyRival = 0;
+    const totalRobatorisCNT = currentMatch.jugadors.reduce((sum, j) => {
+        return sum + (j.estadistiques.robatoris || 0);
+    }, 0);
 
-currentMatch.jugadors.forEach(j => {
-    if (j.estadistiques.goalTypes && j.estadistiques.goalTypes['h+']) {
-        totalHPlusCNT += j.estadistiques.goalTypes['h+'];
-    }
-});
+    const totalPerduesCNT = currentMatch.jugadors.reduce((sum, j) => {
+        return sum + (j.estadistiques.perdues || 0);
+    }, 0);
 
-currentMatch.rivalStats.forEach(j => {
-    if (j.exclusionTypes) {
-        totalExclusionsNoPenaltyRival += (j.exclusionTypes.normal || 0);
-    }
-});
+    const totalXutsFallatsCNT = currentMatch.jugadors.reduce((sum, j) => {
+        return sum + (j.estadistiques.xutsFallats || 0);
+    }, 0);
+    
+    const totalBlocksCNT = currentMatch.jugadors.reduce((sum, j) => {
+        return sum + (j.estadistiques.blocks || 0);
+    }, 0);
 
-const conversionRateCNT = totalExclusionsNoPenaltyRival > 0 ? 
-    ((totalHPlusCNT / totalExclusionsNoPenaltyRival) * 100).toFixed(1) : '0.0';
+    const totalFaltesRebudesCNT = currentMatch.jugadors.reduce((sum, j) => {
+        return sum + (j.estadistiques.faltesRebudes || 0);
+    }, 0);
+    
+    // Eficiència de tir
+    const totalXutsCNT = totalGoals + totalXutsFallatsCNT;
+    const eficienciaTirCNT = totalXutsCNT > 0 ? ((totalGoals / totalXutsCNT) * 100).toFixed(1) : '0.0';
+    
+    // Conversión H+ del CNT (goles H+ CNT / exclusiones normales rival)
+    let totalHPlusCNT = 0;
+    let totalExclusionsNoPenaltyRival = 0;
 
-// Conversión H+ del Rival (goles H+ rival / exclusiones normales CNT)
-let totalHPlusRival = 0;
-let totalExclusionsNoPenaltyCNT = 0;
+    currentMatch.jugadors.forEach(j => {
+        if (j.estadistiques.goalTypes && j.estadistiques.goalTypes['h+']) {
+            totalHPlusCNT += j.estadistiques.goalTypes['h+'];
+        }
+    });
 
-currentMatch.rivalStats.forEach(j => {
-    if (j.goalTypes && j.goalTypes['h+']) {
-        totalHPlusRival += j.goalTypes['h+'];
-    }
-});
+    currentMatch.rivalStats.forEach(j => {
+        if (j.exclusionTypes) {
+            totalExclusionsNoPenaltyRival += (j.exclusionTypes.normal || 0);
+        }
+    });
 
-currentMatch.jugadors.forEach(j => {
-    if (j.estadistiques.exclusionTypes) {
-        totalExclusionsNoPenaltyCNT += (j.estadistiques.exclusionTypes.normal || 0);
-    }
-});
+    const conversionRateCNT = totalExclusionsNoPenaltyRival > 0 ? 
+        ((totalHPlusCNT / totalExclusionsNoPenaltyRival) * 100).toFixed(1) : '0.0';
 
-const conversionRateRival = totalExclusionsNoPenaltyCNT > 0 ? 
-    ((totalHPlusRival / totalExclusionsNoPenaltyCNT) * 100).toFixed(1) : '0.0';
+    // Conversión H+ del Rival (goles H+ rival / exclusiones normales CNT)
+    let totalHPlusRival = 0;
+    let totalExclusionsNoPenaltyCNT = 0;
 
+    currentMatch.rivalStats.forEach(j => {
+        if (j.goalTypes && j.goalTypes['h+']) {
+            totalHPlusRival += j.goalTypes['h+'];
+        }
+    });
 
-            const totalPenMissedCNT = currentMatch.jugadors.reduce((sum, j) => sum + (j.estadistiques.penaltyMissed || 0), 0);
-            const totalPenMissedRival = currentMatch.rivalStats.reduce((sum, j) => sum + (j.penaltyMissed || 0), 0);
+    currentMatch.jugadors.forEach(j => {
+        if (j.estadistiques.exclusionTypes) {
+            totalExclusionsNoPenaltyCNT += (j.estadistiques.exclusionTypes.normal || 0);
+        }
+    });
 
-            document.getElementById('infoGrid').innerHTML = `
-                <div class="info-item">
-    <div class="info-label">⏱️ Temps de Joc Disponible</div>
-    <div class="info-value">${currentMatch.playerWaterChanges && currentMatch.playerWaterChanges.length > 0 ? '✅ Sí' : '❌ No'}</div>
-</div>
-				<div class="info-item">
-                    <div class="info-label">Fecha</div>
-                    <div class="info-value">${date.toLocaleDateString('es-ES')}</div>
-                </div>
-				<div class="info-item">
-    <div class="info-label">Ubicación</div>
-    <div class="info-value">${locationIcon} ${locationText}</div>
-</div>
-                <div class="info-item">
-                    <div class="info-label">Temporada</div>
-                    <div class="info-value">${currentMatch.temporada || 'N/A'}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Temps Mort CNT</div>
-                    <div class="info-value">${currentMatch.tempsMortCNT || 0}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Temps Mort Rival</div>
-                    <div class="info-value">${currentMatch.tempsMortRival || 0}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Exclusiones CNT</div>
-                    <div class="info-value">${totalExcCNT}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Exclusiones Rival</div>
-                    <div class="info-value">${totalExcRival}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Penaltis Fallados CNT</div>
-                    <div class="info-value" style="color: ${totalPenMissedCNT === 0 ? '#22c55e' : '#ef4444'}">${totalPenMissedCNT}</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Penaltis Fallados Rival</div>
-                    <div class="info-value" style="color: ${totalPenMissedRival === 0 ? '#22c55e' : '#ef4444'}">${totalPenMissedRival}</div>
-                </div>
-                <div class="info-item">
-    <div class="info-label">Conversión H+ CNT</div>
-    <div class="info-value" style="color: ${conversionRateCNT >= 50 ? '#22c55e' : conversionRateCNT >= 30 ? '#fbbf24' : '#ef4444'}">
-        ${totalHPlusCNT}/${totalExclusionsNoPenaltyRival}<br>
-        <span style="font-size: 14px;">(${conversionRateCNT}%)</span>
-    </div>
-</div>
-<div class="info-item">
-    <div class="info-label">Conversión H+ Rival</div>
-    <div class="info-value" style="color: ${conversionRateRival >= 50 ? '#ef4444' : conversionRateRival >= 30 ? '#fbbf24' : '#22c55e'}">
-        ${totalHPlusRival}/${totalExclusionsNoPenaltyCNT}<br>
-        <span style="font-size: 14px;">(${conversionRateRival}%)</span>
-    </div>
-</div>
-            `;
+    const conversionRateRival = totalExclusionsNoPenaltyCNT > 0 ? 
+        ((totalHPlusRival / totalExclusionsNoPenaltyCNT) * 100).toFixed(1) : '0.0';
 
-            // Desglose de goles
-            const goalStats = {
-                'h+': 0,
-                'penalty': 0,
-                'contra': 0,
-                'boya': 0,
-                'normal': 0
-            };
+    document.getElementById('matchInfo').innerHTML = `
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-label">📅 Fecha</div>
+                <div class="info-value">${date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">${locationIcon} Ubicación</div>
+                <div class="info-value">${locationText}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">🟥 Exclusiones CNT</div>
+                <div class="info-value">${totalExcCNT}</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">🟥 Exclusiones Rival</div>
+                <div class="info-value">${totalExcRival}</div>
+            </div>
+            ${totalParadesCNT > 0 ? `
+            <div class="info-item">
+                <div class="info-label">🧤 Parades CNT</div>
+                <div class="info-value" style="color: #c084fc;">${totalParadesCNT}</div>
+            </div>
+            ` : ''}
+            <div class="info-item">
+                <div class="info-label">🎯 Eficiència Tir CNT</div>
+                <div class="info-value" style="color: ${eficienciaTirCNT >= 50 ? '#22c55e' : eficienciaTirCNT >= 30 ? '#fbbf24' : '#ef4444'};">${eficienciaTirCNT}%</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">📊 Conversió H+ CNT</div>
+                <div class="info-value">${conversionRateCNT}%</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">📊 Conversió H+ Rival</div>
+                <div class="info-value">${conversionRateRival}%</div>
+            </div>
+            ${totalAssistenciesCNT > 0 ? `
+            <div class="info-item">
+                <div class="info-label">🎯 Assistències CNT</div>
+                <div class="info-value" style="color: #86efac;">${totalAssistenciesCNT}</div>
+            </div>
+            ` : ''}
+            ${totalRobatorisCNT > 0 ? `
+            <div class="info-item">
+                <div class="info-label">🛡️ Robatoris CNT</div>
+                <div class="info-value" style="color: #7dd3fc;">${totalRobatorisCNT}</div>
+            </div>
+            ` : ''}
+            ${totalPerduesCNT > 0 ? `
+            <div class="info-item">
+                <div class="info-label">❌ Pèrdues CNT</div>
+                <div class="info-value" style="color: #fca5a5;">${totalPerduesCNT}</div>
+            </div>
+            ` : ''}
+            ${totalXutsFallatsCNT > 0 ? `
+            <div class="info-item">
+                <div class="info-label">🎯❌ Xuts Fallats CNT</div>
+                <div class="info-value" style="color: #fb923c;">${totalXutsFallatsCNT}</div>
+            </div>
+            ` : ''}
+            ${totalBlocksCNT > 0 ? `
+            <div class="info-item">
+                <div class="info-label">✋ Blocks CNT</div>
+                <div class="info-value" style="color: #a78bfa;">${totalBlocksCNT}</div>
+            </div>
+            ` : ''}
+            ${totalFaltesRebudesCNT > 0 ? `
+            <div class="info-item">
+                <div class="info-label">⚠️ Faltes Rebudes</div>
+                <div class="info-value" style="color: #fbbf24;">${totalFaltesRebudesCNT}</div>
+            </div>
+            ` : ''}
+        </div>
+    `;
 
-            currentMatch.jugadors.forEach(j => {
-                if (j.estadistiques.goalTypes) {
-                    Object.keys(goalStats).forEach(type => {
-                        goalStats[type] += j.estadistiques.goalTypes[type] || 0;
-                    });
-                }
-            });
-
-            const goalLabels = {
-                'h+': 'Superioridad (H+)',
-                'penalty': 'Penaltis',
-                'contra': 'Contraataques',
-                'boya': 'Boya',
-                'normal': 'Normales'
-            };
-
-            document.getElementById('goalsBreakdown').innerHTML = Object.keys(goalStats)
-                .filter(type => goalStats[type] > 0)
-                .map(type => `
-                    <div class="breakdown-item">
-                        <div class="breakdown-label">${goalLabels[type]}</div>
-                        <div class="breakdown-value">${goalStats[type]}</div>
-                    </div>
-                `).join('') || '<p class="no-data" style="padding: 20px;">No hay datos de tipos de goles</p>';
-
-            // Desglose de goles recibidos (rival)
-            const rivalGoalStats = {
-                'h+': 0,
-                'penalty': 0,
-                'contra': 0,
-                'boya': 0,
-                'normal': 0
-            };
-
-            currentMatch.rivalStats.forEach(j => {
-                if (j.goalTypes) {
-                    Object.keys(rivalGoalStats).forEach(type => {
-                        rivalGoalStats[type] += j.goalTypes[type] || 0;
-                    });
-                }
-            });
-
-            document.getElementById('goalsReceivedBreakdown').innerHTML = Object.keys(rivalGoalStats)
-                .filter(type => rivalGoalStats[type] > 0)
-                .map(type => `
-                    <div class="breakdown-item">
-                        <div class="breakdown-label">${goalLabels[type]}</div>
-                        <div class="breakdown-value">${rivalGoalStats[type]}</div>
-                    </div>
-                `).join('') || '<p class="no-data" style="padding: 20px;">No hay datos de tipos de goles</p>';
-
-            // Desglose de exclusiones
-            const excStats = {
-                cnt: { normal: 0, penalty: 0 },
-                rival: { normal: 0, penalty: 0 }
-            };
-
-            currentMatch.jugadors.forEach(j => {
-                if (j.estadistiques.exclusionTypes) {
-                    excStats.cnt.normal += j.estadistiques.exclusionTypes.normal || 0;
-                    excStats.cnt.penalty += j.estadistiques.exclusionTypes.penalty || 0;
-                }
-            });
-
-            currentMatch.rivalStats.forEach(j => {
-                if (j.exclusionTypes) {
-                    excStats.rival.normal += j.exclusionTypes.normal || 0;
-                    excStats.rival.penalty += j.exclusionTypes.penalty || 0;
-                }
-            });
-
-            document.getElementById('exclusionsBreakdown').innerHTML = `
-                <div class="breakdown-item">
-                    <div class="breakdown-label">CNT - Normales</div>
-                    <div class="breakdown-value">${excStats.cnt.normal}</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">CNT - Penaltis</div>
-                    <div class="breakdown-value">${excStats.cnt.penalty}</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">Rival - Normales</div>
-                    <div class="breakdown-value">${excStats.rival.normal}</div>
-                </div>
-                <div class="breakdown-item">
-                    <div class="breakdown-label">Rival - Penaltis</div>
-                    <div class="breakdown-value">${excStats.rival.penalty}</div>
-                </div>
-            `;
-
-            // Periodos
-            if (currentMatch.periodScores) {
-                const periods = ['q1', 'q2', 'q3', 'q4'];
-                const labels = ['1º Cuarto', '2º Cuarto', '3º Cuarto', '4º Cuarto'];
-                
-                document.getElementById('periodsGrid').innerHTML = periods.map((q, i) => `
-                    <div class="period-card">
-                        <div class="period-label">${labels[i]}</div>
-                        <div class="period-score">
-                            ${currentMatch.periodScores[q].cnt} - ${currentMatch.periodScores[q].rival}
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            // Top goleadores CNT
-            const cntScorers = currentMatch.jugadors
-                .filter(j => j.estadistiques.gols > 0)
-                .sort((a, b) => b.estadistiques.gols - a.estadistiques.gols)
-                .slice(0, 5);
-
-            document.getElementById('topScorersCNT').innerHTML = cntScorers.length === 0 ? '<p>No hay goleadores</p>' :
-                cntScorers.map((j, i) => {
-                    let rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-                    return `
-                        <div class="top-scorer-item">
-                            <div class="player-info">
-                                <div class="rank ${rankClass}">${i + 1}</div>
-                                <div class="player-num">${j.numero}</div>
-                                <div class="player-name">${j.nom}</div>
-                            </div>
-                            <div style="font-size: 24px; font-weight: bold; color: #fde047;">
-                                ${j.estadistiques.gols} ⚽
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-
-            // Top goleadores Rival
-            const rivalScorers = currentMatch.rivalStats
-                .filter(j => j.gols > 0 && j.name)
-                .sort((a, b) => b.gols - a.gols)
-                .slice(0, 5);
-
-            document.getElementById('topScorersRival').innerHTML = rivalScorers.length === 0 ? '<p>No hay goleadores</p>' :
-                rivalScorers.map((j, i) => {
-                    let rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-                    return `
-                        <div class="top-scorer-item">
-                            <div class="player-info">
-                                <div class="rank ${rankClass}">${i + 1}</div>
-                                <div class="player-num rival">${j.num}</div>
-                                <div class="player-name">${j.name}</div>
-                            </div>
-                            <div style="font-size: 24px; font-weight: bold; color: #fde047;">
-                                ${j.gols} ⚽
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-
-            // Stats CNT
-            document.getElementById('statsCNT').innerHTML = currentMatch.jugadors.map(j => {
-                const goalTypes = j.estadistiques.goalTypes || {};
-                const exclusionTypes = j.estadistiques.exclusionTypes || {};
-                const penaltyMissed = j.estadistiques.penaltyMissed || 0;
-                
-                let goalTypesText = '';
-                if (goalTypes['h+']) goalTypesText += `H+:${goalTypes['h+']} `;
-                if (goalTypes.penalty) goalTypesText += `P:${goalTypes.penalty} `;
-                if (goalTypes.contra) goalTypesText += `C:${goalTypes.contra} `;
-                if (goalTypes.boya) goalTypesText += `B:${goalTypes.boya} `;
-                if (goalTypes.normal) goalTypesText += `N:${goalTypes.normal}`;
-                
-                let exclusionTypesText = '';
-                if (exclusionTypes.normal) exclusionTypesText += `EX:${exclusionTypes.normal} `;
-                if (exclusionTypes.penalty) exclusionTypesText += `P:${exclusionTypes.penalty}`;
-                
-                return `
-                    <div class="player-stat">
-                        <div class="player-info">
-                            <div class="player-num">${j.numero}</div>
-                            <div class="player-name">${j.nom}</div>
-                        </div>
-                        <div class="player-stats">
-                            <div class="stat-item">
-                                <div class="stat-label">Gols</div>
-                                <div class="stat-value">${j.estadistiques.gols}</div>
-                                ${goalTypesText ? `<div style="font-size: 9px; color: #bae6fd; margin-top: 2px;">${goalTypesText}</div>` : ''}
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-label">Exc</div>
-                                <div class="stat-value">${j.estadistiques.exclusions}</div>
-                                ${exclusionTypesText ? `<div style="font-size: 9px; color: #bae6fd; margin-top: 2px;">${exclusionTypesText}</div>` : ''}
-                            </div>
-                            ${penaltyMissed > 0 ? `
-                            <div class="stat-item">
-                                <div class="stat-label">Pen.F</div>
-                                <div class="stat-value" style="color: #ef4444;">${penaltyMissed}</div>
-                            </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            // Stats Rival
-            const rivalPlayers = currentMatch.rivalStats.filter(p => p.name || p.gols > 0 || p.exclusions > 0);
-            document.getElementById('statsRival').innerHTML = rivalPlayers.length === 0 ? '<p>No hay estadísticas del rival</p>' :
-                rivalPlayers.map(j => {
-                    const penaltyMissed = j.penaltyMissed || 0;
-                    return `
-                    <div class="player-stat">
-                        <div class="player-info">
-                            <div class="player-num rival">${j.num}</div>
-                            <div class="player-name">${j.name || 'Jugador ' + j.num}</div>
-                        </div>
-                        <div class="player-stats">
-                            <div class="stat-item">
-                                <div class="stat-label">Gols</div>
-                                <div class="stat-value">${j.gols}</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-label">Exc</div>
-                                <div class="stat-value">${j.exclusions}</div>
-                            </div>
-                            ${penaltyMissed > 0 ? `
-                            <div class="stat-item">
-                                <div class="stat-label">Pen.F</div>
-                                <div class="stat-value" style="color: #ef4444;">${penaltyMissed}</div>
-                            </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                `}).join('');
-
-            // Alineaciones
-            const quarters = ['q1', 'q2', 'q3', 'q4'];
-            const labels = ['1º Cuarto', '2º Cuarto', '3º Cuarto', '4º Cuarto'];
-            document.getElementById('lineupsContainer').innerHTML = quarters.map((q, i) => {
-                const lineup = currentMatch.lineups[q] || [];
-                if (lineup.length === 0) return '';
-
-                const players = lineup.map(num => {
-                    const player = currentMatch.jugadors.find(j => j.numero === num);
-                    return player ? `${player.numero}. ${player.nom.split(' ')[0]}` : num;
-                });
-
-                return `
-                    <div class="lineup-section">
-                        <h3 style="margin-bottom: 10px; color: #22d3ee;">${labels[i]}</h3>
-                        <div class="lineup-grid">
-                            ${players.map(p => `<div class="lineup-player">${p}</div>`).join('')}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            document.getElementById('observations').textContent = currentMatch.observacions || 'No hay observaciones';
+    // Stats CNT
+    document.getElementById('statsCNT').innerHTML = currentMatch.jugadors
+    .filter(j => j.estadistiques.gols > 0 || j.estadistiques.exclusions > 0 || 
+                 (j.estadistiques.parades || 0) > 0 || (j.estadistiques.assistencies || 0) > 0 || 
+                 (j.estadistiques.robatoris || 0) > 0 || (j.estadistiques.perdues || 0) > 0 || 
+                 (j.estadistiques.xutsFallats || 0) > 0 || (j.estadistiques.blocks || 0) > 0 ||
+                 (j.estadistiques.faltesRebudes || 0) > 0)
+        .map(j => {
+            const goalTypes = j.estadistiques.goalTypes || {};
+            const exclusionTypes = j.estadistiques.exclusionTypes || {};
+            const penaltyMissed = j.estadistiques.penaltyMissed || 0;
+            const parades = j.estadistiques.parades || 0;
+            const paradeTypes = j.estadistiques.paradeTypes || {};
+            const assistencies = j.estadistiques.assistencies || 0;
+            const robatoris = j.estadistiques.robatoris || 0;
+            const perdues = j.estadistiques.perdues || 0;
+            const xutsFallats = j.estadistiques.xutsFallats || 0;
+            const blocks = j.estadistiques.blocks || 0;
+            const faltesRebudes = j.estadistiques.faltesRebudes || 0;
             
-            // Generar gráficas
+            const isGoalkeeper = j.numero === 1 || j.numero === 13;
+            
+            let goalTypesText = '';
+            if (goalTypes['h+']) goalTypesText += `H+:${goalTypes['h+']} `;
+            if (goalTypes.penalty) goalTypesText += `P:${goalTypes.penalty} `;
+            if (goalTypes.contra) goalTypesText += `C:${goalTypes.contra} `;
+            if (goalTypes.boya) goalTypesText += `B:${goalTypes.boya} `;
+            if (goalTypes.normal) goalTypesText += `N:${goalTypes.normal}`;
+            
+            let exclusionTypesText = '';
+            if (exclusionTypes.normal) exclusionTypesText += `EX:${exclusionTypes.normal} `;
+            if (exclusionTypes.penalty) exclusionTypesText += `P:${exclusionTypes.penalty}`;
+            
+            let paradeTypesText = '';
+            if (paradeTypes.corner) paradeTypesText += `Corner:${paradeTypes.corner} `;
+            if (paradeTypes.rebuig) paradeTypesText += `Rebuig:${paradeTypes.rebuig} `;
+            if (paradeTypes.atrapa) paradeTypesText += `Atrapa:${paradeTypes.atrapa}`;
+            
+            return `
+            <div class="player-stat">
+                <div class="player-info">
+                    <div class="player-num">${j.numero}</div>
+                    <div class="player-name">${j.nom}</div>
+                </div>
+                <div class="player-stats">
+                    ${j.estadistiques.gols > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">Gols</div>
+                        <div class="stat-value">${j.estadistiques.gols}</div>
+                    </div>
+                    ` : ''}
+                    ${goalTypesText ? `
+                    <div class="stat-item" style="grid-column: span 2;">
+                        <div class="stat-label">Tipus</div>
+                        <div class="stat-value" style="font-size: 11px;">${goalTypesText}</div>
+                    </div>
+                    ` : ''}
+                    ${j.estadistiques.exclusions > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">Exc</div>
+                        <div class="stat-value">${j.estadistiques.exclusions}</div>
+                    </div>
+                    ` : ''}
+                    ${exclusionTypesText ? `
+                    <div class="stat-item">
+                        <div class="stat-label">Tipus</div>
+                        <div class="stat-value" style="font-size: 11px;">${exclusionTypesText}</div>
+                    </div>
+                    ` : ''}
+                    ${parades > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">🧤 Parades</div>
+                        <div class="stat-value" style="color: #c084fc;">${parades}</div>
+                    </div>
+                    ` : ''}
+                    ${paradeTypesText ? `
+                    <div class="stat-item" style="grid-column: span 2;">
+                        <div class="stat-label">Tipus</div>
+                        <div class="stat-value" style="font-size: 11px;">${paradeTypesText}</div>
+                    </div>
+                    ` : ''}
+                    ${assistencies > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">🎯 Asist</div>
+                        <div class="stat-value" style="color: #86efac;">${assistencies}</div>
+                    </div>
+                    ` : ''}
+                    ${robatoris > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">🛡️ Rob</div>
+                        <div class="stat-value" style="color: #7dd3fc;">${robatoris}</div>
+                    </div>
+                    ` : ''}
+                    ${perdues > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">❌ Pèrd</div>
+                        <div class="stat-value" style="color: #fca5a5;">${perdues}</div>
+                    </div>
+                    ` : ''}
+                    ${xutsFallats > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">🎯❌ X.F</div>
+                        <div class="stat-value" style="color: #fb923c;">${xutsFallats}</div>
+                    </div>
+                    ` : ''}
+                    ${blocks > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">✋ Block</div>
+                        <div class="stat-value" style="color: #a78bfa;">${blocks}</div>
+                    </div>
+                    ` : ''}
+                    ${faltesRebudes > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">⚠️ F.Reb</div>
+                        <div class="stat-value" style="color: #fbbf24;">${faltesRebudes}</div>
+                    </div>
+                    ` : ''}
+                    ${(j.estadistiques.gols > 0 || xutsFallats > 0) ? `
+                    <div class="stat-item">
+                        <div class="stat-label">Efic%</div>
+                        <div class="stat-value" style="color: ${(() => {
+                            const totalXuts = j.estadistiques.gols + xutsFallats;
+                            const efic = totalXuts > 0 ? (j.estadistiques.gols / totalXuts * 100) : 0;
+                            return efic >= 50 ? '#22c55e' : efic >= 30 ? '#fbbf24' : '#ef4444';
+                        })()};">
+                            ${(() => {
+                                const totalXuts = j.estadistiques.gols + xutsFallats;
+                                const efic = totalXuts > 0 ? (j.estadistiques.gols / totalXuts * 100).toFixed(0) : 0;
+                                return efic + '%';
+                            })()}
+                        </div>
+                    </div>
+                    ` : ''}
+                    ${penaltyMissed > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">Pen.F</div>
+                        <div class="stat-value" style="color: #ef4444;">${penaltyMissed}</div>
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    // Stats Rival
+    const rivalPlayers = currentMatch.rivalStats.filter(p => p.name || p.gols > 0 || p.exclusions > 0);
+    document.getElementById('statsRival').innerHTML = rivalPlayers.length === 0 ? '<p>No hay estadísticas del rival</p>' :
+        rivalPlayers.map(j => {
+            const penaltyMissed = j.penaltyMissed || 0;
+            return `
+            <div class="player-stat">
+                <div class="player-info">
+                    <div class="player-num rival">${j.num}</div>
+                    <div class="player-name">${j.name || 'Jugador ' + j.num}</div>
+                </div>
+                <div class="player-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Gols</div>
+                        <div class="stat-value">${j.gols}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Exc</div>
+                        <div class="stat-value">${j.exclusions}</div>
+                    </div>
+                    ${penaltyMissed > 0 ? `
+                    <div class="stat-item">
+                        <div class="stat-label">Pen.F</div>
+                        <div class="stat-value" style="color: #ef4444;">${penaltyMissed}</div>
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+        `}).join('');
+
+    // Alineaciones
+    const quarters = ['q1', 'q2', 'q3', 'q4'];
+    const labels = ['1º Cuarto', '2º Cuarto', '3º Cuarto', '4º Cuarto'];
+    document.getElementById('lineupsContainer').innerHTML = quarters.map((q, i) => {
+        const lineup = currentMatch.lineups[q] || [];
+        if (lineup.length === 0) return '';
+
+        const players = lineup.map(num => {
+            const player = currentMatch.jugadors.find(j => j.numero === num);
+            return player ? `${player.numero}. ${player.nom.split(' ')[0]}` : num;
+        }).join(', ');
+
+        const score = currentMatch.periodScores[q];
+        return `
+            <div class="period-row">
+                <div class="period-label">${labels[i]}</div>
+                <div style="font-size: 12px; color: rgba(255,255,255,0.8);">${players}</div>
+                <div class="period-score">${score.cnt} - ${score.rival}</div>
+            </div>
+        `;
+    }).join('');
+
+    // Desglose de tipos de goles
+    const goalLabels = {
+        'h+': 'Superioridad (H+)',
+        'penalty': 'Penalty',
+        'contra': 'Contraataque',
+        'boya': 'Boya',
+        'normal': 'Normal'
+    };
+
+    const cntGoalStats = {
+        'h+': 0,
+        'penalty': 0,
+        'contra': 0,
+        'boya': 0,
+        'normal': 0
+    };
+
+    currentMatch.jugadors.forEach(j => {
+        if (j.estadistiques.goalTypes) {
+            Object.keys(cntGoalStats).forEach(type => {
+                cntGoalStats[type] += j.estadistiques.goalTypes[type] || 0;
+            });
+        }
+    });
+
+    document.getElementById('goalsScoredBreakdown').innerHTML = Object.keys(cntGoalStats)
+        .filter(type => cntGoalStats[type] > 0)
+        .map(type => `
+            <div class="breakdown-item">
+                <div class="breakdown-label">${goalLabels[type]}</div>
+                <div class="breakdown-value">${cntGoalStats[type]}</div>
+            </div>
+        `).join('') || '<p class="no-data" style="padding: 20px;">No hay datos de tipos de goles</p>';
+
+    const rivalGoalStats = {
+        'h+': 0,
+        'penalty': 0,
+        'contra': 0,
+        'boya': 0,
+        'normal': 0
+    };
+
+    currentMatch.rivalStats.forEach(j => {
+        if (j.goalTypes) {
+            Object.keys(rivalGoalStats).forEach(type => {
+                rivalGoalStats[type] += j.goalTypes[type] || 0;
+            });
+        }
+    });
+
+    document.getElementById('goalsReceivedBreakdown').innerHTML = Object.keys(rivalGoalStats)
+        .filter(type => rivalGoalStats[type] > 0)
+        .map(type => `
+            <div class="breakdown-item">
+                <div class="breakdown-label">${goalLabels[type]}</div>
+                <div class="breakdown-value">${rivalGoalStats[type]}</div>
+            </div>
+        `).join('') || '<p class="no-data" style="padding: 20px;">No hay datos de tipos de goles</p>';
+
+    // Desglose de exclusiones
+    const excStats = {
+        cnt: { normal: 0, penalty: 0 },
+        rival: { normal: 0, penalty: 0 }
+    };
+
+    currentMatch.jugadors.forEach(j => {
+        if (j.estadistiques.exclusionTypes) {
+            excStats.cnt.normal += j.estadistiques.exclusionTypes.normal || 0;
+            excStats.cnt.penalty += j.estadistiques.exclusionTypes.penalty || 0;
+        }
+    });
+
+    currentMatch.rivalStats.forEach(j => {
+        if (j.exclusionTypes) {
+            excStats.rival.normal += j.exclusionTypes.normal || 0;
+            excStats.rival.penalty += j.exclusionTypes.penalty || 0;
+        }
+    });
+
+    document.getElementById('exclusionsBreakdown').innerHTML = `
+        <div class="breakdown-item">
+            <div class="breakdown-label">CNT - Normales</div>
+            <div class="breakdown-value">${excStats.cnt.normal}</div>
+        </div>
+        <div class="breakdown-item">
+            <div class="breakdown-label">CNT - Penalty</div>
+            <div class="breakdown-value">${excStats.cnt.penalty}</div>
+        </div>
+        <div class="breakdown-item">
+            <div class="breakdown-label">Rival - Normales</div>
+            <div class="breakdown-value">${excStats.rival.normal}</div>
+        </div>
+        <div class="breakdown-item">
+            <div class="breakdown-label">Rival - Penalty</div>
+            <div class="breakdown-value">${excStats.rival.penalty}</div>
+        </div>
+    `;
+	
+
+
+    document.getElementById('observations').textContent = currentMatch.observacions || 'No hay observaciones';
+
+             // Generar gráficas
             renderScoreEvolutionChart();
             renderOffenseDefenseChart();
             renderPlayerEfficiencyChart();
 			renderMatchTimeline();
+			renderSingleMatchStatsTable();
 			renderPlayingTimes();
         }
 
-        function renderScoreEvolutionChart() {
+ function renderSingleMatchStatsTable() {
+    const table = document.getElementById('singleMatchStatsTable');
+    if (!table || !currentMatch) return;
+
+    const players = currentMatch.jugadors.map(j => {
+        const stats = j.estadistiques;
+        const goles = stats.gols;
+        const xutsTotal = goles + (stats.xutsFallats || 0);
+        const eficiencia = xutsTotal > 0 ? ((goles / xutsTotal) * 100).toFixed(1) : 'N/A';
+        const valor = calculatePlayerValue(stats);
+        
+        return {
+            nom: j.nom,
+            numero: j.numero,
+            goles: goles,
+            assists: stats.assistencies || 0,
+            robatoris: stats.robatoris || 0,
+            perdues: stats.perdues || 0,
+            xutsFallats: stats.xutsFallats || 0,
+            blocatges: stats.blocatges || 0,
+            parades: stats.parades || 0,
+            faltesRebudes: stats.faltesRebudes || 0,
+            eficiencia: eficiencia,
+            exclusions: stats.exclusions,
+            penaltyFallat: stats.penaltyMissed || 0,
+            valor: valor
+        };
+    });
+
+    // Ordenar por número de goles (descendente)
+    players.sort((a, b) => b.valor - a.valor);
+
+    let html = `
+        <thead>
+            <tr>
+                <th style="position: sticky; left: 0; z-index: 2; background: #0a2540;">Nº</th>
+                <th style="position: sticky; left: 50px; z-index: 2; background: #0a2540;">Jugador</th>
+                <th>Gols</th>
+                <th>Exc</th>
+                <th>🎯 Asist</th>
+                <th>🛡️ Rob</th>
+                <th>❌ Pèrd</th>
+                <th>🎯❌ X.F</th>
+                <th>✋ Block</th>
+                <th>🧤 Par</th>
+                <th>⚠️ F.Reb</th>
+                <th>Efic%</th>
+                <th>⭐ Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    players.forEach(p => {
+        const eficienciaClass = p.eficiencia !== 'N/A' ? 
+            (parseFloat(p.eficiencia) >= 50 ? 'positive' : 'neutral') : '';
+        const valorClass = p.valor >= 10 ? 'positive' : p.valor >= 5 ? 'neutral' : 'negative';
+        
+        html += `
+            <tr>
+                <td style="position: sticky; left: 0; z-index: 1; background: #0a2540; font-weight: bold;">
+                    ${p.numero}
+                </td>
+                <td style="position: sticky; left: 50px; z-index: 1; background: #0a2540; font-weight: bold;">
+                    ${p.nom}
+                </td>
+                <td><strong>${p.goles}</strong></td>
+                <td class="${p.exclusions > 0 ? 'negative' : ''}">${p.exclusions}</td>
+                <td class="${p.assists > 0 ? 'positive' : ''}">${p.assists}</td>
+                <td class="${p.robatoris > 0 ? 'positive' : ''}">${p.robatoris}</td>
+                <td class="${p.perdues > 0 ? 'negative' : ''}">${p.perdues}</td>
+                <td class="negative">${p.xutsFallats}</td>
+                <td class="${p.blocatges > 0 ? 'positive' : ''}">${p.blocatges}</td>
+                <td class="${p.parades > 0 ? 'positive' : ''}">${p.parades}</td>
+                <td class="${p.faltesRebudes > 0 ? 'positive' : ''}">${p.faltesRebudes}</td>
+                <td class="${eficienciaClass}">${p.eficiencia}${p.eficiencia !== 'N/A' ? '%' : ''}</td>
+                <td class="${valorClass}" style="font-weight: bold;">${p.valor.toFixed(1)}</td>
+            </tr>
+        `;
+    });
+
+    // Calcular totales del equipo
+    const totales = {
+        goles: players.reduce((sum, p) => sum + p.goles, 0),
+        exclusions: players.reduce((sum, p) => sum + p.exclusions, 0),
+        assists: players.reduce((sum, p) => sum + p.assists, 0),
+        robatoris: players.reduce((sum, p) => sum + p.robatoris, 0),
+        perdues: players.reduce((sum, p) => sum + p.perdues, 0),
+        xutsFallats: players.reduce((sum, p) => sum + p.xutsFallats, 0),
+        blocatges: players.reduce((sum, p) => sum + p.blocatges, 0),
+        parades: players.reduce((sum, p) => sum + p.parades, 0),
+        faltesRebudes: players.reduce((sum, p) => sum + p.faltesRebudes, 0),
+        valor: players.reduce((sum, p) => sum + p.valor, 0)
+    };
+    
+    const xutsTotal = totales.goles + totales.xutsFallats;
+    const eficienciaTotal = xutsTotal > 0 ? ((totales.goles / xutsTotal) * 100).toFixed(1) : 'N/A';
+    const valorTotalClass = totales.valor >= 50 ? 'positive' : totales.valor >= 25 ? 'neutral' : 'negative';
+
+    html += `
+            <tr style="border-top: 3px solid #22d3ee; font-weight: bold; background: rgba(34, 211, 238, 0.1);">
+                <td style="position: sticky; left: 0; z-index: 1; background: rgba(34, 211, 238, 0.2);" colspan="2">
+                    TOTALS EQUIP
+                </td>
+                <td><strong>${totales.goles}</strong></td>
+                <td class="${totales.exclusions > 0 ? 'negative' : ''}">${totales.exclusions}</td>
+                <td class="${totales.assists > 0 ? 'positive' : ''}">${totales.assists}</td>
+                <td class="${totales.robatoris > 0 ? 'positive' : ''}">${totales.robatoris}</td>
+                <td class="${totales.perdues > 0 ? 'negative' : ''}">${totales.perdues}</td>
+                <td class="negative">${totales.xutsFallats}</td>
+                <td class="${totales.blocatges > 0 ? 'positive' : ''}">${totales.blocatges}</td>
+                <td class="${totales.parades > 0 ? 'positive' : ''}">${totales.parades}</td>
+                <td class="${totales.faltesRebudes > 0 ? 'positive' : ''}">${totales.faltesRebudes}</td>
+                <td class="${parseFloat(eficienciaTotal) >= 50 ? 'positive' : 'neutral'}">
+                    ${eficienciaTotal}${eficienciaTotal !== 'N/A' ? '%' : ''}
+                </td>
+                <td class="${valorTotalClass}" style="font-weight: bold;">${totales.valor.toFixed(1)}</td>
+            </tr>
+        </tbody>
+    `;
+
+    table.innerHTML = html;
+}
+ function renderScoreEvolutionChart() {
             const ctx = document.getElementById('scoreEvolutionChart');
             if (!ctx) return;
             
@@ -1763,7 +2070,20 @@ const conversionRateRival = totalExclusionsNoPenaltyCNT > 0 ?
     const totalGoalsAgainst = allMatches.reduce((sum, m) => sum + m.scoreRival, 0);
     const avgGoals = (totalGoals / allMatches.length).toFixed(1);
     const avgGoalsAgainst = (totalGoalsAgainst / allMatches.length).toFixed(1);
+// ✅ Filtrar només partits amb dades de xuts fallats
+const matchesWithShotData = allMatches.filter(m => {
+    const hasXutsFallats = m.jugadors.some(j => (j.estadistiques.xutsFallats || 0) > 0);
+    return hasXutsFallats;
+});
 
+const totalXutsFallats = matchesWithShotData.reduce((sum, m) => {
+    return sum + m.jugadors.reduce((s, j) => s + (j.estadistiques.xutsFallats || 0), 0);
+}, 0);
+
+const totalGoalsWithShotData = matchesWithShotData.reduce((sum, m) => sum + m.scoreCNT, 0);
+const totalXutsGlobal = totalGoalsWithShotData + totalXutsFallats;
+const eficienciaGlobal = totalXutsGlobal > 0 ? ((totalGoalsWithShotData / totalXutsGlobal) * 100).toFixed(1) : '0.0';
+const numMatchesWithShotData = matchesWithShotData.length;
     let totalPenMissedCNT = 0;
     let totalPenMissedRival = 0;
     let totalHPlusCNT = 0;
@@ -1886,6 +2206,13 @@ const conversionRateRival = totalExclusionsNoPenaltyCNT > 0 ?
                 ${homeWins}V - ${homeLosses}D - ${homeDraws}E
             </div>
         </div>
+		<div class="info-item">
+    <div class="info-label">🎯 Eficiència Global de Tir</div>
+    <div class="info-value" style="color: ${totalXutsGlobal > 0 ? (eficienciaGlobal >= 50 ? '#22c55e' : eficienciaGlobal >= 30 ? '#fbbf24' : '#ef4444') : '#bae6fd'};">
+        ${totalXutsGlobal > 0 ? `${totalGoals}/${totalXutsGlobal}` : 'No hi ha dades'}<br>
+        ${totalXutsGlobal > 0 ? `<span style="font-size: 14px;">(${eficienciaGlobal}%)</span>` : ''}
+    </div>
+</div>
         <div class="info-item">
             <div class="info-label">✈️ Partidos Fuera</div>
             <div class="info-value">${awayMatches.length}</div>
@@ -2000,79 +2327,113 @@ const conversionRateRival = totalExclusionsNoPenaltyCNT > 0 ?
     const playerMatchAppearances = {};
     
     allMatches.forEach((match, matchIndex) => {
-        match.jugadors.forEach(j => {
-            const playerName = j.nom.trim();
-            
-            if (!playerStats[playerName]) {
-                playerStats[playerName] = { 
-                    num: j.numero,
-                    name: playerName, 
-                    gols: 0, 
-                    exclusions: 0,
-                    penaltyMissed: 0,
-                    partidos: 0,
-                    goalTypes: { 'h+': 0, penalty: 0, contra: 0, boya: 0, normal: 0 }
-                };
-                playerMatchAppearances[playerName] = new Set();
-            }
-            
-            playerStats[playerName].num = j.numero;
-            playerMatchAppearances[playerName].add(matchIndex);
-            
-            playerStats[playerName].gols += j.estadistiques.gols;
-            playerStats[playerName].exclusions += j.estadistiques.exclusions;
-            playerStats[playerName].penaltyMissed += (j.estadistiques.penaltyMissed || 0);
-            
-            if (j.estadistiques.goalTypes) {
-                Object.keys(j.estadistiques.goalTypes).forEach(type => {
-                    playerStats[playerName].goalTypes[type] += j.estadistiques.goalTypes[type] || 0;
-                });
-            }
+    match.jugadors.forEach(j => {
+        const playerName = j.nom.trim();
+        
+        if (!playerStats[playerName]) {
+            playerStats[playerName] = { 
+                num: j.numero,
+                name: playerName, 
+                gols: 0, 
+                exclusions: 0,
+                penaltyMissed: 0,
+                partidos: 0,
+                goalTypes: { 'h+': 0, penalty: 0, contra: 0, boya: 0, normal: 0 },
+                // ✅ NUEVO:
+                parades: 0,
+                paradeTypes: { corner: 0, rebuig: 0, atrapa: 0 },
+                assistencies: 0,
+                robatoris: 0,
+                perdues: 0,
+                xutsFallats: 0,
+				blocks: 0,
+                faltesRebudes: 0,
+                goalTypes: { 'h+': 0, penalty: 0, contra: 0, boya: 0, normal: 0 },
+                paradeTypes: { corner: 0, rebuig: 0, atrapa: 0 }
+            };
+            playerMatchAppearances[playerName] = new Set();
+        }
+        
+        playerStats[playerName].num = j.numero;
+        playerMatchAppearances[playerName].add(matchIndex);
+        
+        playerStats[playerName].gols += j.estadistiques.gols;
+        playerStats[playerName].exclusions += j.estadistiques.exclusions;
+        playerStats[playerName].penaltyMissed += (j.estadistiques.penaltyMissed || 0);
+        playerStats[playerName].parades += (j.estadistiques.parades || 0);
+        playerStats[playerName].assistencies += (j.estadistiques.assistencies || 0);
+        playerStats[playerName].robatoris += (j.estadistiques.robatoris || 0);
+        playerStats[playerName].perdues += (j.estadistiques.perdues || 0);
+        playerStats[playerName].xutsFallats += (j.estadistiques.xutsFallats || 0);
+        playerStats[playerName].blocks += (j.estadistiques.blocks || 0);
+        playerStats[playerName].faltesRebudes += (j.estadistiques.faltesRebudes || 0);
+        playerStats[playerName].blocatges += (j.estadistiques.blocatges || 0);
+playerStats[playerName].faltesRebudes += (j.estadistiques.faltesRebudes || 0);
+        if (j.estadistiques.goalTypes) {
+            Object.keys(playerStats[playerName].goalTypes).forEach(type => {
+                playerStats[playerName].goalTypes[type] += j.estadistiques.goalTypes[type] || 0;
+            });
+        }
+		
+     if (j.estadistiques.exclusionTypes) {
+    if (playerStats[playerName].exclusionTypes) {
+        Object.keys(playerStats[playerName].exclusionTypes).forEach(type => {
+            playerStats[playerName].exclusionTypes[type] += (j.estadistiques.exclusionTypes[type] || 0);
         });
+    }
+} else {
+    // Si no té exclusionTypes, assegurem que sigui un objecte buit
+    if (!playerStats[playerName].exclusionTypes) {
+        playerStats[playerName].exclusionTypes = { normal: 0, penalty: 0 };
+    }
+}
+        if (j.estadistiques.paradeTypes) {
+            Object.keys(playerStats[playerName].paradeTypes).forEach(type => {
+                playerStats[playerName].paradeTypes[type] += j.estadistiques.paradeTypes[type] || 0;
+            });
+        }
     });
+});
     
     Object.keys(playerStats).forEach(name => {
         playerStats[name].partidos = playerMatchAppearances[name].size;
     });
 
-    const players = Object.values(playerStats).sort((a, b) => b.gols - a.gols);
+    const players = Object.values(playerStats).sort((a, b) => {
+    const valorA = calculatePlayerValue({
+        goalTypes: a.goalTypes,
+        assistencies: a.assistencies,
+        robatoris: a.robatoris,
+        blocatges: a.blocatges || 0,
+        parades: a.parades,
+        faltesRebudes: a.faltesRebudes || 0,
+        exclusionTypes: a.exclusionTypes || { normal: 0, penalty: 0 },
+        penaltyMissed: a.penaltyMissed,
+        perdues: a.perdues,
+        xutsFallats: a.xutsFallats
+    });
+    const valorB = calculatePlayerValue({
+        goalTypes: b.goalTypes,
+        assistencies: b.assistencies,
+        robatoris: b.robatoris,
+        blocatges: b.blocatges || 0,
+        parades: b.parades,
+        faltesRebudes: b.faltesRebudes || 0,
+        exclusionTypes: b.exclusionTypes || { normal: 0, penalty: 0 },
+        penaltyMissed: b.penaltyMissed,
+        perdues: b.perdues,
+        xutsFallats: b.xutsFallats
+    });
+    return valorB - valorA;
+});
 
-    document.getElementById('comparisonTable').innerHTML = `
-        <thead>
-            <tr>
-                <th>Nº</th>
-                <th>Jugador</th>
-                <th>Partidos</th>
-                <th>Goles</th>
-                <th>H+</th>
-                <th>Penalty</th>
-                <th>Contra</th>
-                <th>Boya</th>
-                <th>Normal</th>
-                <th>Exclusiones</th>
-                <th>Pen. Fallados</th>
-                <th>Media Goles/P</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${players.map(p => `
-                <tr>
-                    <td><div class="player-num" style="width: 30px; height: 30px; font-size: 12px;">${p.num}</div></td>
-                    <td><strong>${p.name}</strong></td>
-                    <td>${p.partidos}</td>
-                    <td><strong style="color: #fde047;">${p.gols}</strong></td>
-                    <td>${p.goalTypes['h+'] || 0}</td>
-                    <td>${p.goalTypes.penalty || 0}</td>
-                    <td>${p.goalTypes.contra || 0}</td>
-                    <td>${p.goalTypes.boya || 0}</td>
-                    <td>${p.goalTypes.normal || 0}</td>
-                    <td>${p.exclusions}</td>
-                    <td style="color: ${(p.penaltyMissed || 0) > 0 ? '#ef4444' : '#22c55e'}; font-weight: bold;">${p.penaltyMissed || 0}</td>
-                    <td>${p.partidos > 0 ? (p.gols / p.partidos).toFixed(1) : '0.0'}</td>
-                </tr>
-            `).join('')}
-        </tbody>
-    `;
+// ✅ Guardar dades per ordenació
+cachedPlayersData = players;
+currentSortColumn = 'valor';
+currentSortOrder = 'desc';
+
+// ✅ Usar la nova funció de renderització
+renderComparisonTable(players);
 
     const topScorers = Object.values(playerStats)
         .filter(p => p.gols > 0)
@@ -2100,6 +2461,7 @@ const conversionRateRival = totalExclusionsNoPenaltyCNT > 0 ?
     renderBestWorstMatches();
     renderRivalsHistory();
     renderGoalsDistributionChart(playerStats);
+	renderGoalkeeperSavesChart();
 }
 
         function renderGoalsDistributionChart(playerStats) {
@@ -3078,7 +3440,16 @@ function filterByPlayer() {
         totalExclusions: 0,
         goalTypes: { 'h+': 0, penalty: 0, contra: 0, boya: 0, normal: 0 },
         penaltyMissed: 0,
-        titular: { q1: 0, q2: 0, q3: 0, q4: 0 }
+        titular: { q1: 0, q2: 0, q3: 0, q4: 0 },
+        totalParades: 0,
+        bestParades: 0,
+        paradeTypes: { corner: 0, rebuig: 0, atrapa: 0 },
+        totalAssistencies: 0,
+        totalRobatoris: 0,
+        totalPerdues: 0,
+        totalXutsFallats: 0,
+        totalBlocks: 0,
+        totalFaltesRebudes: 0
     };
     
     allMatches.forEach(match => {
@@ -3093,10 +3464,27 @@ function filterByPlayer() {
             playerData.totalGols += player.estadistiques.gols;
             playerData.totalExclusions += player.estadistiques.exclusions;
             playerData.penaltyMissed += player.estadistiques.penaltyMissed || 0;
+            playerData.totalParades += (player.estadistiques.parades || 0);
+            playerData.totalAssistencies += (player.estadistiques.assistencies || 0);
+            playerData.totalRobatoris += (player.estadistiques.robatoris || 0);
+            playerData.totalPerdues += (player.estadistiques.perdues || 0);
+            playerData.totalXutsFallats += (player.estadistiques.xutsFallats || 0);
+            playerData.totalBlocks += (player.estadistiques.blocks || 0);
+            playerData.totalFaltesRebudes += (player.estadistiques.faltesRebudes || 0);
+
+            if (player.estadistiques.parades && player.estadistiques.parades > playerData.bestParades) {
+                playerData.bestParades = player.estadistiques.parades;
+            }
+
+            if (player.estadistiques.paradeTypes) {
+                Object.keys(playerData.paradeTypes).forEach(type => {
+                    playerData.paradeTypes[type] += (player.estadistiques.paradeTypes[type] || 0);
+                });
+            }
             
             if (player.estadistiques.goalTypes) {
                 Object.keys(playerData.goalTypes).forEach(type => {
-                    playerData.goalTypes[type] += player.estadistiques.goalTypes[type] || 0;
+                    playerData.goalTypes[type] += (player.estadistiques.goalTypes[type] || 0);
                 });
             }
             
@@ -3108,11 +3496,100 @@ function filterByPlayer() {
         }
     });
     
-    // Invertir el orden para mostrar cronológicamente (más antiguos a la izquierda)
-    playerData.gols.reverse();
-    playerData.exclusions.reverse();
-    playerData.dates.reverse();
-	displayPlayerStats(playerData);
+    document.getElementById('playerStatsCard').classList.remove('hidden');
+    document.getElementById('selectedPlayerName').textContent = `${playerData.num}. ${playerName}`;
+    
+    // Calcular eficiència de tir
+    const totalXuts = playerData.totalGols + playerData.totalXutsFallats;
+    const eficienciaTir = totalXuts > 0 ? ((playerData.totalGols / totalXuts) * 100).toFixed(1) : '0.0';
+    const eficColor = eficienciaTir >= 50 ? '#22c55e' : eficienciaTir >= 30 ? '#fbbf24' : '#ef4444';
+    
+    // Calcular promitjos
+    const goalsPerMatch = playerData.partidos > 0 ? (playerData.totalGols / playerData.partidos).toFixed(1) : '0.0';
+    const exclusionsPerMatch = playerData.partidos > 0 ? (playerData.totalExclusions / playerData.partidos).toFixed(1) : '0.0';
+    
+    document.getElementById('playerSummaryGrid').innerHTML = `
+        <div class="info-item">
+            <div class="info-label">Partidos Jugados</div>
+            <div class="info-value">${playerData.partidos}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Total Goles</div>
+            <div class="info-value" style="color: #fde047;">${playerData.totalGols}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Goles/Partido</div>
+            <div class="info-value" style="color: #fde047;">${goalsPerMatch}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Total Exclusiones</div>
+            <div class="info-value" style="color: #fca5a5;">${playerData.totalExclusions}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Exc/Partido</div>
+            <div class="info-value" style="color: #fca5a5;">${exclusionsPerMatch}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Eficiencia Tiro</div>
+            <div class="info-value" style="color: ${eficColor}; font-weight: bold;">${eficienciaTir}%</div>
+        </div>
+        ${playerData.totalAssistencies > 0 ? `
+        <div class="info-item">
+            <div class="info-label">🎯 Assistències</div>
+            <div class="info-value" style="color: #86efac;">${playerData.totalAssistencies}</div>
+        </div>
+        ` : ''}
+        ${playerData.totalRobatoris > 0 ? `
+        <div class="info-item">
+            <div class="info-label">🛡️ Robatoris</div>
+            <div class="info-value" style="color: #7dd3fc;">${playerData.totalRobatoris}</div>
+        </div>
+        ` : ''}
+        ${playerData.totalPerdues > 0 ? `
+        <div class="info-item">
+            <div class="info-label">❌ Pèrdues</div>
+            <div class="info-value" style="color: #fca5a5;">${playerData.totalPerdues}</div>
+        </div>
+        ` : ''}
+        ${playerData.totalXutsFallats > 0 ? `
+        <div class="info-item">
+            <div class="info-label">🎯❌ Xuts Fallats</div>
+            <div class="info-value" style="color: #fb923c;">${playerData.totalXutsFallats}</div>
+        </div>
+        ` : ''}
+        ${playerData.totalBlocks > 0 ? `
+        <div class="info-item">
+            <div class="info-label">✋ Blocks</div>
+            <div class="info-value" style="color: #a78bfa;">${playerData.totalBlocks}</div>
+        </div>
+        ` : ''}
+        ${playerData.totalParades > 0 ? `
+        <div class="info-item">
+            <div class="info-label">🧤 Parades</div>
+            <div class="info-value" style="color: #c084fc;">${playerData.totalParades}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Millor Partit (Parades)</div>
+            <div class="info-value" style="color: #c084fc;">${playerData.bestParades}</div>
+        </div>
+        ` : ''}
+        ${playerData.totalFaltesRebudes > 0 ? `
+        <div class="info-item">
+            <div class="info-label">⚠️ Faltes Rebudes</div>
+            <div class="info-value" style="color: #fbbf24;">${playerData.totalFaltesRebudes}</div>
+        </div>
+        ` : ''}
+        ${playerData.penaltyMissed > 0 ? `
+        <div class="info-item">
+            <div class="info-label">Penalties Fallados</div>
+            <div class="info-value" style="color: #ef4444;">${playerData.penaltyMissed}</div>
+        </div>
+        ` : ''}
+    `;
+    
+    // Resta del codi per gràfics...
+    renderPlayerEvolutionChart(playerData);
+    renderPlayerExclusionsChart(playerData);
 }
 
 function displayPlayerStats(data) {
@@ -3128,40 +3605,85 @@ function displayPlayerStats(data) {
     const bestMatch = Math.max(...data.gols);
     const bestMatchIndex = data.gols.indexOf(bestMatch);
     
-    document.getElementById('playerSummaryGrid').innerHTML = `
-        <div class="info-item">
-            <div class="info-label">Partidos Jugados</div>
-            <div class="info-value">${data.partidos}</div>
-        </div>
-        <div class="info-item">
-            <div class="info-label">Total Goles</div>
-            <div class="info-value" style="color: #fde047;">${data.totalGols}</div>
-        </div>
-        <div class="info-item">
-            <div class="info-label">Media Goles/Partido</div>
-            <div class="info-value">${avgGols}</div>
-        </div>
-        <div class="info-item">
-            <div class="info-label">Mejor Partido</div>
-            <div class="info-value" style="color: #22c55e;">${bestMatch} goles</div>
-        </div>
-        <div class="info-item">
-            <div class="info-label">Total Exclusiones</div>
-            <div class="info-value" style="color: #f97316;">${data.totalExclusions}</div>
-        </div>
-        <div class="info-item">
-            <div class="info-label">Media Exclusiones/Partido</div>
-            <div class="info-value">${avgExc}</div>
-        </div>
-        <div class="info-item">
-            <div class="info-label">Penaltis Fallados</div>
-            <div class="info-value" style="color: ${data.penaltyMissed === 0 ? '#22c55e' : '#ef4444'};">${data.penaltyMissed}</div>
-        </div>
-        <div class="info-item">
-            <div class="info-label">Titularidad</div>
-            <div class="info-value">${totalTitular}/${maxPossibleTitular} <span style="font-size: 14px;">(${titularPercentage}%)</span></div>
-        </div>
-    `;
+    const isGoalkeeper = data.num === 1 || data.num === 13;
+
+document.getElementById('playerSummaryGrid').innerHTML = `
+    <div class="info-item">
+        <div class="info-label">Partidos Jugados</div>
+        <div class="info-value">${data.partidos}</div>
+    </div>
+    ${isGoalkeeper ? `
+    <div class="info-item">
+        <div class="info-label">🧤 Total Parades</div>
+        <div class="info-value" style="color: #8b5cf6;">${data.totalParades || 0}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">Media Parades/Partido</div>
+        <div class="info-value">${data.partidos > 0 ? (data.totalParades / data.partidos).toFixed(1) : '0.0'}</div>
+    </div>
+    ` : `
+    <div class="info-item">
+        <div class="info-label">Total Goles</div>
+        <div class="info-value" style="color: #fde047;">${data.totalGols}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">Media Goles/Partido</div>
+        <div class="info-value">${avgGols}</div>
+    </div>
+    `}
+	${!isGoalkeeper ? `
+<div class="info-item">
+    <div class="info-label">🎯 Eficiència de Tir</div>
+    <div class="info-value" style="color: ${(() => {
+        const totalXuts = data.totalGols + (data.totalXutsFallats || 0);
+        const efic = totalXuts > 0 ? (data.totalGols / totalXuts * 100) : 0;
+        return efic >= 50 ? '#22c55e' : efic >= 30 ? '#fbbf24' : '#ef4444';
+    })()};">
+        ${(() => {
+            const totalXuts = data.totalGols + (data.totalXutsFallats || 0);
+            const efic = totalXuts > 0 ? (data.totalGols / totalXuts * 100).toFixed(1) : '0.0';
+            return totalXuts > 0 ? `${data.totalGols}/${totalXuts} (${efic}%)` : '-';
+        })()}
+    </div>
+</div>
+` : ''}
+    <div class="info-item">
+        <div class="info-label">Mejor Partido</div>
+        <div class="info-value" style="color: #22c55e;">${isGoalkeeper ? (data.bestParades || 0) + ' parades' : bestMatch + ' goles'}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">Total Exclusiones</div>
+        <div class="info-value" style="color: #f97316;">${data.totalExclusions}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">Media Exclusiones/Partido</div>
+        <div class="info-value">${avgExc}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">🎯 Assistències</div>
+        <div class="info-value" style="color: #22c55e;">${data.totalAssistencies || 0}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">🛡️ Robatoris</div>
+        <div class="info-value" style="color: #06b6d4;">${data.totalRobatoris || 0}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">❌ Pèrdues</div>
+        <div class="info-value" style="color: #ef4444;">${data.totalPerdues || 0}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">🎯❌ Xuts Fallats</div>
+        <div class="info-value" style="color: #f97316;">${data.totalXutsFallats || 0}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">Penaltis Fallados</div>
+        <div class="info-value" style="color: ${data.penaltyMissed === 0 ? '#22c55e' : '#ef4444'};">${data.penaltyMissed}</div>
+    </div>
+    <div class="info-item">
+        <div class="info-label">Titularidad</div>
+        <div class="info-value">${totalTitular}/${maxPossibleTitular} <span style="font-size: 14px;">(${titularPercentage}%)</span></div>
+    </div>
+`;
     
     const goalLabels = {
         'h+': 'Superioridad (H+)',
@@ -3182,7 +3704,35 @@ function displayPlayerStats(data) {
                 </div>
             </div>
         `).join('') || '<p class="no-data" style="padding: 20px;">No hay datos de tipos de goles</p>';
+    // ✅ NUEVO: Desglossament de parades (només porters)
+if (data.num === 1 || data.num === 13) {
+    const paradeLabels = {
+        'corner': 'Corner',
+        'rebuig': 'Rebuig',
+        'atrapa': 'Atrapa'
+    };
     
+    const paradesBreakdownHTML = Object.keys(data.paradeTypes)
+        .filter(type => data.paradeTypes[type] > 0)
+        .map(type => `
+            <div class="breakdown-item">
+                <div class="breakdown-label">${paradeLabels[type]}</div>
+                <div class="breakdown-value">${data.paradeTypes[type]}</div>
+                <div style="font-size: 11px; color: #bae6fd; margin-top: 4px;">
+                    ${data.totalParades > 0 ? ((data.paradeTypes[type] / data.totalParades) * 100).toFixed(1) : 0}%
+                </div>
+            </div>
+        `).join('') || '<p class="no-data" style="padding: 20px;">No hay datos de tipos de parades</p>';
+    
+    // Substituir el contingut de playerGoalsBreakdown per parades si és porter
+    document.getElementById('playerGoalsBreakdown').innerHTML = paradesBreakdownHTML;
+    
+    // Canviar el títol de la secció
+    const titleElement = document.querySelector('#playerStatsCard h3');
+    if (titleElement && titleElement.textContent.includes('Desglose de Goles')) {
+        titleElement.innerHTML = '<span class="section-title" style="margin-top: 20px;">🧤 Desglose de Parades</span>';
+    }
+}
     renderPlayerEvolutionChart(data);
     renderPlayerExclusionsChart(data);
     
@@ -3331,10 +3881,51 @@ function renderMatchTimeline() {
                     icon = '🟥';
                     cssClass = 'exclusion';
                     detailText = action.exclusionType === 'penalty' ? 'Exclusión por Penalty' : 'Exclusión';
+                    
+                    // Afegir informació de qui ha rebut la falta (si és exclusió rival)
+                    if (isRival && action.faltaSobreJugador) {
+                        const jugadorCNT = currentMatch.jugadors.find(j => j.numero == action.faltaSobreJugador);
+                        if (jugadorCNT) {
+                            detailText += ` <span style="font-size: 11px; opacity: 0.7;">(falta sobre ${jugadorCNT.numero}. ${jugadorCNT.nom})</span>`;
+                        }
+                    }
                 } else if (action.type === 'penalty-missed') {
                     icon = '❌';
                     cssClass = 'penalty-missed';
                     detailText = 'Penalty Fallado';
+                } else if (action.type === 'save') {
+                    icon = '🧤';
+                    cssClass = 'save';
+                    const saveTypes = {
+                        'corner': 'Corner',
+                        'rebuig': 'Rebuig',
+                        'atrapa': 'Atrapa'
+                    };
+                    detailText = `Parada (${saveTypes[action.saveType] || action.saveType})`;
+                } else if (action.type === 'action') {
+                    // NOVES ACCIONS
+                    const actionType = action.actionType;
+                    if (actionType === 'assistencia') {
+                        icon = '🎯';
+                        cssClass = 'action-assist';
+                        detailText = 'Assistència';
+                    } else if (actionType === 'robatori') {
+                        icon = '🛡️';
+                        cssClass = 'action-steal';
+                        detailText = 'Robatori';
+                    } else if (actionType === 'perdua') {
+                        icon = '❌';
+                        cssClass = 'action-turnover';
+                        detailText = 'Pèrdua';
+                    } else if (actionType === 'xut' || actionType === 'xutFallat') {
+                        icon = '🎯❌';
+                        cssClass = 'action-missed';
+                        detailText = 'Xut Fallat';
+                    } else if (actionType === 'block') {
+                        icon = '✋';
+                        cssClass = 'action-block';
+                        detailText = 'Block';
+                    }
                 } else if (action.type === 'water-change') {
                     icon = action.action === 'in' ? '🌊➡️' : '🌊⬅️';
                     cssClass = 'water-change';
@@ -3360,6 +3951,7 @@ function renderMatchTimeline() {
 }
 function renderPlayingTimes() {
     const container = document.getElementById('playingTimesContainer');
+    
     if (!container || !currentMatch) return;
     
     if (!currentMatch.playerWaterChanges || currentMatch.playerWaterChanges.length === 0 || !currentMatch.quarterStartTimes) {
@@ -3367,41 +3959,16 @@ function renderPlayingTimes() {
         return;
     }
     
-    const quarterDuration = 480; // 8 minuts = 480 segons
+    const quarterDuration = 480;
     const playerTimes = {};
     
-    // Calcular temps per cada jugador
     currentMatch.jugadors.forEach(player => {
         const playerNum = player.numero;
         const playerName = player.nom;
         const times = { q1: 0, q2: 0, q3: 0, q4: 0, total: 0 };
         
-        const playerChanges = currentMatch.playerWaterChanges.filter(c => c.playerNum === playerNum);
-        
         ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-            const qChanges = playerChanges.filter(c => c.quarter === quarter);
-            if (qChanges.length === 0) {
-                times[quarter] = 0;
-                return;
-            }
-            
-            // ✅ ORDENAR, ELIMINAR DUPLICATS Y VALIDAR SECUENCIA
-            const uniqueChanges = [];
-            const seenTimestamps = new Set();
-            
-            qChanges.sort((a, b) => a.timestamp - b.timestamp);
-            
-            // Eliminar duplicados exactos por timestamp
-            qChanges.forEach(change => {
-                if (!seenTimestamps.has(change.timestamp)) {
-                    seenTimestamps.add(change.timestamp);
-                    uniqueChanges.push(change);
-                }
-            });
-            
-            let timeInWater = 0;
-            let lastInTime = null;
-            const quarterStartTime = currentMatch.quarterStartTimes[quarter];
+            const quarterStartTime = getQuarterRealStartTime(currentMatch, quarter);
             const quarterRealEndTime = currentMatch.quarterRealEndTimes?.[quarter];
             const quarterEndTime = quarterRealEndTime || (quarterStartTime + quarterDuration * 1000);
             
@@ -3410,37 +3977,92 @@ function renderPlayingTimes() {
                 return;
             }
             
-            // Procesar cambios asegurando secuencia correcta (in -> out -> in -> out)
-            uniqueChanges.forEach(change => {
-                // Validar que el timestamp esté dentro del rango del cuarto
-                if (change.timestamp < quarterStartTime || change.timestamp > quarterEndTime) {
-                    return; // Ignorar cambios fuera del rango del cuarto
+            const lineup = currentMatch.lineups[quarter] || [];
+            const isTitular = lineup.includes(playerNum);
+            
+            const qChanges = currentMatch.playerWaterChanges.filter(c => 
+                c.playerNum === playerNum && 
+                c.quarter === quarter &&
+                c.timestamp >= quarterStartTime && 
+                c.timestamp <= quarterEndTime
+            );
+            
+            if (qChanges.length === 0) {
+                if (isTitular) {
+                    times[quarter] = quarterDuration;
+                } else {
+                    times[quarter] = 0;
+                }
+                return;
+            }
+            
+            qChanges.sort((a, b) => a.timestamp - b.timestamp);
+            
+            const uniqueChanges = [];
+            let lastTimestamp = null;
+            let lastAction = null;
+            
+            qChanges.forEach(change => {
+                if (change.timestamp === lastTimestamp && change.action === lastAction) {
+                    return;
                 }
                 
-                if (change.action === 'in') {
-                    // Solo registrar 'in' si no hay un 'in' previo sin 'out'
-                    if (lastInTime === null) {
-                        lastInTime = change.timestamp;
+                if (uniqueChanges.length === 0) {
+                    if (isTitular && change.action === 'out') {
+                        uniqueChanges.push(change);
+                    } else if (!isTitular && change.action === 'in') {
+                        uniqueChanges.push(change);
                     }
-                } else if (change.action === 'out' && lastInTime !== null) {
-                    const duration = (change.timestamp - lastInTime) / 1000;
-                    // Validar que la duración sea razonable (entre 0 y 480 segundos)
-                    if (duration > 0 && duration <= quarterDuration) {
-                        timeInWater += duration;
+                } else {
+                    const lastValidAction = uniqueChanges[uniqueChanges.length - 1].action;
+                    if ((lastValidAction === 'in' && change.action === 'out') ||
+                        (lastValidAction === 'out' && change.action === 'in')) {
+                        uniqueChanges.push(change);
                     }
-                    lastInTime = null;
                 }
+                
+                lastTimestamp = change.timestamp;
+                lastAction = change.action;
             });
             
-            // Si todavía está dentro cuando acaba el cuarto
-            if (lastInTime !== null && lastInTime < quarterEndTime) {
-                const duration = (quarterEndTime - lastInTime) / 1000;
-                if (duration > 0 && duration <= quarterDuration) {
-                    timeInWater += duration;
+            let timeInWater = 0;
+            
+            if (isTitular) {
+                if (uniqueChanges.length === 0) {
+                    timeInWater = quarterDuration;
+                } else if (uniqueChanges[0].action === 'out') {
+                    timeInWater += (uniqueChanges[0].timestamp - quarterStartTime) / 1000;
+                    
+                    for (let i = 1; i < uniqueChanges.length; i += 2) {
+                        if (i < uniqueChanges.length && uniqueChanges[i].action === 'in') {
+                            const inTime = uniqueChanges[i].timestamp;
+                            const outTime = (i + 1 < uniqueChanges.length && uniqueChanges[i + 1].action === 'out')
+                                ? uniqueChanges[i + 1].timestamp
+                                : quarterEndTime;
+                            
+                            const duration = (outTime - inTime) / 1000;
+                            if (duration > 0 && duration <= quarterDuration) {
+                                timeInWater += duration;
+                            }
+                        }
+                    }
+                }
+            } else {
+                for (let i = 0; i < uniqueChanges.length; i++) {
+                    if (uniqueChanges[i].action === 'in') {
+                        const inTime = uniqueChanges[i].timestamp;
+                        const outTime = (i + 1 < uniqueChanges.length && uniqueChanges[i + 1].action === 'out')
+                            ? uniqueChanges[i + 1].timestamp
+                            : quarterEndTime;
+                        
+                        const duration = (outTime - inTime) / 1000;
+                        if (duration > 0 && duration <= quarterDuration) {
+                            timeInWater += duration;
+                        }
+                    }
                 }
             }
             
-            // ✅ LIMITAR ESTRICTAMENTE AL MÁXIMO DE 8 MINUTOS (480 segundos)
             times[quarter] = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
         });
         
@@ -3453,17 +4075,14 @@ function renderPlayingTimes() {
         };
     });
     
-    // Ordenar por tiempo total (de más a menos)
     const sortedPlayers = Object.values(playerTimes).sort((a, b) => b.times.total - a.times.total);
     
-    // Función para formatear tiempo
     function formatTime(seconds) {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
     
-    // Generar tabla
     container.innerHTML = `
         <div style="overflow-x: auto;">
             <table class="comparison-table">
@@ -3481,7 +4100,7 @@ function renderPlayingTimes() {
                 </thead>
                 <tbody>
                     ${sortedPlayers.map(p => {
-                        const maxPossible = 1920; // 32 minutos total
+                        const maxPossible = 1920;
                         const percentage = ((p.times.total / maxPossible) * 100).toFixed(1);
                         const color = percentage >= 75 ? '#22c55e' : percentage >= 50 ? '#fbbf24' : '#f97316';
                         
@@ -3506,7 +4125,6 @@ function renderPlayingTimes() {
         </p>
     `;
 }
-
 // ============================================
 // FUNCIONES PARA ESTADÍSTICAS DE TIEMPO
 // ============================================
@@ -3649,58 +4267,78 @@ function calculatePlayerTimeData(playerName) {
         let matchTime = 0;
         
         ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-            const qChanges = match.playerWaterChanges.filter(c => c.playerNum === player.numero && c.quarter === quarter);
-            if (qChanges.length === 0) return;
+            const quarterStartTime = getQuarterRealStartTime(match, quarter);
+            const quarterEndTime = getQuarterEndTime(match, quarter, quarterStartTime, quarterDuration);
             
-            // Eliminar duplicados
-            const uniqueChanges = [];
-            const seenTimestamps = new Set();
-            qChanges.sort((a, b) => a.timestamp - b.timestamp);
-            qChanges.forEach(change => {
-                if (!seenTimestamps.has(change.timestamp)) {
-                    seenTimestamps.add(change.timestamp);
-                    uniqueChanges.push(change);
+            if (!quarterStartTime) return;
+            
+            const lineup = match.lineups[quarter] || [];
+            const isTitular = lineup.includes(player.numero);
+            
+            const qChanges = match.playerWaterChanges.filter(c => 
+                c.playerNum === player.numero && 
+                c.quarter === quarter
+            );
+            
+            const validChanges = qChanges.filter(c => 
+                c.timestamp >= quarterStartTime && 
+                c.timestamp <= quarterEndTime
+            ).sort((a, b) => a.timestamp - b.timestamp);
+            
+            const cleanChanges = [];
+            let lastAction = null;
+            
+            validChanges.forEach(change => {
+                if (change.action !== lastAction) {
+                    cleanChanges.push(change);
+                    lastAction = change.action;
                 }
             });
             
             let timeInWater = 0;
-            let lastInTime = null;
-            const quarterStartTime = match.quarterStartTimes[quarter];
-            const quarterEndTime = quarterStartTime + quarterDuration * 1000;
             
-            if (!quarterStartTime) return;
-            
-            uniqueChanges.forEach(change => {
-                if (change.timestamp < quarterStartTime || change.timestamp > quarterEndTime) return;
+            if (isTitular && cleanChanges.length === 0) {
+                timeInWater = quarterDuration;
+            }
+            else if (isTitular && cleanChanges.length > 0 && cleanChanges[0].action === 'out') {
+                const firstOut = cleanChanges[0].timestamp;
+                timeInWater += (firstOut - quarterStartTime) / 1000;
                 
-                if (change.action === 'in' && lastInTime === null) {
-                    lastInTime = change.timestamp;
-                } else if (change.action === 'out' && lastInTime !== null) {
-                    const duration = (change.timestamp - lastInTime) / 1000;
-                    if (duration > 0 && duration <= quarterDuration) {
-                        timeInWater += duration;
+                for (let i = 1; i < cleanChanges.length; i += 2) {
+                    if (i < cleanChanges.length && cleanChanges[i].action === 'in') {
+                        const inTime = cleanChanges[i].timestamp;
+                        const outTime = (i + 1 < cleanChanges.length && cleanChanges[i + 1].action === 'out')
+                            ? cleanChanges[i + 1].timestamp
+                            : quarterEndTime;
+                        
+                        const duration = (outTime - inTime) / 1000;
+                        if (duration > 0 && duration <= quarterDuration) {
+                            timeInWater += duration;
+                        }
                     }
-                    lastInTime = null;
                 }
-            });
-            
-            if (lastInTime !== null && lastInTime < quarterEndTime) {
-                const duration = (quarterEndTime - lastInTime) / 1000;
-                if (duration > 0 && duration <= quarterDuration) {
-                    timeInWater += duration;
+            }
+            else if (!isTitular) {
+                for (let i = 0; i < cleanChanges.length; i++) {
+                    if (cleanChanges[i].action === 'in') {
+                        const inTime = cleanChanges[i].timestamp;
+                        const outTime = (i + 1 < cleanChanges.length && cleanChanges[i + 1].action === 'out')
+                            ? cleanChanges[i + 1].timestamp
+                            : quarterEndTime;
+                        
+                        const duration = (outTime - inTime) / 1000;
+                        if (duration > 0 && duration <= quarterDuration) {
+                            timeInWater += duration;
+                        }
+                    }
                 }
             }
             
-            // ✅ LIMITAR A 8 MINUTOS POR CUARTO
             const quarterTime = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
             data.timeByQuarter[quarter] += quarterTime;
             matchTime += quarterTime;
             
-            // Calcular si fue titular o suplente
-            const lineup = match.lineups[quarter] || [];
-            const wasTitular = lineup.includes(player.numero);
-            
-            if (wasTitular) {
+            if (isTitular) {
                 data.titularTime += quarterTime;
             } else {
                 data.suplenteTime += quarterTime;
@@ -3711,7 +4349,6 @@ function calculatePlayerTimeData(playerName) {
         data.totalTime += matchTime;
     });
     
-    // Calcular goles/exclusiones cuando es titular vs suplente
     if (data.totalTime > 0) {
         const titularRatio = data.titularTime / data.totalTime;
         data.titularGols = Math.round(data.gols * titularRatio);
@@ -3720,13 +4357,11 @@ function calculatePlayerTimeData(playerName) {
         data.suplenteExclusions = data.exclusions - data.titularExclusions;
     }
     
-    // Invertir arrays para orden cronológico
     data.timeByMatch.reverse();
     data.dates.reverse();
     
     return data;
 }
-
 function displayPlayerTimeStats(data) {
     document.getElementById('playerTimeStatsCard').classList.remove('hidden');
     document.getElementById('selectedPlayerTimeName').textContent = `${data.num}. ${data.name}`;
@@ -3973,53 +4608,77 @@ function renderTotalTimeChart() {
                 };
             }
             
-            const quarterDuration = 480; // 8 minutos máximo por cuarto
+            const quarterDuration = 480;
             
             ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-                const qChanges = match.playerWaterChanges.filter(c => c.playerNum === player.numero && c.quarter === quarter);
-                if (qChanges.length === 0) return;
+                const quarterStartTime = getQuarterRealStartTime(match, quarter);
+                const quarterEndTime = getQuarterEndTime(match, quarter, quarterStartTime, quarterDuration);
                 
-                // Eliminar duplicados
-                const uniqueChanges = [];
-                const seenTimestamps = new Set();
-                qChanges.sort((a, b) => a.timestamp - b.timestamp);
+                if (!quarterStartTime) return;
+                
+                const lineup = match.lineups[quarter] || [];
+                const isTitular = lineup.includes(player.numero);
+                
+                const qChanges = match.playerWaterChanges.filter(c => 
+                    c.playerNum === player.numero && 
+                    c.quarter === quarter &&
+                    c.timestamp >= quarterStartTime &&
+                    c.timestamp <= quarterEndTime
+                ).sort((a, b) => a.timestamp - b.timestamp);
+                
+                if (isTitular && qChanges.length === 0) {
+                    playerTimes[playerName].totalTime += quarterDuration;
+                    return;
+                }
+                
+                if (!isTitular && qChanges.length === 0) {
+                    return;
+                }
+                
+                const cleanEvents = [];
+                let lastAction = null;
+                
                 qChanges.forEach(change => {
-                    if (!seenTimestamps.has(change.timestamp)) {
-                        seenTimestamps.add(change.timestamp);
-                        uniqueChanges.push(change);
+                    if (change.action !== lastAction) {
+                        cleanEvents.push(change);
+                        lastAction = change.action;
                     }
                 });
                 
                 let timeInWater = 0;
-                let lastInTime = null;
-                const quarterStartTime = match.quarterStartTimes[quarter];
-                const quarterEndTime = quarterStartTime + quarterDuration * 1000;
                 
-                if (!quarterStartTime) return;
-                
-                uniqueChanges.forEach(change => {
-                    if (change.timestamp < quarterStartTime || change.timestamp > quarterEndTime) return;
+                if (isTitular && cleanEvents.length > 0 && cleanEvents[0].action === 'out') {
+                    timeInWater += (cleanEvents[0].timestamp - quarterStartTime) / 1000;
                     
-                    if (change.action === 'in' && lastInTime === null) {
-                        lastInTime = change.timestamp;
-                    } else if (change.action === 'out' && lastInTime !== null) {
-                        const duration = (change.timestamp - lastInTime) / 1000;
-                        if (duration > 0 && duration <= quarterDuration) {
-                            timeInWater += duration;
+                    for (let i = 1; i < cleanEvents.length; i++) {
+                        if (cleanEvents[i].action === 'in') {
+                            const inTime = cleanEvents[i].timestamp;
+                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
+                                ? cleanEvents[i + 1].timestamp
+                                : quarterEndTime;
+                            
+                            const duration = (outTime - inTime) / 1000;
+                            if (duration > 0 && duration <= quarterDuration) {
+                                timeInWater += duration;
+                            }
                         }
-                        lastInTime = null;
                     }
-                });
-                
-                // Si todavía está dentro al final del cuarto
-                if (lastInTime !== null && lastInTime < quarterEndTime) {
-                    const duration = (quarterEndTime - lastInTime) / 1000;
-                    if (duration > 0 && duration <= quarterDuration) {
-                        timeInWater += duration;
+                } else if (!isTitular) {
+                    for (let i = 0; i < cleanEvents.length; i++) {
+                        if (cleanEvents[i].action === 'in') {
+                            const inTime = cleanEvents[i].timestamp;
+                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
+                                ? cleanEvents[i + 1].timestamp
+                                : quarterEndTime;
+                            
+                            const duration = (outTime - inTime) / 1000;
+                            if (duration > 0 && duration <= quarterDuration) {
+                                timeInWater += duration;
+                            }
+                        }
                     }
                 }
                 
-                // ✅ LIMITAR A 8 MINUTOS (480 segundos) POR CUARTO
                 const quarterTime = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
                 playerTimes[playerName].totalTime += quarterTime;
             });
@@ -4041,64 +4700,64 @@ function renderTotalTimeChart() {
     });
     
     window.totalTimeChartInstance = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: labels,
-        datasets: [{
-            label: 'Minutos Jugados',
-            data: timeInMinutes,
-            backgroundColor: backgroundColors,
-            borderWidth: 1,
-            borderColor: '#1e3a8a'
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false, // ⬅️ CAMBIADO
-        indexAxis: 'y',
-        plugins: {
-            legend: { 
-                display: false 
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        const idx = context.dataIndex;
-                        return [
-                            `Tiempo: ${context.parsed.x} min`,
-                            `Porcentaje: ${percentages[idx]}%`
-                        ];
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Minutos Jugados',
+                data: timeInMinutes,
+                backgroundColor: backgroundColors,
+                borderWidth: 1,
+                borderColor: '#1e3a8a'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+                legend: { 
+                    display: false 
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const idx = context.dataIndex;
+                            return [
+                                `Tiempo: ${context.parsed.x} min`,
+                                `Porcentaje: ${percentages[idx]}%`
+                            ];
+                        }
                     }
                 }
-            }
-        },
-        scales: {
-            x: { 
-                beginAtZero: true,
-                max: maxPossibleTime,
-                ticks: { 
-                    color: 'white',
-                    font: { size: window.innerWidth < 768 ? 10 : 12 } // ⬅️ AÑADIDO
-                },
-                grid: { color: 'rgba(255,255,255,0.1)' },
-                title: {
-                    display: true,
-                    text: 'Minutos',
-                    color: 'white',
-                    font: { size: window.innerWidth < 768 ? 11 : 14 } // ⬅️ AÑADIDO
-                }
             },
-            y: { 
-                ticks: { 
-                    color: 'white', 
-                    font: { size: window.innerWidth < 768 ? 9 : 11 }, // ⬅️ MODIFICADO
-                    autoSkip: false // ⬅️ AÑADIDO
+            scales: {
+                x: { 
+                    beginAtZero: true,
+                    max: maxPossibleTime,
+                    ticks: { 
+                        color: 'white',
+                        font: { size: window.innerWidth < 768 ? 10 : 12 }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.1)' },
+                    title: {
+                        display: true,
+                        text: 'Minutos',
+                        color: 'white',
+                        font: { size: window.innerWidth < 768 ? 11 : 14 }
+                    }
                 },
-                grid: { color: 'rgba(255,255,255,0.1)' }
+                y: { 
+                    ticks: { 
+                        color: 'white', 
+                        font: { size: window.innerWidth < 768 ? 9 : 11 },
+                        autoSkip: false
+                    },
+                    grid: { color: 'rgba(255,255,255,0.1)' }
+                }
             }
         }
-    }
-});
+    });
 }
 
 function renderTimeHeatmapTable() {
@@ -4122,49 +4781,75 @@ function renderTimeHeatmapTable() {
             const quarterDuration = 480;
             
             ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-                const qChanges = match.playerWaterChanges.filter(c => c.playerNum === player.numero && c.quarter === quarter);
-                if (qChanges.length === 0) return;
+                const quarterStartTime = getQuarterRealStartTime(match, quarter);
+                const quarterEndTime = getQuarterEndTime(match, quarter, quarterStartTime, quarterDuration);
                 
-                // Eliminar duplicados
-                const uniqueChanges = [];
-                const seenTimestamps = new Set();
-                qChanges.sort((a, b) => a.timestamp - b.timestamp);
+                if (!quarterStartTime) return;
+                
+                const lineup = match.lineups[quarter] || [];
+                const isTitular = lineup.includes(player.numero);
+                
+                const qChanges = match.playerWaterChanges.filter(c => 
+                    c.playerNum === player.numero && 
+                    c.quarter === quarter &&
+                    c.timestamp >= quarterStartTime &&
+                    c.timestamp <= quarterEndTime
+                ).sort((a, b) => a.timestamp - b.timestamp);
+                
+                if (isTitular && qChanges.length === 0) {
+                    playerTimes[playerName][quarter] += quarterDuration;
+                    playerTimes[playerName].total += quarterDuration;
+                    return;
+                }
+                
+                if (!isTitular && qChanges.length === 0) {
+                    return;
+                }
+                
+                const cleanEvents = [];
+                let lastAction = null;
+                
                 qChanges.forEach(change => {
-                    if (!seenTimestamps.has(change.timestamp)) {
-                        seenTimestamps.add(change.timestamp);
-                        uniqueChanges.push(change);
+                    if (change.action !== lastAction) {
+                        cleanEvents.push(change);
+                        lastAction = change.action;
                     }
                 });
                 
                 let timeInWater = 0;
-                let lastInTime = null;
-                const quarterStartTime = match.quarterStartTimes[quarter];
-                const quarterEndTime = quarterStartTime + quarterDuration * 1000;
                 
-                if (!quarterStartTime) return;
-                
-                uniqueChanges.forEach(change => {
-                    if (change.timestamp < quarterStartTime || change.timestamp > quarterEndTime) return;
+                if (isTitular && cleanEvents.length > 0 && cleanEvents[0].action === 'out') {
+                    timeInWater += (cleanEvents[0].timestamp - quarterStartTime) / 1000;
                     
-                    if (change.action === 'in' && lastInTime === null) {
-                        lastInTime = change.timestamp;
-                    } else if (change.action === 'out' && lastInTime !== null) {
-                        const duration = (change.timestamp - lastInTime) / 1000;
-                        if (duration > 0 && duration <= quarterDuration) {
-                            timeInWater += duration;
+                    for (let i = 1; i < cleanEvents.length; i++) {
+                        if (cleanEvents[i].action === 'in') {
+                            const inTime = cleanEvents[i].timestamp;
+                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
+                                ? cleanEvents[i + 1].timestamp
+                                : quarterEndTime;
+                            
+                            const duration = (outTime - inTime) / 1000;
+                            if (duration > 0 && duration <= quarterDuration) {
+                                timeInWater += duration;
+                            }
                         }
-                        lastInTime = null;
                     }
-                });
-                
-                if (lastInTime !== null && lastInTime < quarterEndTime) {
-                    const duration = (quarterEndTime - lastInTime) / 1000;
-                    if (duration > 0 && duration <= quarterDuration) {
-                        timeInWater += duration;
+                } else if (!isTitular) {
+                    for (let i = 0; i < cleanEvents.length; i++) {
+                        if (cleanEvents[i].action === 'in') {
+                            const inTime = cleanEvents[i].timestamp;
+                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
+                                ? cleanEvents[i + 1].timestamp
+                                : quarterEndTime;
+                            
+                            const duration = (outTime - inTime) / 1000;
+                            if (duration > 0 && duration <= quarterDuration) {
+                                timeInWater += duration;
+                            }
+                        }
                     }
                 }
                 
-                // ✅ LIMITAR A 8 MINUTOS POR CUARTO
                 const quarterTime = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
                 playerTimes[playerName][quarter] += quarterTime;
                 playerTimes[playerName].total += quarterTime;
@@ -4190,6 +4875,15 @@ function renderTimeHeatmapTable() {
     
     const maxTime = Math.max(...players.map(p => p.total));
     
+    const quarterTotals = { q1: 0, q2: 0, q3: 0, q4: 0, total: 0 };
+    players.forEach(p => {
+        quarterTotals.q1 += p.q1;
+        quarterTotals.q2 += p.q2;
+        quarterTotals.q3 += p.q3;
+        quarterTotals.q4 += p.q4;
+        quarterTotals.total += p.total;
+    });
+    
     table.innerHTML = `
         <thead>
             <tr>
@@ -4214,6 +4908,22 @@ function renderTimeHeatmapTable() {
                     <td style="background: rgba(34, 211, 238, 0.3);"><strong>${formatTime(p.total)}</strong></td>
                 </tr>
             `).join('')}
+            <tr style="background: rgba(34, 211, 238, 0.2); font-weight: bold; border-top: 2px solid #22d3ee;">
+                <td colspan="2">TOTAL PER QUART</td>
+                <td>${formatTime(quarterTotals.q1)}</td>
+                <td>${formatTime(quarterTotals.q2)}</td>
+                <td>${formatTime(quarterTotals.q3)}</td>
+                <td>${formatTime(quarterTotals.q4)}</td>
+                <td>${formatTime(quarterTotals.total)}</td>
+            </tr>
+            <tr style="background: rgba(251, 191, 36, 0.2); font-weight: bold;">
+                <td colspan="2">ESPERAT (7 jug × 8 min)</td>
+                <td>56:00</td>
+                <td>56:00</td>
+                <td>56:00</td>
+                <td>56:00</td>
+                <td>224:00</td>
+            </tr>
         </tbody>
     `;
 }
@@ -4263,7 +4973,7 @@ function renderEfficiencyPerMinuteChart() {
                 
                 let timeInWater = 0;
                 let lastInTime = null;
-                const quarterStartTime = match.quarterStartTimes[quarter];
+                const quarterStartTime = getQuarterRealStartTime(match, quarter);
                 const quarterEndTime = quarterStartTime + quarterDuration * 1000;
                 
                 if (!quarterStartTime) return;
@@ -4354,6 +5064,35 @@ function renderEfficiencyPerMinuteChart() {
         }
     });
 }
+// Función para calcular valoración de jugador
+function calculatePlayerValue(stats) {
+    let value = 0;
+    
+    // Acciones positivas
+    if (stats.goalTypes) {
+        value += (stats.goalTypes.normal || 0) * 2;      // Gol normal: +2
+        value += (stats.goalTypes.contra || 0) * 2;      // Gol contraatac: +2
+        value += (stats.goalTypes['h+'] || 0) * 2;       // Gol H+: +2
+        value += (stats.goalTypes.penalty || 0) * 1;     // Gol penalty: +1
+        value += (stats.goalTypes.boya || 0) * 2;        // Gol boya: +2
+    }
+    value += (stats.assistencies || 0) * 1;              // Assistència: +1
+    value += (stats.robatoris || 0) * 1;                 // Robatori: +1
+    value += (stats.blocatges || 0) * 1;                 // Blocatge: +1
+    value += (stats.parades || 0) * 2;                   // Parada: +2
+    value += (stats.faltesRebudes || 0) * 1;             // Falta rebuda: +1
+    
+    // Acciones negativas
+    if (stats.exclusionTypes) {
+        value -= (stats.exclusionTypes.normal || 0) * 1;     // Exclusió normal: -1
+        value -= (stats.exclusionTypes.penalty || 0) * 1;    // Exclusió penalty: -3
+    }
+    value -= (stats.penaltyMissed || 0) * 2;             // Penalty fallat: -2
+    value -= (stats.perdues || 0) * 0.5;                 // Pèrdua: -0.5
+    value -= (stats.xutsFallats || 0) * 0.5;             // Tir fallat: -0.5
+    
+    return value;
+}
 function renderMinutesDistributionChart() {
     const ctx = document.getElementById('minutesDistributionChart');
     if (!ctx) return;
@@ -4395,7 +5134,7 @@ function renderMinutesDistributionChart() {
                 
                 let timeInWater = 0;
                 let lastInTime = null;
-                const quarterStartTime = match.quarterStartTimes[quarter];
+                const quarterStartTime = getQuarterRealStartTime(match, quarter);
                 const quarterEndTime = quarterStartTime + quarterDuration * 1000;
                 
                 if (!quarterStartTime) return;
@@ -4500,7 +5239,7 @@ function renderPlusMinusChart() {
             
             const playersInQuarter = new Set();
             const qChanges = match.playerWaterChanges.filter(c => c.quarter === quarter);
-            const quarterStartTime = match.quarterStartTimes[quarter];
+            const quarterStartTime = getQuarterRealStartTime(match, quarter);
             const lineup = match.lineups[quarter] || [];
             
             qChanges.forEach(change => {
@@ -4636,7 +5375,7 @@ function renderLoadBalanceStats() {
                 
                 let timeInWater = 0;
                 let lastInTime = null;
-                const quarterStartTime = match.quarterStartTimes[quarter];
+                const quarterStartTime = getQuarterRealStartTime(match, quarter);
                 
                 if (!quarterStartTime) return;
                 
@@ -4786,7 +5525,7 @@ function renderQuarterAnalysisTable() {
     matchesWithTime.forEach(match => {
         ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
             const qChanges = match.playerWaterChanges.filter(c => c.quarter === quarter);
-            const quarterStartTime = match.quarterStartTimes[quarter];
+            const quarterStartTime = getQuarterRealStartTime(match, quarter);
             const lineup = match.lineups[quarter] || [];
             
             // Ordenar cambios por timestamp
@@ -5211,16 +5950,341 @@ function renderRotationStats() {
 // ============================================
 // FIN FUNCIONES PARA ESTADÍSTICAS DE TIEMPO
 // ============================================
+function renderGoalkeeperSavesChart() {
+    const ctx = document.getElementById('goalkeeperSavesChart');
+    if (!ctx) return;
+    
+    if (window.goalkeeperSavesChartInstance) {
+        window.goalkeeperSavesChartInstance.destroy();
+    }
+    
+    const goalkeeperStats = {};
+    
+    allMatches.forEach(match => {
+        match.jugadors.forEach(j => {
+            const isGoalkeeper = j.numero === 1 || j.numero === 13;
+            if (!isGoalkeeper) return;
+            
+            const playerName = j.nom.trim();
+            
+            if (!goalkeeperStats[playerName]) {
+                goalkeeperStats[playerName] = {
+                    num: j.numero,
+                    name: playerName,
+                    parades: 0,
+                    paradeTypes: { corner: 0, rebuig: 0, atrapa: 0 }
+                };
+            }
+            
+            goalkeeperStats[playerName].parades += (j.estadistiques.parades || 0);
+            
+            if (j.estadistiques.paradeTypes) {
+                goalkeeperStats[playerName].paradeTypes.corner += (j.estadistiques.paradeTypes.corner || 0);
+                goalkeeperStats[playerName].paradeTypes.rebuig += (j.estadistiques.paradeTypes.rebuig || 0);
+                goalkeeperStats[playerName].paradeTypes.atrapa += (j.estadistiques.paradeTypes.atrapa || 0);
+            }
+        });
+    });
+    
+    const goalkeepers = Object.values(goalkeeperStats);
+    
+    if (goalkeepers.length === 0) {
+        ctx.parentElement.innerHTML = '<div class="no-data">No hay datos de paradas de porteros</div>';
+        return;
+    }
+    
+    const labels = goalkeepers.map(gk => `${gk.num}. ${gk.name.split(' ')[0]}`);
+    
+    window.goalkeeperSavesChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Corner',
+                    data: goalkeepers.map(gk => gk.paradeTypes.corner),
+                    backgroundColor: '#fbbf24'
+                },
+                {
+                    label: 'Rebuig',
+                    data: goalkeepers.map(gk => gk.paradeTypes.rebuig),
+                    backgroundColor: '#f97316'
+                },
+                {
+                    label: 'Atrapa',
+                    data: goalkeepers.map(gk => gk.paradeTypes.atrapa),
+                    backgroundColor: '#8b5cf6'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: { 
+                    display: true,
+                    labels: { color: 'white', font: { size: 14 } }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.dataset.label || '';
+                            const value = context.parsed.y || 0;
+                            return `${label}: ${value} parades`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: { 
+                    beginAtZero: true,
+                    ticks: { color: 'white', stepSize: 1 },
+                    grid: { color: 'rgba(255,255,255,0.1)' },
+                    title: {
+                        display: true,
+                        text: 'Parades',
+                        color: 'white'
+                    }
+                },
+                x: { 
+                    ticks: { color: 'white' },
+                    grid: { color: 'rgba(255,255,255,0.1)' }
+                }
+            }
+        }
+    });
+}
+// ✅ NUEVO: Variables globals per ordenació
+let currentSortColumn = 'gols';
+let currentSortOrder = 'desc';
+let cachedPlayersData = [];
+
+function sortTable(column) {
+    if (currentSortColumn === column) {
+        // Canviar ordre si és la mateixa columna
+        currentSortOrder = currentSortOrder === 'desc' ? 'asc' : 'desc';
+    } else {
+        // Nova columna, ordre descendent per defecte
+        currentSortColumn = column;
+        currentSortOrder = 'desc';
+    }
+    
+    const sortedPlayers = [...cachedPlayersData].sort((a, b) => {
+        let valA, valB;
+        
+        switch(column) {
+            case 'num':
+                valA = a.num;
+                valB = b.num;
+                break;
+            case 'name':
+                return currentSortOrder === 'desc' 
+                    ? b.name.localeCompare(a.name)
+                    : a.name.localeCompare(b.name);
+            case 'partidos':
+                valA = a.partidos;
+                valB = b.partidos;
+                break;
+            case 'gols':
+                valA = a.gols;
+                valB = b.gols;
+                break;
+            case 'h+':
+                valA = a.goalTypes['h+'] || 0;
+                valB = b.goalTypes['h+'] || 0;
+                break;
+            case 'penalty':
+                valA = a.goalTypes.penalty || 0;
+                valB = b.goalTypes.penalty || 0;
+                break;
+            case 'contra':
+                valA = a.goalTypes.contra || 0;
+                valB = b.goalTypes.contra || 0;
+                break;
+            case 'boya':
+                valA = a.goalTypes.boya || 0;
+                valB = b.goalTypes.boya || 0;
+                break;
+            case 'normal':
+                valA = a.goalTypes.normal || 0;
+                valB = b.goalTypes.normal || 0;
+                break;
+            case 'exclusions':
+                valA = a.exclusions;
+                valB = b.exclusions;
+                break;
+            case 'parades':
+                valA = a.parades || 0;
+                valB = b.parades || 0;
+                break;
+            case 'assistencies':
+                valA = a.assistencies || 0;
+                valB = b.assistencies || 0;
+                break;
+            case 'robatoris':
+                valA = a.robatoris || 0;
+                valB = b.robatoris || 0;
+                break;
+            case 'perdues':
+                valA = a.perdues || 0;
+                valB = b.perdues || 0;
+                break;
+            case 'xutsFallats':
+                valA = a.xutsFallats || 0;
+                valB = b.xutsFallats || 0;
+                break;
+            case 'penaltyMissed':
+                valA = a.penaltyMissed || 0;
+                valB = b.penaltyMissed || 0;
+                break;
+				case 'eficienciaTir':
+			case 'blocks':
+    valA = a.blocks || 0;
+    valB = b.blocks || 0;
+    break;
+case 'faltesRebudes':
+    valA = a.faltesRebudes || 0;
+    valB = b.faltesRebudes || 0;
+    break;
+    const xutsA = a.gols + (a.xutsFallats || 0);
+    const xutsB = b.gols + (b.xutsFallats || 0);
+    valA = xutsA > 0 ? (a.gols / xutsA * 100) : 0;
+    valB = xutsB > 0 ? (b.gols / xutsB * 100) : 0;
+    break;
+            case 'mediaGols':
+    valA = a.partidos > 0 ? a.gols / a.partidos : 0;
+    valB = b.partidos > 0 ? b.gols / b.partidos : 0;
+    break;
+case 'valor':
+    valA = calculatePlayerValue({
+        goalTypes: a.goalTypes,
+        assistencies: a.assistencies,
+        robatoris: a.robatoris,
+        blocatges: a.blocatges,
+        parades: a.parades,
+        faltesRebudes: a.faltesRebudes,
+        exclusionTypes: a.exclusionTypes,
+        penaltyMissed: a.penaltyMissed,
+        perdues: a.perdues,
+        xutsFallats: a.xutsFallats
+    });
+    valB = calculatePlayerValue({
+        goalTypes: b.goalTypes,
+        assistencies: b.assistencies,
+        robatoris: b.robatoris,
+        blocatges: b.blocatges,
+        parades: b.parades,
+        faltesRebudes: b.faltesRebudes,
+        exclusionTypes: b.exclusionTypes,
+        penaltyMissed: b.penaltyMissed,
+        perdues: b.perdues,
+        xutsFallats: b.xutsFallats
+    });
+    break;
+default:
+    return 0;
+        }
+        
+        return currentSortOrder === 'desc' ? valB - valA : valA - valB;
+    });
+    
+    renderComparisonTable(sortedPlayers);
+}
+
+function renderComparisonTable(players) {
+    const getSortIndicator = (column) => {
+        if (currentSortColumn !== column) return '';
+        return currentSortOrder === 'desc' ? ' ▼' : ' ▲';
+    };
+    
+    document.getElementById('comparisonTable').innerHTML = `
+        <thead>
+            <tr>
+                <th onclick="sortTable('num')" style="cursor: pointer;">Nº${getSortIndicator('num')}</th>
+                <th onclick="sortTable('name')" style="cursor: pointer;">Jugador${getSortIndicator('name')}</th>
+                <th onclick="sortTable('partidos')" style="cursor: pointer;">Partidos${getSortIndicator('partidos')}</th>
+                <th onclick="sortTable('gols')" style="cursor: pointer;">Goles${getSortIndicator('gols')}</th>
+                <th onclick="sortTable('h+')" style="cursor: pointer;">H+${getSortIndicator('h+')}</th>
+                <th onclick="sortTable('penalty')" style="cursor: pointer;">Penalty${getSortIndicator('penalty')}</th>
+                <th onclick="sortTable('contra')" style="cursor: pointer;">Contra${getSortIndicator('contra')}</th>
+                <th onclick="sortTable('boya')" style="cursor: pointer;">Boya${getSortIndicator('boya')}</th>
+                <th onclick="sortTable('normal')" style="cursor: pointer;">Normal${getSortIndicator('normal')}</th>
+                <th onclick="sortTable('exclusions')" style="cursor: pointer;">Exclusiones${getSortIndicator('exclusions')}</th>
+                <th onclick="sortTable('parades')" style="cursor: pointer;">🧤 Parades${getSortIndicator('parades')}</th>
+                <th onclick="sortTable('assistencies')" style="cursor: pointer;">🎯 Assist${getSortIndicator('assistencies')}</th>
+                <th onclick="sortTable('robatoris')" style="cursor: pointer;">🛡️ Rob${getSortIndicator('robatoris')}</th>
+                <th onclick="sortTable('perdues')" style="cursor: pointer;">❌ Pèrd${getSortIndicator('perdues')}</th>
+                <th onclick="sortTable('xutsFallats')" style="cursor: pointer;">🚫 Xuts${getSortIndicator('xutsFallats')}</th>
+                <th onclick="sortTable('penaltyMissed')" style="cursor: pointer;">Pen. Fallados${getSortIndicator('penaltyMissed')}</th>
+                <th onclick="sortTable('eficienciaTir')" style="cursor: pointer;">🎯 Efic. Tir${getSortIndicator('eficienciaTir')}</th>
+                <th onclick="sortTable('mediaGols')" style="cursor: pointer;">Media Goles/P${getSortIndicator('mediaGols')}</th>
+                <th onclick="sortTable('valor')" style="cursor: pointer;">⭐ Valor${getSortIndicator('valor')}</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${players.map(p => {
+                const valor = calculatePlayerValue({
+                    goalTypes: p.goalTypes,
+                    assistencies: p.assistencies,
+                    robatoris: p.robatoris,
+                    blocatges: p.blocatges || 0,
+                    parades: p.parades,
+                    faltesRebudes: p.faltesRebudes || 0,
+                    exclusionTypes: p.exclusionTypes || { normal: 0, penalty: 0 },
+                    penaltyMissed: p.penaltyMissed,
+                    perdues: p.perdues,
+                    xutsFallats: p.xutsFallats
+                });
+                
+                const valorColor = valor >= 10 ? '#22c55e' : valor >= 5 ? '#fbbf24' : '#ef4444';
+                
+                return `
+                <tr>
+                    <td><div class="player-num" style="width: 30px; height: 30px; font-size: 12px;">${p.num}</div></td>
+                    <td><strong>${p.name}</strong></td>
+                    <td>${p.partidos}</td>
+                    <td><strong style="color: #fde047;">${p.gols}</strong></td>
+                    <td>${p.goalTypes['h+'] || 0}</td>
+                    <td>${p.goalTypes.penalty || 0}</td>
+                    <td>${p.goalTypes.contra || 0}</td>
+                    <td>${p.goalTypes.boya || 0}</td>
+                    <td>${p.goalTypes.normal || 0}</td>
+                    <td>${p.exclusions}</td>
+                    <td style="color: #8b5cf6; font-weight: bold;">${p.parades || 0}</td>
+                    <td style="color: #22c55e; font-weight: bold;">${p.assistencies || 0}</td>
+                    <td style="color: #06b6d4; font-weight: bold;">${p.robatoris || 0}</td>
+                    <td style="color: #ef4444; font-weight: bold;">${p.perdues || 0}</td>
+                    <td style="color: #f97316; font-weight: bold;">${p.xutsFallats || 0}</td>
+                    <td style="color: ${(p.penaltyMissed || 0) > 0 ? '#ef4444' : '#22c55e'}; font-weight: bold;">${p.penaltyMissed || 0}</td>
+                    <td style="color: ${(() => {
+                        const totalXuts = p.gols + (p.xutsFallats || 0);
+                        const efic = totalXuts > 0 ? (p.gols / totalXuts * 100) : 0;
+                        return efic >= 50 ? '#22c55e' : efic >= 30 ? '#fbbf24' : '#ef4444';
+                    })()}; font-weight: bold;">
+                        ${(() => {
+                            const totalXuts = p.gols + (p.xutsFallats || 0);
+                            const efic = totalXuts > 0 ? (p.gols / totalXuts * 100).toFixed(1) : '0.0';
+                            return totalXuts > 0 ? `${p.gols}/${totalXuts} (${efic}%)` : '-';
+                        })()}
+                    </td>
+                    <td>${p.partidos > 0 ? (p.gols / p.partidos).toFixed(1) : '0.0'}</td>
+                    <td style="color: ${valorColor}; font-weight: bold; font-size: 14px;">${valor.toFixed(1)}</td>
+                </tr>
+                `;
+            }).join('')}
+        </tbody>
+    `;
+}
    </script>
    <script>
     // 🔒 Bloqueo de clic derecho y atajos
-    document.addEventListener("contextmenu", event => event.preventDefault());
+   /* document.addEventListener("contextmenu", event => event.preventDefault());
     document.addEventListener("keydown", event => {
       if ((event.ctrlKey && ["s", "u"].includes(event.key.toLowerCase())) ||
           event.key === "F12") {
         event.preventDefault();
       }
-    });
+    });*/
     </script>
 </body>
 </html>
