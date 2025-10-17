@@ -1015,6 +1015,7 @@ function quickExclusion(playerNum, isRival, type) {
 }
 function openExclusionModal(n,isR,inc){
     // ✅ No obrir modal si s'està fent swipe
+	console.log('🔴 openExclusionModal cridat:', {n, isR, inc, playersInWater});
     if(window.isCurrentlyDragging){
         return;
     }
@@ -1030,8 +1031,12 @@ function openExclusionModal(n,isR,inc){
     const select = document.getElementById('cntPlayerSelect');
     
     if(isR){
+        // ✅ Només mostrar jugadors que estan a l'aigua
+        const playersInWaterArray = Array.from(playersInWater);
+        const playersInWaterFiltered = players.filter(p => playersInWaterArray.includes(p.num));
+        
         select.innerHTML = '<option value="">Sense especificar</option>' + 
-            players.map(p => `<option value="${p.num}">${p.num}. ${p.name}</option>`).join('');
+            playersInWaterFiltered.map(p => `<option value="${p.num}">${p.num}. ${p.name}</option>`).join('');
         selectorDiv.style.display = 'block';
     } else {
         selectorDiv.style.display = 'none';
@@ -1940,13 +1945,13 @@ document.addEventListener('touchend', function(e) {
 }, { passive: true });
 // ✅ BLOQUEJAR CLICS durant swipe
 document.addEventListener('click', function(e) {
-    if (hasMoved) {
+    if (window.isCurrentlyDragging) {
         e.preventDefault();
         e.stopPropagation();
-        hasMoved = false;
+        window.isCurrentlyDragging = false;
         return false;
     }
-}, true); // ✅ true = captura l'event ABANS que arribi als botons
+}, true);
 function quickChangeTab(viewName, tabIndex) {
     // Canviar vista
     const views = ['statsView', 'rivalView', 'lineupsView'];
@@ -2052,13 +2057,13 @@ function updateSave(n, inc) {
 </script>
 <script>
     // 🔒 Bloqueo de clic derecho y atajos
-    document.addEventListener("contextmenu", event => event.preventDefault());
+   /* document.addEventListener("contextmenu", event => event.preventDefault());
     document.addEventListener("keydown", event => {
       if ((event.ctrlKey && ["s", "u"].includes(event.key.toLowerCase())) ||
           event.key === "F12") {
         event.preventDefault();
       }
-    });
+    });*/
     </script>
 </body>
 </html>
