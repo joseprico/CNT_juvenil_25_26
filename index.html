@@ -8549,15 +8549,24 @@ function renderGoalZoneStats() {
     const playerZones = {};
     
     allMatches.forEach(match => {
-        match.jugadors.forEach(j => {
-            const playerName = j.nom.trim();
+    // NOMÉS jugadors del CN Terrassa (no rivals)
+    match.jugadors.forEach(j => {
+        // Saltar jugadors que no tenen número (indicaria que són rivals)
+        if (!j.numero) return;
+        
+        const playerName = j.nom.trim();
             
             if (!playerZones[playerName]) {
                 playerZones[playerName] = {
                     num: j.numero,
                     name: playerName,
                     totalGols: 0,
-                    zones: {...globalZones}
+                    zones: {
+    'top-left': 0, 'top-center': 0, 'top-right': 0,
+    'mid-left': 0, 'mid-center': 0, 'mid-right': 0,
+    'bottom-left': 0, 'bottom-center': 0, 'bottom-right': 0,
+    'unknown': 0
+}
                 };
             }
             
@@ -8565,7 +8574,7 @@ function renderGoalZoneStats() {
             
             // Debug: Comprovar si hi ha dades de zones
             if (j.estadistiques.goalZones) {
-                console.log(`Jugador ${playerName} té zones:`, j.estadistiques.goalZones);
+               console.log(`Jugador ${playerName} (${j.numero}) té zones:`, JSON.stringify(j.estadistiques.goalZones), 'Total gols:', j.estadistiques.gols);
                 Object.keys(j.estadistiques.goalZones).forEach(zone => {
                     const count = j.estadistiques.goalZones[zone] || 0;
                     globalZones[zone] = (globalZones[zone] || 0) + count;
@@ -8694,6 +8703,7 @@ function renderGoalZoneStats() {
                 <h3 style="color: #22d3ee; font-size: 14px; margin-bottom: 10px;">👤 Mapes Individuals (Top 6 Golejadors)</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                     ${topScorers.map(player => {
+                        console.log(`🔍 ${player.name} zones individuals:`, JSON.stringify(player.zones));
                         const totalWithZone = Object.values(player.zones).reduce((sum, count) => sum + count, 0) - (player.zones.unknown || 0);
                         const maxCount = Math.max(...zoneOrder.map(z => player.zones[z] || 0));
                         
