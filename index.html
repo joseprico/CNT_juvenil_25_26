@@ -154,6 +154,33 @@
             }
             .player-info { margin-bottom: 8px; }
         }
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-table th {
+    background: rgba(6, 182, 212, 0.3);
+    font-weight: bold;
+    color: white;
+}
+
+.stats-table td {
+    color: white;
+}
+
+.stats-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
         .player-info { display: flex; align-items: center; gap: 10px; }
         .player-num {
             background: #06b6d4;
@@ -1218,6 +1245,11 @@ console.log('Partidos válidos después del filtrado:', allMatches.length);
         `;
     }
 }
+  function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
 function getQuarterRealStartTime(match, quarter) {
     // Prioritzar quarterRealStartTimes si existeix (nou sistema amb botó)
     if (match.quarterRealStartTimes && match.quarterRealStartTimes[quarter]) {
@@ -4734,127 +4766,13 @@ function renderPlayingTimes() {
     if (!container || !currentMatch) return;
     
     if (!currentMatch.playerWaterChanges || currentMatch.playerWaterChanges.length === 0 || !currentMatch.quarterStartTimes) {
-        container.innerHTML = '<div class="no-data">⚠️ Aquest partit no té registre de temps de joc.<br><small style="margin-top: 8px; display: block;">Els partits nous registrats amb l\'app actualitzada mostraran els temps.</small></div>';
+        container.innerHTML = '<div class="no-data">⚠️ Aquest partit no té registre de temps de joc.</div>';
         return;
     }
     
-    const quarterDuration = 480;
-    const playerTimes = {};
-    
-    currentMatch.jugadors.forEach(player => {
-        const playerNum = player.numero;
-        const playerName = player.nom;
-        const times = { q1: 0, q2: 0, q3: 0, q4: 0, total: 0 };
-        
-        ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-            const quarterStartTime = getQuarterRealStartTime(currentMatch, quarter);
-            const quarterRealEndTime = currentMatch.quarterRealEndTimes?.[quarter];
-            const quarterEndTime = quarterRealEndTime || (quarterStartTime + quarterDuration * 1000);
-            
-            if (!quarterStartTime) {
-                times[quarter] = 0;
-                return;
-            }
-            
-            const lineup = currentMatch.lineups[quarter] || [];
-            const isTitular = lineup.includes(playerNum);
-            
-            const qChanges = currentMatch.playerWaterChanges.filter(c => 
-                c.playerNum === playerNum && 
-                c.quarter === quarter &&
-                c.timestamp >= quarterStartTime && 
-                c.timestamp <= quarterEndTime
-            );
-            
-            if (qChanges.length === 0) {
-                if (isTitular) {
-                    times[quarter] = quarterDuration;
-                } else {
-                    times[quarter] = 0;
-                }
-                return;
-            }
-            
-            qChanges.sort((a, b) => a.timestamp - b.timestamp);
-            
-            const uniqueChanges = [];
-            let lastTimestamp = null;
-            let lastAction = null;
-            
-            qChanges.forEach(change => {
-                if (change.timestamp === lastTimestamp && change.action === lastAction) {
-                    return;
-                }
-                
-                if (uniqueChanges.length === 0) {
-                    if (isTitular && change.action === 'out') {
-                        uniqueChanges.push(change);
-                    } else if (!isTitular && change.action === 'in') {
-                        uniqueChanges.push(change);
-                    }
-                } else {
-                    const lastValidAction = uniqueChanges[uniqueChanges.length - 1].action;
-                    if ((lastValidAction === 'in' && change.action === 'out') ||
-                        (lastValidAction === 'out' && change.action === 'in')) {
-                        uniqueChanges.push(change);
-                    }
-                }
-                
-                lastTimestamp = change.timestamp;
-                lastAction = change.action;
-            });
-            
-            let timeInWater = 0;
-            
-            if (isTitular) {
-                if (uniqueChanges.length === 0) {
-                    timeInWater = quarterDuration;
-                } else if (uniqueChanges[0].action === 'out') {
-                    timeInWater += (uniqueChanges[0].timestamp - quarterStartTime) / 1000;
-                    
-                    for (let i = 1; i < uniqueChanges.length; i += 2) {
-                        if (i < uniqueChanges.length && uniqueChanges[i].action === 'in') {
-                            const inTime = uniqueChanges[i].timestamp;
-                            const outTime = (i + 1 < uniqueChanges.length && uniqueChanges[i + 1].action === 'out')
-                                ? uniqueChanges[i + 1].timestamp
-                                : quarterEndTime;
-                            
-                            const duration = (outTime - inTime) / 1000;
-                            if (duration > 0 && duration <= quarterDuration) {
-                                timeInWater += duration;
-                            }
-                        }
-                    }
-                }
-            } else {
-                for (let i = 0; i < uniqueChanges.length; i++) {
-                    if (uniqueChanges[i].action === 'in') {
-                        const inTime = uniqueChanges[i].timestamp;
-                        const outTime = (i + 1 < uniqueChanges.length && uniqueChanges[i + 1].action === 'out')
-                            ? uniqueChanges[i + 1].timestamp
-                            : quarterEndTime;
-                        
-                        const duration = (outTime - inTime) / 1000;
-                        if (duration > 0 && duration <= quarterDuration) {
-                            timeInWater += duration;
-                        }
-                    }
-                }
-            }
-            
-            times[quarter] = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
-        });
-        
-        times.total = times.q1 + times.q2 + times.q3 + times.q4;
-        
-        playerTimes[playerNum] = {
-            num: playerNum,
-            name: playerName,
-            times: times
-        };
-    });
-    
-    const sortedPlayers = Object.values(playerTimes).sort((a, b) => b.times.total - a.times.total);
+    // Utilitzar la funció centralitzada
+    const playerTimes = calculateMatchPlayingTimes(currentMatch);
+    const players = Object.values(playerTimes).sort((a, b) => b.totalTime - a.totalTime);
     
     function formatTime(seconds) {
         const mins = Math.floor(seconds / 60);
@@ -4862,43 +4780,42 @@ function renderPlayingTimes() {
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
     
+    const maxTime = 32 * 60; // 32 minuts màxim
+    
     container.innerHTML = `
-        <div style="overflow-x: auto;">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Nº</th>
-                        <th>Jugador</th>
-                        <th>1Q</th>
-                        <th>2Q</th>
-                        <th>3Q</th>
-                        <th>4Q</th>
-                        <th>TOTAL</th>
-                        <th>%</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${sortedPlayers.map(p => {
-                        const maxPossible = 1920;
-                        const percentage = ((p.times.total / maxPossible) * 100).toFixed(1);
-                        const color = percentage >= 75 ? '#22c55e' : percentage >= 50 ? '#fbbf24' : '#f97316';
-                        
-                        return `
-                            <tr>
-                                <td><div class="player-num" style="width: 30px; height: 30px; font-size: 12px;">${p.num}</div></td>
-                                <td><strong>${p.name}</strong></td>
-                                <td>${formatTime(p.times.q1)}</td>
-                                <td>${formatTime(p.times.q2)}</td>
-                                <td>${formatTime(p.times.q3)}</td>
-                                <td>${formatTime(p.times.q4)}</td>
-                                <td><strong style="color: #fde047;">${formatTime(p.times.total)}</strong></td>
-                                <td><strong style="color: ${color};">${percentage}%</strong></td>
-                            </tr>
-                        `;
-                    }).join('')}
-                </tbody>
-            </table>
-        </div>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>Jugador</th>
+                    <th>1Q</th>
+                    <th>2Q</th>
+                    <th>3Q</th>
+                    <th>4Q</th>
+                    <th>TOTAL</th>
+                    <th>%</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${players.map(p => {
+                    const percentage = ((p.totalTime / maxTime) * 100).toFixed(1);
+                    const color = percentage >= 75 ? '#22c55e' : percentage >= 50 ? '#fbbf24' : '#f97316';
+                    
+                    return `
+                        <tr>
+                            <td><div class="player-num" style="width: 30px; height: 30px; font-size: 12px;">${p.num}</div></td>
+                            <td><strong>${p.name}</strong></td>
+                            <td>${formatTime(p.q1)}</td>
+                            <td>${formatTime(p.q2)}</td>
+                            <td>${formatTime(p.q3)}</td>
+                            <td>${formatTime(p.q4)}</td>
+                            <td><strong style="color: #fde047;">${formatTime(p.totalTime)}</strong></td>
+                            <td><strong style="color: ${color};">${percentage}%</strong></td>
+                        </tr>
+                    `;
+                }).join('')}
+            </tbody>
+        </table>
         <p style="font-size: 12px; color: #bae6fd; margin-top: 12px; text-align: center;">
             ⏱️ Temps màxim: 32 minuts (4 quarts × 8 minuts)
         </p>
@@ -4961,7 +4878,7 @@ function displayTimeStats() {
     
     console.log('Calling renderTimeHeatmapTable...');
     renderTimeHeatmapTable();
-    
+   
     console.log('Calling other render functions...');
     renderEfficiencyPerMinuteChart();
     renderMinutesDistributionChart();
@@ -5013,14 +4930,15 @@ function clearPlayerTimeFilter() {
     document.getElementById('playerTimeStatsCard').classList.add('hidden');
 }
 
-function calculatePlayerTimeData(playerName) {
+function calculatePlayerTimeData(player) {
     const data = {
-        name: playerName,
-        num: 0,
+        num: player.numero,
+        name: player.nom,
         partidos: 0,
-        timeByMatch: [],
-        timeByQuarter: { q1: 0, q2: 0, q3: 0, q4: 0 },
         totalTime: 0,
+        timeByQuarter: { q1: 0, q2: 0, q3: 0, q4: 0 },
+        timeByMatch: [],
+        dates: [],
         gols: 0,
         exclusions: 0,
         titularTime: 0,
@@ -5028,106 +4946,45 @@ function calculatePlayerTimeData(playerName) {
         titularGols: 0,
         suplenteGols: 0,
         titularExclusions: 0,
-        suplenteExclusions: 0,
-        dates: []
+        suplenteExclusions: 0
     };
     
     matchesWithTime.forEach(match => {
-        const player = match.jugadors.find(j => j.nom.trim() === playerName);
-        if (!player) return;
+        const matchPlayer = match.jugadors.find(j => j.numero === player.numero);
+        if (!matchPlayer) return;
         
-        data.num = player.numero;
         data.partidos++;
-        data.gols += player.estadistiques.gols;
-        data.exclusions += player.estadistiques.exclusions;
-        data.dates.push(new Date(match.data).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' }));
+        data.dates.push(match.data ? new Date(match.data).toLocaleDateString('ca-ES') : 'N/A');
+        data.gols += matchPlayer.estadistiques?.gols || 0;
+        data.exclusions += matchPlayer.estadistiques?.exclusions || 0;
         
-        const quarterDuration = 480;
-        let matchTime = 0;
+        // Utilitzar la funció amb ponderació
+        const matchTimes = calculateMatchPlayingTimes(match);
+        const playerTime = matchTimes[player.numero];
         
-        ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-            const quarterStartTime = getQuarterRealStartTime(match, quarter);
-            const quarterEndTime = getQuarterEndTime(match, quarter, quarterStartTime, quarterDuration);
+        if (playerTime) {
+            let matchTime = 0;
             
-            if (!quarterStartTime) return;
-            
-            const lineup = match.lineups[quarter] || [];
-            const isTitular = lineup.includes(player.numero);
-            
-            const qChanges = match.playerWaterChanges.filter(c => 
-                c.playerNum === player.numero && 
-                c.quarter === quarter
-            );
-            
-            const validChanges = qChanges.filter(c => 
-                c.timestamp >= quarterStartTime && 
-                c.timestamp <= quarterEndTime
-            ).sort((a, b) => a.timestamp - b.timestamp);
-            
-            const cleanChanges = [];
-            let lastAction = null;
-            
-            validChanges.forEach(change => {
-                if (change.action !== lastAction) {
-                    cleanChanges.push(change);
-                    lastAction = change.action;
+            ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
+                const isTitular = match.lineups?.[quarter]?.includes(player.numero);
+                const quarterTime = playerTime[quarter];
+                
+                data.timeByQuarter[quarter] += quarterTime;
+                matchTime += quarterTime;
+                
+                if (isTitular) {
+                    data.titularTime += quarterTime;
+                } else {
+                    data.suplenteTime += quarterTime;
                 }
             });
             
-            let timeInWater = 0;
-            
-            if (isTitular && cleanChanges.length === 0) {
-                timeInWater = quarterDuration;
-            }
-            else if (isTitular && cleanChanges.length > 0 && cleanChanges[0].action === 'out') {
-                const firstOut = cleanChanges[0].timestamp;
-                timeInWater += (firstOut - quarterStartTime) / 1000;
-                
-                for (let i = 1; i < cleanChanges.length; i += 2) {
-                    if (i < cleanChanges.length && cleanChanges[i].action === 'in') {
-                        const inTime = cleanChanges[i].timestamp;
-                        const outTime = (i + 1 < cleanChanges.length && cleanChanges[i + 1].action === 'out')
-                            ? cleanChanges[i + 1].timestamp
-                            : quarterEndTime;
-                        
-                        const duration = (outTime - inTime) / 1000;
-                        if (duration > 0 && duration <= quarterDuration) {
-                            timeInWater += duration;
-                        }
-                    }
-                }
-            }
-            else if (!isTitular) {
-                for (let i = 0; i < cleanChanges.length; i++) {
-                    if (cleanChanges[i].action === 'in') {
-                        const inTime = cleanChanges[i].timestamp;
-                        const outTime = (i + 1 < cleanChanges.length && cleanChanges[i + 1].action === 'out')
-                            ? cleanChanges[i + 1].timestamp
-                            : quarterEndTime;
-                        
-                        const duration = (outTime - inTime) / 1000;
-                        if (duration > 0 && duration <= quarterDuration) {
-                            timeInWater += duration;
-                        }
-                    }
-                }
-            }
-            
-            const quarterTime = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
-            data.timeByQuarter[quarter] += quarterTime;
-            matchTime += quarterTime;
-            
-            if (isTitular) {
-                data.titularTime += quarterTime;
-            } else {
-                data.suplenteTime += quarterTime;
-            }
-        });
-        
-        data.timeByMatch.push(matchTime);
-        data.totalTime += matchTime;
+            data.timeByMatch.push(matchTime);
+            data.totalTime += matchTime;
+        }
     });
     
+    // Calcular proporció de gols/exclusions segons temps de titular/suplent
     if (data.totalTime > 0) {
         const titularRatio = data.titularTime / data.totalTime;
         data.titularGols = Math.round(data.gols * titularRatio);
@@ -5151,11 +5008,7 @@ function displayPlayerTimeStats(data) {
     const goalsPerMinute = data.totalTime > 0 ? ((data.gols / (data.totalTime / 60))).toFixed(2) : 0;
     const exclusionsPerMinute = data.totalTime > 0 ? ((data.exclusions / (data.totalTime / 60))).toFixed(2) : 0;
     
-    function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${mins}:${secs.toString().padStart(2, '0')}`;
-    }
+  
     
     document.getElementById('playerTimeSummaryGrid').innerHTML = `
         <div class="info-item">
@@ -5361,14 +5214,282 @@ function renderPlayerTimeByQuarterChart(data) {
     });
 }
 
+
+// ============================================
+// FUNCIONS AUXILIARS NECESSÀRIES (afegir ABANS de renderTotalTimeChart)
+// ============================================
+
+function getQuarterEndTimeHelper(quarterStartTimes, quarterRealEndTimes, quarter, quarterDuration) {
+    // Prioritzar el temps real de finalització si existeix
+    if (quarterRealEndTimes && quarterRealEndTimes[quarter]) {
+        return quarterRealEndTimes[quarter];
+    }
+    
+    // Si no existeix, utilitzar l'inici del següent quart
+    const quarterOrder = ['q1', 'q2', 'q3', 'q4'];
+    const currentIndex = quarterOrder.indexOf(quarter);
+    
+    if (currentIndex < 3) {
+        const nextQuarter = quarterOrder[currentIndex + 1];
+        if (quarterStartTimes[nextQuarter]) {
+            return quarterStartTimes[nextQuarter];
+        }
+    }
+    
+    // Si no hi ha res, afegir 8 minuts a l'inici del quart
+    return quarterStartTimes[quarter] + (quarterDuration * 1000);
+}
+
+function calculatePlayerWaterPercentage(playerNum, quarter, playerWaterChanges, quarterStartTime, quarterEndTime, lineups) {
+    // Verificar si el jugador és titular
+    const lineup = lineups ? lineups[quarter] : [];
+    const isTitular = lineup && lineup.includes(playerNum);
+    
+    // Obtenir els canvis del jugador
+    const qChanges = playerWaterChanges
+        .filter(c => c.playerNum === playerNum && c.quarter === quarter)
+        .sort((a, b) => a.timestamp - b.timestamp);
+    
+    // Si és titular i no té canvis → 100% del temps
+    if (isTitular && qChanges.length === 0) {
+        return 1.0; // 100%
+    }
+    
+    // Si NO és titular i no té canvis → 0% del temps
+    if (!isTitular && qChanges.length === 0) {
+        return 0.0; // 0%
+    }
+    
+    const totalQuarterTime = (quarterEndTime - quarterStartTime) / 1000;
+    if (totalQuarterTime <= 0) {
+        return 0.0;
+    }
+    
+    // Netejar canvis duplicats consecutius
+    const cleanChanges = [];
+    let lastAction = null;
+    qChanges.forEach(change => {
+        if (change.action !== lastAction) {
+            cleanChanges.push(change);
+            lastAction = change.action;
+        }
+    });
+    
+    let timeInWater = 0;
+    
+    if (isTitular) {
+        // Titular: comença dins
+        let lastInTime = quarterStartTime;
+        
+        cleanChanges.forEach(change => {
+            if (change.action === 'out') {
+                timeInWater += (change.timestamp - lastInTime) / 1000;
+                lastInTime = null;
+            } else if (change.action === 'in') {
+                lastInTime = change.timestamp;
+            }
+        });
+        
+        if (lastInTime !== null) {
+            timeInWater += (quarterEndTime - lastInTime) / 1000;
+        }
+    } else {
+        // Suplent: comença fora
+        let lastInTime = null;
+        
+        cleanChanges.forEach(change => {
+            if (change.action === 'in') {
+                lastInTime = change.timestamp;
+            } else if (change.action === 'out' && lastInTime !== null) {
+                timeInWater += (change.timestamp - lastInTime) / 1000;
+                lastInTime = null;
+            }
+        });
+        
+        if (lastInTime !== null) {
+            timeInWater += (quarterEndTime - lastInTime) / 1000;
+        }
+    }
+    
+    // Retornar el percentatge (0.0 a 1.0)
+    return Math.min(timeInWater / totalQuarterTime, 1.0);
+}
+
+/**
+ * SUBSTITUIR L'EXISTENT: Calcula el temps real aplicant el percentatge als 8 minuts teòrics
+ */
+function calculateQuarterTimeForPlayerHelper(playerNum, quarter, playerWaterChanges, quarterStartTime, quarterEndTime, lineups) {
+    const QUARTER_DURATION = 480; // 8 minuts = 480 segons
+    
+    if (!quarterStartTime) {
+        return 0;
+    }
+    
+    // Obtenir el percentatge de temps dins de l'aigua
+    const percentage = calculatePlayerWaterPercentage(
+        playerNum, 
+        quarter, 
+        playerWaterChanges, 
+        quarterStartTime, 
+        quarterEndTime, 
+        lineups
+    );
+    
+    // Aplicar aquest percentatge als 8 minuts teòrics
+    const adjustedTime = QUARTER_DURATION * percentage;
+    
+    return Math.round(adjustedTime);
+}
+
+function calculateMatchPlayingTimes(match) {
+    const playerTimes = {};
+    const quarterDuration = 480; // 8 minuts en segons
+    const totalQuarterTime = 3360; // 7 jugadors x 480 segons = 3360 segons
+    
+    // Inicialitzar jugadors
+    match.jugadors.forEach(player => {
+        playerTimes[player.numero] = {
+            num: player.numero,
+            name: player.nom,
+            q1: 0,
+            q2: 0,
+            q3: 0,
+            q4: 0,
+            totalTime: 0,
+            partidos: 1
+        };
+    });
+    
+    const quarters = ['q1', 'q2', 'q3', 'q4'];
+    
+    quarters.forEach(quarter => {
+        const quarterStartTime = match.quarterStartTimes?.[quarter];
+        if (!quarterStartTime) return;
+        
+        // Calcular el temps de finalització del quart
+        const quarterOrder = ['q1', 'q2', 'q3', 'q4'];
+        const currentIndex = quarterOrder.indexOf(quarter);
+        let quarterEndTime;
+        
+        if (match.quarterRealEndTimes && match.quarterRealEndTimes[quarter]) {
+            quarterEndTime = match.quarterRealEndTimes[quarter];
+        } else if (currentIndex < 3) {
+            const nextQuarter = quarterOrder[currentIndex + 1];
+            if (match.quarterStartTimes[nextQuarter]) {
+                quarterEndTime = match.quarterStartTimes[nextQuarter];
+            } else {
+                quarterEndTime = quarterStartTime + (quarterDuration * 1000);
+            }
+        } else {
+            quarterEndTime = quarterStartTime + (quarterDuration * 1000);
+        }
+        
+        const quarterChanges = match.playerWaterChanges
+            .filter(c => c.quarter === quarter)
+            .sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Primer pas: calcular temps reals i identificar jugadors que juguen tot el quart
+        const rawTimes = {};
+        const playersFullQuarter = [];
+        let sumRawTimesPartial = 0;
+        
+        match.jugadors.forEach(player => {
+            const playerNum = player.numero;
+            const isTitular = match.lineups?.[quarter]?.includes(playerNum);
+            
+            const playerChanges = quarterChanges.filter(c => c.playerNum === playerNum);
+            
+            // Eliminar canvis duplicats consecutius
+            const cleanChanges = [];
+            let lastAction = null;
+            playerChanges.forEach(change => {
+                if (change.action !== lastAction) {
+                    cleanChanges.push(change);
+                    lastAction = change.action;
+                }
+            });
+            
+            let timeInWater = 0;
+            let playsFullQuarter = false;
+            
+            if (isTitular) {
+                let lastInTime = quarterStartTime;
+                
+                cleanChanges.forEach(change => {
+                    if (change.action === 'out' && lastInTime !== null) {
+                        timeInWater += (change.timestamp - lastInTime) / 1000;
+                        lastInTime = null;
+                    } else if (change.action === 'in') {
+                        lastInTime = change.timestamp;
+                    }
+                });
+                
+                if (lastInTime !== null) {
+                    timeInWater += (quarterEndTime - lastInTime) / 1000;
+                }
+                
+                // Si és titular i no té canvis d'out, juga tot el quart
+               if (timeInWater > 847) {
+    playsFullQuarter = true;
+}
+                console.log(`Jugador ${playerNum}: ${timeInWater.toFixed(0)}s, Titular: ${isTitular}, Canvis: ${cleanChanges.length}, Juga complet: ${playsFullQuarter}`);
+            } else {
+                let lastInTime = null;
+                
+                cleanChanges.forEach(change => {
+                    if (change.action === 'in') {
+                        lastInTime = change.timestamp;
+                    } else if (change.action === 'out' && lastInTime !== null) {
+                        timeInWater += (change.timestamp - lastInTime) / 1000;
+                        lastInTime = null;
+                    }
+                });
+                
+                if (lastInTime !== null) {
+                    timeInWater += (quarterEndTime - lastInTime) / 1000;
+                }
+            }
+            console.log(`Jugador ${playerNum}: ${timeInWater.toFixed(0)}s, Titular: ${isTitular}, Canvis: ${cleanChanges.length}, Juga complet: ${playsFullQuarter}`);
+            rawTimes[playerNum] = Math.max(0, Math.min(timeInWater, quarterDuration));
+            
+            if (playsFullQuarter) {
+                playersFullQuarter.push(playerNum);
+            } else {
+                sumRawTimesPartial += rawTimes[playerNum];
+            }
+        });
+        
+        // Segon pas: assignar temps
+        const timeUsedByFullQuarter = playersFullQuarter.length * quarterDuration;
+        const remainingTime = totalQuarterTime - timeUsedByFullQuarter;
+        
+        match.jugadors.forEach(player => {
+            const playerNum = player.numero;
+            
+            if (playersFullQuarter.includes(playerNum)) {
+                // Jugador que juga tot el quart: exactament 480 segons
+                playerTimes[playerNum][quarter] = quarterDuration;
+            } else {
+                // Jugador parcial: ponderar amb el temps restant
+                if (sumRawTimesPartial > 0) {
+                    const adjustedTime = Math.round((rawTimes[playerNum] / sumRawTimesPartial) * remainingTime);
+                    playerTimes[playerNum][quarter] = adjustedTime;
+                } else {
+                    playerTimes[playerNum][quarter] = 0;
+                }
+            }
+            
+            playerTimes[playerNum].totalTime += playerTimes[playerNum][quarter];
+        });
+    });
+    
+    return playerTimes;
+}
+
 function renderTotalTimeChart() {
     const ctx = document.getElementById('totalTimeChart');
     if (!ctx) return;
-    const subtitle = document.getElementById('timeChartSubtitle');
-    if (subtitle) {
-        const maxPossibleTime = matchesWithTime.length * 32;
-        subtitle.textContent = `Basado en ${matchesWithTime.length} partido(s) - Tiempo máximo: ${maxPossibleTime} minutos`;
-    }
+    
     if (window.totalTimeChartInstance) {
         window.totalTimeChartInstance.destroy();
     }
@@ -5376,169 +5497,80 @@ function renderTotalTimeChart() {
     const playerTimes = {};
     
     matchesWithTime.forEach(match => {
-        match.jugadors.forEach(player => {
-            const playerName = player.nom.trim();
+        // Utilitzar la funció amb ponderació
+        const matchTimes = calculateMatchPlayingTimes(match);
+        
+        Object.values(matchTimes).forEach(playerTime => {
+            const playerName = playerTime.name.trim();
             
             if (!playerTimes[playerName]) {
                 playerTimes[playerName] = {
-                    num: player.numero,
+                    num: playerTime.num,
                     name: playerName,
-                    totalTime: 0
+                    totalTime: 0,
+                    partidos: 0
                 };
             }
             
-            const quarterDuration = 480;
-            
-            ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-                const quarterStartTime = getQuarterRealStartTime(match, quarter);
-                const quarterEndTime = getQuarterEndTime(match, quarter, quarterStartTime, quarterDuration);
-                
-                if (!quarterStartTime) return;
-                
-                const lineup = match.lineups[quarter] || [];
-                const isTitular = lineup.includes(player.numero);
-                
-                const qChanges = match.playerWaterChanges.filter(c => 
-                    c.playerNum === player.numero && 
-                    c.quarter === quarter &&
-                    c.timestamp >= quarterStartTime &&
-                    c.timestamp <= quarterEndTime
-                ).sort((a, b) => a.timestamp - b.timestamp);
-                
-                if (isTitular && qChanges.length === 0) {
-                    playerTimes[playerName].totalTime += quarterDuration;
-                    return;
-                }
-                
-                if (!isTitular && qChanges.length === 0) {
-                    return;
-                }
-                
-                const cleanEvents = [];
-                let lastAction = null;
-                
-                qChanges.forEach(change => {
-                    if (change.action !== lastAction) {
-                        cleanEvents.push(change);
-                        lastAction = change.action;
-                    }
-                });
-                
-                let timeInWater = 0;
-                
-                if (isTitular && cleanEvents.length > 0 && cleanEvents[0].action === 'out') {
-                    timeInWater += (cleanEvents[0].timestamp - quarterStartTime) / 1000;
-                    
-                    for (let i = 1; i < cleanEvents.length; i++) {
-                        if (cleanEvents[i].action === 'in') {
-                            const inTime = cleanEvents[i].timestamp;
-                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
-                                ? cleanEvents[i + 1].timestamp
-                                : quarterEndTime;
-                            
-                            const duration = (outTime - inTime) / 1000;
-                            if (duration > 0 && duration <= quarterDuration) {
-                                timeInWater += duration;
-                            }
-                        }
-                    }
-                } else if (!isTitular) {
-                    for (let i = 0; i < cleanEvents.length; i++) {
-                        if (cleanEvents[i].action === 'in') {
-                            const inTime = cleanEvents[i].timestamp;
-                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
-                                ? cleanEvents[i + 1].timestamp
-                                : quarterEndTime;
-                            
-                            const duration = (outTime - inTime) / 1000;
-                            if (duration > 0 && duration <= quarterDuration) {
-                                timeInWater += duration;
-                            }
-                        }
-                    }
-                }
-                
-                const quarterTime = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
-                playerTimes[playerName].totalTime += quarterTime;
-            });
+            playerTimes[playerName].totalTime += playerTime.totalTime;
+            playerTimes[playerName].partidos += 1;
         });
     });
     
-    const players = Object.values(playerTimes).sort((a, b) => b.totalTime - a.totalTime);
+    const players = Object.values(playerTimes)
+        .sort((a, b) => b.totalTime - a.totalTime)
+        .slice(0, 15);
     
-    const labels = players.map(p => `${p.num}. ${p.name.split(' ')[0]}`);
-    const timeInMinutes = players.map(p => (p.totalTime / 60).toFixed(1));
-    const maxPossibleTime = matchesWithTime.length * 32;
-    const percentages = players.map(p => ((p.totalTime / 60 / maxPossibleTime) * 100).toFixed(1));
-    
-    const backgroundColors = percentages.map(pct => {
-        if (pct >= 75) return '#22c55e';
-        if (pct >= 50) return '#fbbf24';
-        if (pct >= 25) return '#f97316';
-        return '#ef4444';
-    });
+    document.getElementById('timeChartSubtitle').textContent = 
+        `Basado en ${matchesWithTime.length} partido(s) con datos de tiempo`;
     
     window.totalTimeChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: labels,
+            labels: players.map(p => `${p.num}. ${p.name}`),
             datasets: [{
-                label: 'Minutos Jugados',
-                data: timeInMinutes,
-                backgroundColor: backgroundColors,
-                borderWidth: 1,
-                borderColor: '#1e3a8a'
+                label: 'Tiempo Total (segundos)',
+                data: players.map(p => p.totalTime),
+                backgroundColor: 'rgba(34, 211, 238, 0.7)',
+                borderColor: 'rgba(34, 211, 238, 1)',
+                borderWidth: 2
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            indexAxis: 'y',
             plugins: {
-                legend: { 
-                    display: false 
-                },
+                legend: { display: false },
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            const idx = context.dataIndex;
-                            return [
-                                `Tiempo: ${context.parsed.x} min`,
-                                `Porcentaje: ${percentages[idx]}%`
-                            ];
+                            const seconds = context.parsed.y;
+                            const minutes = Math.floor(seconds / 60);
+                            const secs = seconds % 60;
+                            return `${minutes}:${secs.toString().padStart(2, '0')} minutos`;
                         }
                     }
                 }
             },
             scales: {
-                x: { 
-                    beginAtZero: true,
-                    max: maxPossibleTime,
-                    ticks: { 
-                        color: 'white',
-                        font: { size: window.innerWidth < 768 ? 10 : 12 }
-                    },
-                    grid: { color: 'rgba(255,255,255,0.1)' },
-                    title: {
-                        display: true,
-                        text: 'Minutos',
-                        color: 'white',
-                        font: { size: window.innerWidth < 768 ? 11 : 14 }
-                    }
-                },
                 y: { 
+                    beginAtZero: true,
                     ticks: { 
-                        color: 'white', 
-                        font: { size: window.innerWidth < 768 ? 9 : 11 },
-                        autoSkip: false
+                        color: 'white',
+                        callback: function(value) {
+                            return formatTime(value);
+                        }
                     },
+                    grid: { color: 'rgba(255,255,255,0.1)' }
+                },
+                x: { 
+                    ticks: { color: 'white' },
                     grid: { color: 'rgba(255,255,255,0.1)' }
                 }
             }
         }
     });
 }
-
 function renderTimeHeatmapTable() {
     const table = document.getElementById('timeHeatmapTable');
     if (!table) return;
@@ -5546,93 +5578,25 @@ function renderTimeHeatmapTable() {
     const playerTimes = {};
     
     matchesWithTime.forEach(match => {
-        match.jugadors.forEach(player => {
-            const playerName = player.nom.trim();
+        // Utilitzar la funció amb ponderació
+        const matchTimes = calculateMatchPlayingTimes(match);
+        
+        Object.values(matchTimes).forEach(playerTime => {
+            const playerName = playerTime.name.trim();
             
             if (!playerTimes[playerName]) {
                 playerTimes[playerName] = {
-                    num: player.numero,
+                    num: playerTime.num,
                     name: playerName,
                     q1: 0, q2: 0, q3: 0, q4: 0, total: 0
                 };
             }
             
-            const quarterDuration = 480;
-            
-            ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-                const quarterStartTime = getQuarterRealStartTime(match, quarter);
-                const quarterEndTime = getQuarterEndTime(match, quarter, quarterStartTime, quarterDuration);
-                
-                if (!quarterStartTime) return;
-                
-                const lineup = match.lineups[quarter] || [];
-                const isTitular = lineup.includes(player.numero);
-                
-                const qChanges = match.playerWaterChanges.filter(c => 
-                    c.playerNum === player.numero && 
-                    c.quarter === quarter &&
-                    c.timestamp >= quarterStartTime &&
-                    c.timestamp <= quarterEndTime
-                ).sort((a, b) => a.timestamp - b.timestamp);
-                
-                if (isTitular && qChanges.length === 0) {
-                    playerTimes[playerName][quarter] += quarterDuration;
-                    playerTimes[playerName].total += quarterDuration;
-                    return;
-                }
-                
-                if (!isTitular && qChanges.length === 0) {
-                    return;
-                }
-                
-                const cleanEvents = [];
-                let lastAction = null;
-                
-                qChanges.forEach(change => {
-                    if (change.action !== lastAction) {
-                        cleanEvents.push(change);
-                        lastAction = change.action;
-                    }
-                });
-                
-                let timeInWater = 0;
-                
-                if (isTitular && cleanEvents.length > 0 && cleanEvents[0].action === 'out') {
-                    timeInWater += (cleanEvents[0].timestamp - quarterStartTime) / 1000;
-                    
-                    for (let i = 1; i < cleanEvents.length; i++) {
-                        if (cleanEvents[i].action === 'in') {
-                            const inTime = cleanEvents[i].timestamp;
-                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
-                                ? cleanEvents[i + 1].timestamp
-                                : quarterEndTime;
-                            
-                            const duration = (outTime - inTime) / 1000;
-                            if (duration > 0 && duration <= quarterDuration) {
-                                timeInWater += duration;
-                            }
-                        }
-                    }
-                } else if (!isTitular) {
-                    for (let i = 0; i < cleanEvents.length; i++) {
-                        if (cleanEvents[i].action === 'in') {
-                            const inTime = cleanEvents[i].timestamp;
-                            const outTime = (i + 1 < cleanEvents.length && cleanEvents[i + 1].action === 'out')
-                                ? cleanEvents[i + 1].timestamp
-                                : quarterEndTime;
-                            
-                            const duration = (outTime - inTime) / 1000;
-                            if (duration > 0 && duration <= quarterDuration) {
-                                timeInWater += duration;
-                            }
-                        }
-                    }
-                }
-                
-                const quarterTime = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
-                playerTimes[playerName][quarter] += quarterTime;
-                playerTimes[playerName].total += quarterTime;
-            });
+            playerTimes[playerName].q1 += playerTime.q1;
+            playerTimes[playerName].q2 += playerTime.q2;
+            playerTimes[playerName].q3 += playerTime.q3;
+            playerTimes[playerName].q4 += playerTime.q4;
+            playerTimes[playerName].total += playerTime.totalTime;
         });
     });
     
@@ -5706,6 +5670,7 @@ function renderTimeHeatmapTable() {
         </tbody>
     `;
 }
+  
 function renderEfficiencyPerMinuteChart() {
     const ctx = document.getElementById('efficiencyPerMinuteChart');
     if (!ctx) return;
@@ -5717,12 +5682,18 @@ function renderEfficiencyPerMinuteChart() {
     const playerStats = {};
     
     matchesWithTime.forEach(match => {
-        match.jugadors.forEach(player => {
-            const playerName = player.nom.trim();
+        // Utilitzar la funció centralitzada
+        const playerTimes = calculateMatchPlayingTimes(match);
+        
+        Object.values(playerTimes).forEach(playerTime => {
+            const player = match.jugadors.find(j => j.numero === playerTime.num);
+            if (!player) return;
+            
+            const playerName = playerTime.name;
             
             if (!playerStats[playerName]) {
                 playerStats[playerName] = {
-                    num: player.numero,
+                    num: playerTime.num,
                     name: playerName,
                     totalTime: 0,
                     gols: 0,
@@ -5730,58 +5701,9 @@ function renderEfficiencyPerMinuteChart() {
                 };
             }
             
+            playerStats[playerName].totalTime += playerTime.total;
             playerStats[playerName].gols += player.estadistiques.gols;
             playerStats[playerName].exclusions += player.estadistiques.exclusions;
-            
-            const quarterDuration = 480;
-            
-            ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-                const qChanges = match.playerWaterChanges.filter(c => c.playerNum === player.numero && c.quarter === quarter);
-                if (qChanges.length === 0) return;
-                
-                // Eliminar duplicados
-                const uniqueChanges = [];
-                const seenTimestamps = new Set();
-                qChanges.sort((a, b) => a.timestamp - b.timestamp);
-                qChanges.forEach(change => {
-                    if (!seenTimestamps.has(change.timestamp)) {
-                        seenTimestamps.add(change.timestamp);
-                        uniqueChanges.push(change);
-                    }
-                });
-                
-                let timeInWater = 0;
-                let lastInTime = null;
-                const quarterStartTime = getQuarterRealStartTime(match, quarter);
-                const quarterEndTime = quarterStartTime + quarterDuration * 1000;
-                
-                if (!quarterStartTime) return;
-                
-                uniqueChanges.forEach(change => {
-                    if (change.timestamp < quarterStartTime || change.timestamp > quarterEndTime) return;
-                    
-                    if (change.action === 'in' && lastInTime === null) {
-                        lastInTime = change.timestamp;
-                    } else if (change.action === 'out' && lastInTime !== null) {
-                        const duration = (change.timestamp - lastInTime) / 1000;
-                        if (duration > 0 && duration <= quarterDuration) {
-                            timeInWater += duration;
-                        }
-                        lastInTime = null;
-                    }
-                });
-                
-                if (lastInTime !== null && lastInTime < quarterEndTime) {
-                    const duration = (quarterEndTime - lastInTime) / 1000;
-                    if (duration > 0 && duration <= quarterDuration) {
-                        timeInWater += duration;
-                    }
-                }
-                
-                // ✅ LIMITAR A 8 MINUTOS POR CUARTO
-                const quarterTime = Math.min(Math.max(0, Math.round(timeInWater)), quarterDuration);
-                playerStats[playerName].totalTime += quarterTime;
-            });
         });
     });
     
@@ -6408,44 +6330,17 @@ function renderPerformanceVsTimeChart() {
     matchesWithTime.forEach(match => {
         const teamResult = match.scoreCNT - match.scoreRival;
         
-        match.jugadors.forEach(player => {
-            const playerName = player.nom.trim();
-            
-            let totalTime = 0;
-            const quarterDuration = 480;
-            
-            ['q1', 'q2', 'q3', 'q4'].forEach(quarter => {
-                const qChanges = match.playerWaterChanges.filter(c => c.playerNum === player.numero && c.quarter === quarter);
-                if (qChanges.length === 0) return;
-                
-                qChanges.sort((a, b) => a.timestamp - b.timestamp);
-                
-                let timeInWater = 0;
-                let lastInTime = null;
-                const quarterStartTime = match.quarterStartTimes[quarter];
-                
-                if (!quarterStartTime) return;
-                
-                qChanges.forEach(change => {
-                    if (change.action === 'in') {
-                        lastInTime = change.timestamp;
-                    } else if (change.action === 'out' && lastInTime !== null) {
-                        timeInWater += (change.timestamp - lastInTime) / 1000;
-                        lastInTime = null;
-                    }
-                });
-                
-                if (lastInTime !== null) {
-                    const quarterEndTime = quarterStartTime + quarterDuration * 1000;
-                    timeInWater += (quarterEndTime - lastInTime) / 1000;
-                }
-                
-                totalTime += Math.round(timeInWater);
-            });
+        // Utilitzar la funció centralitzada
+        const playerTimes = calculateMatchPlayingTimes(match);
+        
+        Object.values(playerTimes).forEach(playerTime => {
+            const player = match.jugadors.find(j => j.numero === playerTime.num);
+            if (!player) return;
             
             playerMatchData.push({
-                player: `${player.numero}. ${playerName.split(' ')[0]}`,
-                time: totalTime / 60,
+                player: `${playerTime.num}. ${playerTime.name}`,
+                time: playerTime.total / 60, // convertir a minuts
+                gols: player.estadistiques.gols,
                 result: teamResult
             });
         });
@@ -9331,6 +9226,33 @@ function renderMatchGoalZones() {
         </div>
     `;
 }
+
+/**
+ * Obtenir el temps de finalització d'un quart
+ */
+function getQuarterEndTime(quarterStartTimes, quarterRealEndTimes, quarter) {
+    const QUARTER_DURATION = 480;
+    
+    // Prioritzar el temps real de finalització si existeix
+    if (quarterRealEndTimes && quarterRealEndTimes[quarter]) {
+        return quarterRealEndTimes[quarter];
+    }
+    
+    // Si no existeix, utilitzar l'inici del següent quart
+    const quarterOrder = ['q1', 'q2', 'q3', 'q4'];
+    const currentIndex = quarterOrder.indexOf(quarter);
+    
+    if (currentIndex < 3) {
+        const nextQuarter = quarterOrder[currentIndex + 1];
+        if (quarterStartTimes[nextQuarter]) {
+            return quarterStartTimes[nextQuarter];
+        }
+    }
+    
+    // Si no hi ha res, afegir 8 minuts a l'inici del quart
+    return quarterStartTimes[quarter] + (QUARTER_DURATION * 1000);
+}
+
    </script>
    <script>
     // 🔒 Bloqueo de clic derecho y atajos
