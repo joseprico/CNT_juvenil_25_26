@@ -713,11 +713,13 @@
 	</div>
 <!-- TAB: TIEMPO DE JUEGO -->
 <div id="tiempoTab" class="hidden">
-<div style="margin-bottom: 20px;">
+ <!--
+ <div style="margin-bottom: 20px;">
         <button class="btn" onclick="generateTimePDF()" style="background: #8b5cf6; padding: 12px 20px;">
             📄 Generar PDF Temps de Joc
         </button>
     </div>
+	-->
     <!-- Filtro por jugador -->
     <div class="card">
         <div class="filter-bar">
@@ -837,9 +839,9 @@
             <div id="singleMatchView" class="hidden">
                 <div class="card">
                     <button class="btn" onclick="backToList()" style="margin-bottom: 20px;">← Volver a la lista</button>
-    <button class="btn" onclick="generateMatchPDF(currentMatch)" style="background: #8b5cf6; padding: 12px 20px; margin-bottom: 15px;">
+  <!--  <button class="btn" onclick="generateMatchPDF(currentMatch)" style="background: #8b5cf6; padding: 12px 20px; margin-bottom: 15px;">
             📄 Generar PDF d'aquest Partit
-        </button>
+        </button>-->
     <div class="card">
         <div class="match-header">
             <div class="team-section">
@@ -953,11 +955,11 @@
       <!-- TAB: COMPARACIÓN -->
 <div id="comparisonTab" class="hidden">
     <div id="comparisonView">
-	<div style="margin-bottom: 20px;">
+	<!--<div style="margin-bottom: 20px;">
             <button class="btn" onclick="generateGeneralPDF()" style="background: #8b5cf6; padding: 12px 20px;">
                 📄 Generar PDF General
             </button>
-        </div>
+        </div>-->
         <div class="card">
             <div class="filter-bar">
                 <div class="filter-item">
@@ -1079,11 +1081,11 @@
         <!-- TAB: TITULARIDAD -->
 <!-- TAB: TITULARIDAD -->
 <div id="titularTab" class="hidden">
-<div style="margin-bottom: 20px;">
+<!--<div style="margin-bottom: 20px;">
         <button class="btn" onclick="generateTitularityPDF()" style="background: #8b5cf6; padding: 12px 20px;">
             📄 Generar PDF Titularitats
         </button>
-    </div>
+    </div>-->
     <div class="card">
         <h2 class="section-title">🔥 Heatmap de Titularidades</h2>
         <canvas id="titularityHeatmapChart" style="max-height: 400px;"></canvas>
