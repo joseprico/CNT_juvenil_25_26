@@ -4735,17 +4735,22 @@ function renderMatchTimeline() {
                     cssClass = 'goal';
                     detailText = `Gol ${goalTypeLabels[action.goalType]}`;
                 } else if (action.type === 'exclusion') {
-                    icon = '🟥';
-                    cssClass = 'exclusion';
-                    detailText = action.exclusionType === 'penalty' ? 'Exclusión por Penalty' : 'Exclusión';
-                    
-                    // Afegir informació de qui ha rebut la falta (si és exclusió rival)
-                    if (isRival && action.faltaSobreJugador) {
-                        const jugadorCNT = currentMatch.jugadors.find(j => j.numero == action.faltaSobreJugador);
-                        if (jugadorCNT) {
-                            detailText += ` <span style="font-size: 11px; opacity: 0.7;">(falta sobre ${jugadorCNT.numero}. ${jugadorCNT.nom.split(' ')[0]})</span>`;
-                        }
-                    }
+    if (action.exclusionType === 'penalty') {
+        icon = '🔴🏐';
+        detailText = 'Penalty cometido';
+    } else {
+        icon = '🔴⏱️';
+        detailText = 'Exclusión 20 seg.';
+    }
+    cssClass = 'exclusion';
+    
+    // Afegir informació de qui ha rebut la falta (si és exclusió rival)
+    if (isRival && action.faltaSobreJugador) {
+        const jugadorCNT = currentMatch.jugadors.find(j => j.numero == action.faltaSobreJugador);
+        if (jugadorCNT) {
+            detailText += ` <span style="font-size: 11px; opacity: 0.7;">(falta sobre ${jugadorCNT.numero}. ${jugadorCNT.nom.split(' ')[0]})</span>`;
+        }
+    }
                 } else if (action.type === 'water-change') {
                     icon = action.action === 'in' ? '🏊🟢' : '🏊🔴';
                     cssClass = 'water-change';
