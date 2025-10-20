@@ -643,6 +643,23 @@
             font-weight: bold;
             color: #fde047;
         }
+		@media print {
+    /* Ocultar elements que no vols imprimir */
+    .btn, .filter-bar, .tabs {
+        display: none !important;
+    }
+    
+    /* Ajustar mides per impressió */
+    body {
+        background: white;
+    }
+    
+    .card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
     </style>
  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D460QXC8C3"></script>
 <script>
@@ -720,6 +737,11 @@
         </button>
     </div>
 	-->
+	<div style="margin-bottom: 20px;">
+        <button class="btn" onclick="window.print()" style="background: #8b5cf6; padding: 12px 20px;">
+            🖨️ Imprimir / Exportar PDF
+        </button>
+    </div>
     <!-- Filtro por jugador -->
     <div class="card">
         <div class="filter-bar">
@@ -842,6 +864,10 @@
   <!--  <button class="btn" onclick="generateMatchPDF(currentMatch)" style="background: #8b5cf6; padding: 12px 20px; margin-bottom: 15px;">
             📄 Generar PDF d'aquest Partit
         </button>-->
+		
+		<button class="btn" onclick="window.print()" style="background: #8b5cf6; padding: 12px 20px;">
+    🖨️ Imprimir / Exportar PDF
+</button>
     <div class="card">
         <div class="match-header">
             <div class="team-section">
@@ -960,6 +986,11 @@
                 📄 Generar PDF General
             </button>
         </div>-->
+        <div style="margin-bottom: 20px;">
+            <button class="btn" onclick="window.print()" style="background: #8b5cf6; padding: 12px 20px;">
+                🖨️ Imprimir / Exportar PDF
+            </button>
+        </div>
         <div class="card">
             <div class="filter-bar">
                 <div class="filter-item">
@@ -1086,6 +1117,11 @@
             📄 Generar PDF Titularitats
         </button>
     </div>-->
+	<div style="margin-bottom: 20px;">
+        <button class="btn" onclick="window.print()" style="background: #8b5cf6; padding: 12px 20px;">
+            🖨️ Imprimir / Exportar PDF
+        </button>
+    </div>
     <div class="card">
         <h2 class="section-title">🔥 Heatmap de Titularidades</h2>
         <canvas id="titularityHeatmapChart" style="max-height: 400px;"></canvas>
