@@ -4676,7 +4676,6 @@ function renderMatchTimeline() {
     // ========== RENDERITZAR CRONOLOGIA DEL PARTIT ==========
     // Ordenar por timestamp
     const sortedActions = [...currentMatch.chronologicalActions]
-        .filter(a => a.type !== 'swim-race') // Excloure les curses de la cronologia
         .sort((a, b) => a.timestamp - b.timestamp);
     
     const goalTypeLabels = {
@@ -4704,7 +4703,34 @@ function renderMatchTimeline() {
                 const playerClass = isRival ? 'timeline-rival' : 'timeline-player';
                 const teamName = isRival ? (currentMatch.rivalTeam || 'Rival') : 'CN Terrassa';
                 
-                if (action.type === 'goal') {
+                // PRIMER: Comprovar si és una acció (robatori, assistència, pèrdua, xut)
+                if (action.type === 'action') {
+                    if (action.actionType === 'robatori') {
+                        icon = '🤚';
+                        cssClass = 'goal';
+                        detailText = 'Robatori';
+                    } else if (action.actionType === 'perdua') {
+                        icon = '🔄';
+                        cssClass = 'exclusion';
+                        detailText = 'Pèrdua de pilota';
+                    } else if (action.actionType === 'assistencia') {
+                        icon = '🎯';
+                        cssClass = 'goal';
+                        detailText = 'Assistència';
+                    } else if (action.actionType === 'xut') {
+                        icon = '🥅❌';
+                        cssClass = 'exclusion';
+                        detailText = 'Xut fallat';
+                    }
+					else if (action.actionType === 'block') {
+					icon = '🚫';
+					cssClass = 'goal';
+					detailText = 'Blocatge';}
+                } else if (action.type === 'save') {
+                    icon = '🧤';
+    cssClass = 'goal';
+    detailText = action.saveType === 'atrapa' ? 'Aturada - Atrapa' : 'Aturada - Desvia';
+                } else if (action.type === 'goal') {
                     icon = '⚽';
                     cssClass = 'goal';
                     detailText = `Gol ${goalTypeLabels[action.goalType]}`;
@@ -4721,9 +4747,13 @@ function renderMatchTimeline() {
                         }
                     }
                 } else if (action.type === 'water-change') {
-                    icon = action.action === 'in' ? '🌊➡️' : '🌊⬅️';
+                    icon = action.action === 'in' ? '🏊🟢' : '🏊🔴';
                     cssClass = 'water-change';
                     detailText = action.action === 'in' ? 'Entra al agua' : 'Sale del agua';
+                } else if (action.type === 'swim-race') {
+                    icon = action.result === 'win' ? '🏊✅' : '🏊❌';
+                    cssClass = action.result === 'win' ? 'goal' : 'exclusion';
+                    detailText = `Cursa inici quart - ${action.result === 'win' ? 'Guanyada' : 'Perduda'}`;
                 }
                 
                 return `
