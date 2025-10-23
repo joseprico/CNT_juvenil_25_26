@@ -191,7 +191,20 @@ svg { display: inline-block; vertical-align: middle; }
                 <button class="modal-btn" onclick="showGoalZoneStep('boya')">Boya</button>
             </div>
         </div>
-        
+        <!-- Modal Assistència -->
+<div id="assistModal" class="modal">
+    <div class="modal-content">
+        <h3 class="modal-title">Hi ha hagut assistència?</h3>
+        <select id="assistPlayerSelect" style="width: 100%; padding: 12px; margin: 15px 0; font-size: 16px; border-radius: 8px; border: 2px solid #0ea5e9; background: rgba(255,255,255,0.2); color: white;">
+            <option value="">-- Sense assistència --</option>
+        </select>
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button onclick="confirmAssist()" class="btn btn-blue" style="flex: 1; padding: 15px; font-size: 16px;">
+                ✅ Confirmar
+            </button>
+        </div>
+    </div>
+</div>
         <!-- PASO 2: Seleccionar zona (oculto inicialmente) -->
         <div id="goalZoneStep" style="display: none;">
             <div class="modal-title">¿Dónde entró el gol?</div>
@@ -246,7 +259,7 @@ svg { display: inline-block; vertical-align: middle; }
     <div class="modal-content">
         <div class="modal-title">Tipus d'Acció</div>
         <div class="modal-buttons">
-            <button class="modal-btn" onclick="selectActionType('assistencia')">🎯 Assistència</button>
+            <button class="modal-btn" onclick="selectActionType('2metres')">📏 2 Metres</button>
             <button class="modal-btn" onclick="selectActionType('robatori')">🛡️ Robatori</button>
             <button class="modal-btn" onclick="selectActionType('perdua')">❌ Pèrdua</button>
 			<button class="modal-btn" onclick="selectActionType('xut')">🚫 Xut Fallat</button>
@@ -258,11 +271,12 @@ svg { display: inline-block; vertical-align: middle; }
 	    <div id="penaltyMissedModal" class="modal"><div class="modal-content" style="max-width: 400px;" id="penaltyModalContent"></div></div>
     
     <div id="waterWarning" class="water-warning">⚠️ Has de tenir exactament 7 jugadors DINS!</div>
-<div id="superioritatIndicator" style="display: none; position: fixed; top: 150px; left: 50%; transform: translateX(-50%); z-index: 1001; animation: slideDown 0.3s ease-out;"></div>
-<div id="playersInWaterBar" style="position: fixed; bottom: 80px; left: 0; right: 0; background: rgba(34, 197, 94, 0.9); padding: 4px 8px; text-align: center; z-index: 998; display: none;">
-    <div style="font-size: 8px; color: white; margin-bottom: 2px;">JUGADORS DINS:</div>
+	<div id="playersInWaterBar" style="position: fixed; top: 75px; left: 0; right: 0; background: rgba(34, 197, 94, 0.9); padding: 4px 8px; text-align: center; z-index: 998; display: none;">
+    <div style="font-size: 8px; color: white; margin-bottom: 2px;">DINS:</div>
     <div id="playersInWaterList" style="font-size: 12px; font-weight: bold; color: white; line-height: 1;"></div>
 </div>
+<div id="superioritatIndicator" style="display: none; position: fixed; top: 150px; left: 50%; transform: translateX(-50%); z-index: 1001; animation: slideDown 0.3s ease-out;"></div>
+
     <div class="container">
                <div class="card tabs">
             <button class="btn tab active" onclick="showView('stats')">CNT</button>
@@ -289,7 +303,7 @@ svg { display: inline-block; vertical-align: middle; }
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-let players=[{num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'ORIOL SANCHEZ'},{num:5,name:'MARC MORENO'},{num:6,name:'SAMUEL DIAZ'},{num:7,name:'IKER VAZQUEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'HECTOR DIOS'},{num:12,name:'LLATZER PEREZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
+let players=[{num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'IAN BARTOLOME'},{num:5,name:'MARC MORENO'},{num:6,name:'SAMUEL DIAZ'},{num:7,name:'ORIOL SANCHEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'HECTOR DIOS'},{num:12,name:'LLATZER PEREZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
 let stats={},rivalStats=[],lineups={q1:[],q2:[],q3:[],q4:[]},periodScores={q1:{cnt:0,rival:0},q2:{cnt:0,rival:0},q3:{cnt:0,rival:0},q4:{cnt:0,rival:0}},tempsMortCNT=0,tempsMortRival=0,rivalTeam='',matchLocation='home',observacions='',currentGoalContext=null,currentExclusionContext=null,currentSaveContext=null,currentActionContext=null,actionsHistory=[],compactMode=true,chronologicalActions=[];
 let githubConfig={token:'',repo:'joseprico/CNT_juvenil_25_26',branch:'main'};
 let playersInWater=new Set();
@@ -499,8 +513,8 @@ function selectActionType(type) {
     const timestamp = Date.now();
     
     // Incrementar el comptador corresponent
-    if (type === 'assistencia') {
-        stats[playerNum].assistencies = (stats[playerNum].assistencies || 0) + 1;
+    if (type === '2metres') {
+        stats[playerNum].infraccions2m = (stats[playerNum].infraccions2m || 0) + 1;
     } else if (type === 'robatori') {
         stats[playerNum].robatoris = (stats[playerNum].robatoris || 0) + 1;
     } else if (type === 'perdua') {
@@ -521,7 +535,7 @@ function selectActionType(type) {
         playerName: playerName
     });
     
-    const actionTypeText = type === 'assistencia' ? '🎯 Assistència' : 
+    const actionTypeText = type === '2metres' ? '📏 2 Metres' : 
                            type === 'robatori' ? '🛡️ Robatori' : 
                            type === 'perdua' ? '❌ Pèrdua' :
                            type === 'xut' ? '🚫 Xut Fallat' :
@@ -548,6 +562,7 @@ function selectActionType(type) {
     saveToLocalStorage();
     closeActionModal();
 }
+
 function decrementLastAction(n) {
     const lastAction = [...chronologicalActions]
         .reverse()
@@ -555,8 +570,8 @@ function decrementLastAction(n) {
     
     if (lastAction) {
         const type = lastAction.actionType;
-        if (type === 'assistencia' && stats[n].assistencies > 0) {
-            stats[n].assistencies--;
+        if (type === '2metres' && stats[n].infraccions2m > 0) {
+            stats[n].infraccions2m--;
         } else if (type === 'robatori' && stats[n].robatoris > 0) {
             stats[n].robatoris--;
         } else if (type === 'perdua' && stats[n].perdues > 0) {
@@ -568,9 +583,9 @@ function decrementLastAction(n) {
         }
     } else {
         // Si no trobem cap, decrementem en ordre
-        if (stats[n].assistencies > 0) {
-            stats[n].assistencies--;
-        } else if (stats[n].robatoris > 0) {undoAction
+        if (stats[n].infraccions2m > 0) {
+            stats[n].infraccions2m--;
+        } else if (stats[n].robatoris > 0) {
             stats[n].robatoris--;
         } else if (stats[n].perdues > 0) {
             stats[n].perdues--;
@@ -590,17 +605,20 @@ function decrementLastAction(n) {
     updateScores();
     saveToLocalStorage();
 }
+
 function getTotalActions(playerNum) {
-    const total = (stats[playerNum]?.assistencies || 0) + 
+    const total = (stats[playerNum]?.infraccions2m || 0) + 
                   (stats[playerNum]?.robatoris || 0) + 
                   (stats[playerNum]?.perdues || 0) +
-                  (stats[playerNum]?.xutsFallats || 0);
+                  (stats[playerNum]?.xutsFallats || 0) +
+                  (stats[playerNum]?.blocks || 0);
     
     console.log(`📊 getTotalActions(${playerNum}):`, total, {
-        assistencies: stats[playerNum]?.assistencies,
+        infraccions2m: stats[playerNum]?.infraccions2m,
         robatoris: stats[playerNum]?.robatoris,
         perdues: stats[playerNum]?.perdues,
-        xutsFallats: stats[playerNum]?.xutsFallats
+        xutsFallats: stats[playerNum]?.xutsFallats,
+        blocks: stats[playerNum]?.blocks
     });
     
     return total;
@@ -859,6 +877,9 @@ function selectGoalType(t) {
     } else {
         const player = players.find(p => p.num === playerNum);
         playerName = player ? player.name : `Jugador ${playerNum}`;
+		
+		showAssistModal(playerNum, playerName, t, goalZone, timestamp);
+		return; // ❌ IMPORTANT: sortir aquí per no guardar el gol encara
         
         if (!stats[playerNum].goalTypes) {
             stats[playerNum].goalTypes = {normal: 0, 'h+': 0, penalty: 0, contra: 0, boya: 0};
@@ -871,17 +892,8 @@ function selectGoalType(t) {
         stats[playerNum].goalTypes[t]++;
         stats[playerNum].goalZones[goalZone] = (stats[playerNum].goalZones[goalZone] || 0) + 1;
         
-        chronologicalActions.push({
-            timestamp: timestamp,
-            quarter: currentQuarter,
-            type: 'goal',
-            goalType: t,
-            goalZone: goalZone,
-            team: 'cnt',
-            playerNum: playerNum,
-            playerName: playerName
-        });
-        
+		
+             
         document.getElementById(`gols-${playerNum}`).textContent = stats[playerNum].gols;
         renderCompactView();
     }
@@ -905,7 +917,122 @@ function selectGoalType(t) {
     saveToLocalStorage();
 }
 
-
+function showAssistModal(scorerNum, scorerName, goalType, goalZone, goalTimestamp) {
+    const assistModal = document.getElementById('assistModal');
+    const assistPlayerSelect = document.getElementById('assistPlayerSelect');
+    
+    // Netejar opcions anteriors
+    assistPlayerSelect.innerHTML = '<option value="">-- Sense assistència --</option>';
+    
+    // Afegir només jugadors dins l'aigua (excepte el que ha marcat)
+    playersInWater.forEach(num => {
+        if (num != scorerNum) {  // Diferent del que marca
+            const jugador = players.find(p => p.num == num);
+            if (jugador) {
+                const option = document.createElement('option');
+                option.value = num;
+                option.textContent = `${num}. ${jugador.name}`;
+                assistPlayerSelect.appendChild(option);
+            }
+        }
+    });
+    
+    assistModal.style.display = 'flex'; // Mostrar modal
+    
+    // Guardar les dades del gol per usar-les després
+    assistModal.dataset.scorerNum = scorerNum;
+    assistModal.dataset.scorerName = scorerName;
+    assistModal.dataset.goalType = goalType;
+    assistModal.dataset.goalZone = goalZone;
+    assistModal.dataset.goalTimestamp = goalTimestamp;
+}
+function confirmAssist() {
+    const assistModal = document.getElementById('assistModal');
+    const assistPlayerSelect = document.getElementById('assistPlayerSelect');
+    const assistNum = assistPlayerSelect.value;
+    
+    // Recuperar dades del gol
+    const scorerNum = parseInt(assistModal.dataset.scorerNum);
+    const scorerName = assistModal.dataset.scorerName;
+    const goalType = assistModal.dataset.goalType;
+    const goalZone = assistModal.dataset.goalZone;
+    const goalTimestamp = parseInt(assistModal.dataset.goalTimestamp);
+    
+    const currentQuarter = getCurrentQuarter();
+    
+    // ✅ Si hi ha assistència, registrar-la PRIMER (2 segons abans del gol)
+    if (assistNum) {
+        const assistPlayer = players.find(p => p.num == assistNum);
+        if (assistPlayer) {
+            chronologicalActions.push({
+                timestamp: goalTimestamp - 2000,  // 2 segons abans del gol
+                quarter: currentQuarter,
+                type: 'action',
+                actionType: 'assistencia',
+                team: 'cnt',
+                playerNum: parseInt(assistNum),
+                playerName: assistPlayer.name
+            });
+            // ✅ INCREMENTAR COMPTADOR D'ASSISTÈNCIES (AFEGEIX AIXÒ)
+        if (!stats[parseInt(assistNum)].assistencies) {
+            stats[parseInt(assistNum)].assistencies = 0;
+        }
+        stats[parseInt(assistNum)].assistencies++;
+            addToHistory({
+                type: 'action',
+                playerNum: parseInt(assistNum),
+                isRival: false,
+                actionType: 'assistencia',
+                text: `${assistPlayer.name}: Assistència`
+            });
+        }
+    }
+    
+    // ✅ ARA SÍ, GUARDAR EL GOL (copia el codi que has comentat abans)
+    if (!stats[scorerNum].goalTypes) {
+        stats[scorerNum].goalTypes = {normal: 0, 'h+': 0, penalty: 0, contra: 0, boya: 0};
+    }
+    if (!stats[scorerNum].goalZones) {
+        stats[scorerNum].goalZones = {};
+    }
+    
+    stats[scorerNum].gols++;
+    stats[scorerNum].goalTypes[goalType]++;
+    stats[scorerNum].goalZones[goalZone] = (stats[scorerNum].goalZones[goalZone] || 0) + 1;
+    
+    chronologicalActions.push({
+        timestamp: goalTimestamp,
+        quarter: currentQuarter,
+        type: 'goal',
+        goalType: goalType,
+        goalZone: goalZone,
+        team: 'cnt',
+        playerNum: scorerNum,
+        playerName: scorerName
+    });
+    
+    document.getElementById(`gols-${scorerNum}`).textContent = stats[scorerNum].gols;
+    
+    const zoneText = (goalZone !== 'unknown') ? ` (${getZoneText(goalZone)})` : '';
+    
+    addToHistory({
+        type: 'gol',
+        playerNum: scorerNum,
+        isRival: false,
+        goalType: goalType,
+        goalZone: goalZone,
+        text: `${scorerName}: Gol ${goalType === 'h+' ? 'H+' : goalType === 'penalty' ? 'Penalty' : goalType === 'contra' ? 'Contra' : goalType === 'boya' ? 'Boya' : 'Normal'}${zoneText}`
+    });
+    
+    renderCompactView();
+    updateScores();
+    updateQuarterInfo();
+    saveToLocalStorage();
+    
+    // Tancar modals
+    assistModal.style.display = 'none';
+    closeGoalModal();
+}
 function getZoneText(zone) {
     const zones = {
         'top-left': '⬆️ Esq.',
@@ -1430,9 +1557,9 @@ function resetAll() {
     if (confirm('¿Seguro que quieres resetear todas las estadísticas?')) {
         // Resetear jugadores a los predefinidos del CNT
         players = [
-            {num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'ORIOL SANCHEZ'},{num:5,name:'MARC MORENO'},{num:6,name:'SAMUEL DIAZ'},{num:7,name:'IKER VAZQUEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'HECTOR DIOS'},{num:12,name:'LLATZER PEREZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
+         {num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'IAN BARTOLOME'},{num:5,name:'MARC MORENO'},{num:6,name:'SAMUEL DIAZ'},{num:7,name:'ORIOL SANCHEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'HECTOR DIOS'},{num:12,name:'LLATZER PEREZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
 
-        // Resetear estadísticas de jugadores
+          // Resetear estadísticas de jugadores
         stats = {};
         players.forEach(p => {
             stats[p.num] = {
@@ -1975,13 +2102,13 @@ document.addEventListener('touchend', function(e) {
 }, { passive: true });
 // ✅ BLOQUEJAR CLICS durant swipe
 document.addEventListener('click', function(e) {
-    if (window.isCurrentlyDragging) {
+    if (hasMoved) {
         e.preventDefault();
         e.stopPropagation();
-        window.isCurrentlyDragging = false;
+        hasMoved = false;
         return false;
     }
-}, true);
+}, true); // ✅ true = captura l'event ABANS que arribi als botons
 function quickChangeTab(viewName, tabIndex) {
     // Canviar vista
     const views = ['statsView', 'rivalView', 'lineupsView'];
