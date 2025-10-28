@@ -5,8 +5,8 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2025-10-28T17:52:49.353373",
-    "parser_version": "5.2_scores_dates"
+    "downloaded_at": "2025-10-28T19:39:01.151047",
+    "parser_version": "5.3_final"
   },
   "players": [
     {
@@ -469,79 +469,55 @@
       "team1": "C.N. TERRASSA",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574238/results",
       "match_id": "143574238",
-      "date_time": "Dom, 09/11/2025 12:55",
-      "date": "09/11/2025",
+      "date": "Dom 09/11/2025",
       "time": "12:55",
-      "venue": "163 - Terrassa C.N.",
-      "team2": "C.N. MONTJUIC B",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.N. MONTJUIC B",
-      "is_home": true
+      "date_time": "Dom 09/11/2025 12:55",
+      "team2": "C.N. MONTJUIC B"
     },
     {
       "team1": "C.N. TERRASSA",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574239/results",
       "match_id": "143574239",
-      "date_time": "Dom, 16/11/2025 12:55",
-      "date": "16/11/2025",
+      "date": "Dom 16/11/2025",
       "time": "12:55",
-      "venue": "163 - Terrassa C.N.",
-      "team2": "C.E. MEDITERRANI",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.E. MEDITERRANI",
-      "is_home": true
+      "date_time": "Dom 16/11/2025 12:55",
+      "team2": "C.E. MEDITERRANI"
     },
     {
       "team1": "C.N. RUBÍ",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574241/results",
       "match_id": "143574241",
-      "date_time": "Dom, 23/11/2025 11:30",
-      "date": "23/11/2025",
+      "date": "Dom 23/11/2025",
       "time": "11:30",
-      "venue": "186 - Rubí, CN - Can Rosés",
-      "team2": "C.N. TERRASSA",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.N. RUBÍ",
-      "is_home": false
+      "date_time": "Dom 23/11/2025 11:30",
+      "team2": "C.N. TERRASSA"
     },
     {
       "team1": "C.N. MONTJUIC B",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574244/results",
       "match_id": "143574244",
-      "date_time": "Dom, 30/11/2025 10:30",
-      "date": "30/11/2025",
+      "date": "Dom 30/11/2025",
       "time": "10:30",
-      "venue": "161 - Montjuic, CN - Zona Esportiva",
-      "team2": "C.N. TERRASSA",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.N. MONTJUIC B",
-      "is_home": false
+      "date_time": "Dom 30/11/2025 10:30",
+      "team2": "C.N. TERRASSA"
     },
     {
       "team1": "C.E. MEDITERRANI",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574245/results",
       "match_id": "143574245",
-      "date_time": "Dom, 14/12/2025 11:00",
-      "date": "14/12/2025",
+      "date": "Dom 14/12/2025",
       "time": "11:00",
-      "venue": "258 - Mediterrani CE, Josep Vallès - 50m",
-      "team2": "C.N. TERRASSA",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.E. MEDITERRANI",
-      "is_home": false
+      "date_time": "Dom 14/12/2025 11:00",
+      "team2": "C.N. TERRASSA"
     },
     {
       "team1": "C.N. TERRASSA",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574247/results",
       "match_id": "143574247",
-      "date_time": "Dom, 21/12/2025 12:55",
-      "date": "21/12/2025",
+      "date": "Dom 21/12/2025",
       "time": "12:55",
-      "venue": "163 - Terrassa C.N.",
-      "team2": "C.N. RUBÍ",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.N. RUBÍ",
-      "is_home": true
+      "date_time": "Dom 21/12/2025 12:55",
+      "team2": "C.N. RUBÍ"
     }
   ],
   "last_results": [
@@ -549,19 +525,19 @@
       "team1": "C.N. TERRASSA",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143253265/results",
       "match_id": "143253265",
-      "team2": "C.N. MOLINS DE REI",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.N. MOLINS DE REI",
-      "is_home": true
+      "score_team1": 23,
+      "score_team2": 7,
+      "score": "23 - 7",
+      "team2": "C.N. MOLINS DE REI"
     },
     {
       "team1": "C.N. MONTJUIC A",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143253266/results",
       "match_id": "143253266",
-      "team2": "C.N. TERRASSA",
-      "home_team": "C.N. TERRASSA",
-      "away_team": "C.N. MONTJUIC A",
-      "is_home": false
+      "score_team1": 10,
+      "score_team2": 20,
+      "score": "10 - 20",
+      "team2": "C.N. TERRASSA"
     }
   ]
 }
