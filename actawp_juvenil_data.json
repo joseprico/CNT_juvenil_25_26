@@ -5,12 +5,12 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2025-10-28T11:42:29.733826",
-    "parser_version": "4.1_normalized"
+    "downloaded_at": "2025-10-28T12:04:27.776923",
+    "parser_version": "5.0_auto_normalize"
   },
   "players": [
     {
-      "Nombre": "ADAY ACUÑA PRADAS",
+      "Nombre": "VerADAY ACUÑA PRADAS",
       "PJ": 0,
       "GT": 0,
       "G": 0,
@@ -32,7 +32,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "ALAN GONZALEZ ARRIBAS",
+      "Nombre": "VerALAN GONZALEZ ARRIBAS",
       "PJ": 0,
       "GT": 0,
       "G": 0,
@@ -54,7 +54,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "ARNAU MERCADE SEGURA",
+      "Nombre": "VerARNAU MERCADE SEGURA",
       "PJ": 2,
       "GT": 1,
       "G": 1,
@@ -76,7 +76,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "BIEL GARCIA ARJONA",
+      "Nombre": "VerBIEL GARCIA ARJONA",
       "PJ": 2,
       "GT": 2,
       "G": 2,
@@ -98,7 +98,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "ERIC MORA FERNANDEZ",
+      "Nombre": "VerERIC MORA FERNANDEZ",
       "PJ": 2,
       "GT": 0,
       "G": 0,
@@ -120,7 +120,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "ERIC VILLAREAL MURIEL",
+      "Nombre": "VerERIC VILLAREAL MURIEL",
       "PJ": 0,
       "GT": 0,
       "G": 0,
@@ -142,7 +142,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "HECTOR DIOS ESTEBAN",
+      "Nombre": "VerHECTOR DIOS ESTEBAN",
       "PJ": 1,
       "GT": 0,
       "G": 0,
@@ -164,7 +164,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "IAN BARTOLOME COLLADO",
+      "Nombre": "VerIAN BARTOLOME COLLADO",
       "PJ": 2,
       "GT": 6,
       "G": 6,
@@ -186,7 +186,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "JORDI TARRADAS VARGAS",
+      "Nombre": "VerJORDI TARRADAS VARGAS",
       "PJ": 2,
       "GT": 2,
       "G": 2,
@@ -208,7 +208,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "LLATZER PEREZ BARADAD",
+      "Nombre": "VerLLATZER PEREZ BARADAD",
       "PJ": 1,
       "GT": 2,
       "G": 2,
@@ -230,7 +230,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "MARC CAMPAÑA SALVADOR",
+      "Nombre": "VerMARC CAMPAÑA SALVADOR",
       "PJ": 2,
       "GT": 2,
       "G": 2,
@@ -252,7 +252,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "MARC MORENO FOLCH",
+      "Nombre": "VerMARC MORENO FOLCH",
       "PJ": 1,
       "GT": 1,
       "G": 0,
@@ -274,7 +274,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "MARTI ARIMON HUMET",
+      "Nombre": "VerMARTI ARIMON HUMET",
       "PJ": 2,
       "GT": 10,
       "G": 8,
@@ -296,7 +296,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "MAX VALLS FORNIELES",
+      "Nombre": "VerMAX VALLS FORNIELES",
       "PJ": 2,
       "GT": 0,
       "G": 0,
@@ -318,7 +318,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "ORIOL SANCHEZ CARRILLO",
+      "Nombre": "VerORIOL SANCHEZ CARRILLO",
       "PJ": 2,
       "GT": 8,
       "G": 7,
@@ -340,7 +340,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "POL RICO SANAHUJA",
+      "Nombre": "VerPOL RICO SANAHUJA",
       "PJ": 2,
       "GT": 3,
       "G": 3,
@@ -362,7 +362,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "ROGER FARRE AMADOR",
+      "Nombre": "VerROGER FARRE AMADOR",
       "PJ": 2,
       "GT": 2,
       "G": 2,
@@ -384,7 +384,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "ROGER ROVIRA MARTINEZ",
+      "Nombre": "VerROGER ROVIRA MARTINEZ",
       "PJ": 1,
       "GT": 0,
       "G": 0,
@@ -406,7 +406,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "SAMUEL DIAZ MARROQUIN",
+      "Nombre": "VerSAMUEL DIAZ MARROQUIN",
       "PJ": 2,
       "GT": 4,
       "G": 3,
@@ -428,7 +428,7 @@
       "Vinculado": ""
     },
     {
-      "Nombre": "YABSIRA CASADO FUENTES",
+      "Nombre": "VerYABSIRA CASADO FUENTES",
       "PJ": 0,
       "GT": 0,
       "G": 0,
