@@ -1,6 +1,8 @@
 """
-Parser ACTAWP v5.2
-Afegeix: marcadors dels resultats i dates dels partits
+Parser ACTAWP v5.3 - DEFINITIU
+Estructura correcta segons captures:
+- Pròxims: [Equip1] [Data/Hora/Lloc] [Equip2]
+- Resultats: [Equip1] [MARCADOR] [Equip2]
 """
 
 import requests
@@ -9,7 +11,7 @@ from bs4 import BeautifulSoup
 import re
 from datetime import datetime
 
-class ActawpParserV52:
+class ActawpParserV53:
     
     def __init__(self):
         self.session = requests.Session()
@@ -221,8 +223,11 @@ class ActawpParserV52:
         
         return players
     
-    def parse_matches(self, html_content, include_score=False):
-        """Parser per partits amb marcador i data millorada"""
+    def parse_upcoming_matches(self, html_content):
+        """
+        Parser per PRÒXIMS PARTITS
+        Estructura: [Equip1] [Data/Hora/Lloc] [Equip2]
+        """
         soup = BeautifulSoup(html_content, 'html.parser')
         matches = []
         
@@ -238,20 +243,20 @@ class ActawpParserV52:
         
         for row in rows:
             try:
-                match_info = {}
                 cols = row.find_all('td')
                 
                 if len(cols) < 3:
                     continue
                 
-                # Equip 1 (columna 0)
-                col1 = cols[0]
-                team1_span = col1.find('span', class_='ellipsis')
+                match_info = {}
+                
+                # Columna 0: Equip 1 (local)
+                team1_span = cols[0].find('span', class_='ellipsis')
                 if team1_span:
                     match_info['team1'] = team1_span.get_text(strip=True)
                 
                 # Enllaç
-                link = col1.find('a', href=True)
+                link = cols[0].find('a', href=True)
                 if link:
                     href = link['href']
                     match_info['url'] = href if href.startswith('http') else 'https://actawp.natacio.cat' + href
@@ -259,67 +264,95 @@ class ActawpParserV52:
                     if match_id_search:
                         match_info['match_id'] = match_id_search.group(1)
                 
-                # Marcador (si include_score=True, està a la columna 1)
-                if include_score and len(cols) >= 4:
-                    score_col = cols[1]
-                    score_text = score_col.get_text(strip=True)
-                    # Format esperat: "10 - 8" o similar
-                    score_match = re.search(r'(\d+)\s*-\s*(\d+)', score_text)
-                    if score_match:
-                        match_info['score_team1'] = int(score_match.group(1))
-                        match_info['score_team2'] = int(score_match.group(2))
-                        match_info['score'] = score_text
-                    
-                    # Data i hora (columna 2)
-                    date_col = cols[2]
-                    equip2_col = cols[3]
-                else:
-                    # Pròxims partits: data i hora a columna 1
-                    date_col = cols[1]
-                    equip2_col = cols[2]
+                # Columna 1: Data/Hora/Lloc
+                date_col = cols[1]
+                date_text = date_col.get_text(strip=True)
                 
-                # Data i hora
-                date_span = date_col.find('span', attrs={'data-sort': True})
-                if date_span:
-                    date_text = date_span.get_text(strip=True)
-                    
-                    # Extreure data i hora
-                    date_match = re.search(r'([A-Za-z]{3,},?\s+\d{1,2}/\d{1,2}/\d{4}\s+\d{1,2}:\d{2})', date_text)
-                    if date_match:
-                        full_date = date_match.group(1)
-                        match_info['date_time'] = full_date
-                        
-                        # Separar data i hora
-                        parts = full_date.split()
-                        if len(parts) >= 3:
-                            match_info['date'] = parts[1]  # Ex: "19/10/2024"
-                            match_info['time'] = parts[2]  # Ex: "18:00"
-                    
-                    # Venue (lloc)
-                    venue_span = date_span.find('span', class_='ellipsis')
-                    if venue_span:
-                        match_info['venue'] = venue_span.get('title') or venue_span.get_text(strip=True)
+                # Extreure data i hora
+                date_match = re.search(r'(\w+,?\s+\d{1,2}/\d{1,2}/\d{4})\s+(\d{1,2}:\d{2})', date_text)
+                if date_match:
+                    match_info['date'] = date_match.group(1).replace(',', '').strip()
+                    match_info['time'] = date_match.group(2)
+                    match_info['date_time'] = f"{match_info['date']} {match_info['time']}"
                 
-                # Equip 2
-                team2_span = equip2_col.find('span', class_='ellipsis')
+                # Extreure lloc
+                venue_match = re.search(r'(\d{1,2}:\d{2})\s*-\s*([^$]+)', date_text)
+                if venue_match:
+                    match_info['venue'] = venue_match.group(2).strip()
+                
+                # Columna 2: Equip 2 (visitant)
+                team2_span = cols[2].find('span', class_='ellipsis')
                 if team2_span:
                     match_info['team2'] = team2_span.get_text(strip=True)
-                
-                # Determinar home/away
-                if 'team1' in match_info and 'TERRASSA' in match_info['team1'].upper():
-                    match_info['home_team'] = match_info['team1']
-                    match_info['away_team'] = match_info.get('team2', '')
-                    match_info['is_home'] = True
-                else:
-                    match_info['home_team'] = match_info.get('team2', '')
-                    match_info['away_team'] = match_info.get('team1', '')
-                    match_info['is_home'] = False
                 
                 if match_info.get('match_id'):
                     matches.append(match_info)
                 
             except Exception as e:
-                print(f"  ⚠️ Error processant fila: {e}")
+                print(f"  ⚠️ Error processant pròxim partit: {e}")
+                continue
+        
+        return matches
+    
+    def parse_last_results(self, html_content):
+        """
+        Parser per ÚLTIMS RESULTATS
+        Estructura: [Equip1] [MARCADOR] [Equip2]
+        """
+        soup = BeautifulSoup(html_content, 'html.parser')
+        matches = []
+        
+        table = soup.find('table')
+        if not table:
+            return matches
+        
+        tbody = table.find('tbody')
+        if not tbody:
+            return matches
+        
+        rows = tbody.find_all('tr')
+        
+        for row in rows:
+            try:
+                cols = row.find_all('td')
+                
+                if len(cols) < 3:
+                    continue
+                
+                match_info = {}
+                
+                # Columna 0: Equip 1
+                team1_span = cols[0].find('span', class_='ellipsis')
+                if team1_span:
+                    match_info['team1'] = team1_span.get_text(strip=True)
+                
+                # Enllaç
+                link = cols[0].find('a', href=True)
+                if link:
+                    href = link['href']
+                    match_info['url'] = href if href.startswith('http') else 'https://actawp.natacio.cat' + href
+                    match_id_search = re.search(r'/match/(\d+)', href)
+                    if match_id_search:
+                        match_info['match_id'] = match_id_search.group(1)
+                
+                # Columna 1: MARCADOR
+                score_text = cols[1].get_text(strip=True)
+                score_match = re.search(r'(\d+)\s*-\s*(\d+)', score_text)
+                if score_match:
+                    match_info['score_team1'] = int(score_match.group(1))
+                    match_info['score_team2'] = int(score_match.group(2))
+                    match_info['score'] = score_text
+                
+                # Columna 2: Equip 2
+                team2_span = cols[2].find('span', class_='ellipsis')
+                if team2_span:
+                    match_info['team2'] = team2_span.get_text(strip=True)
+                
+                if match_info.get('match_id'):
+                    matches.append(match_info)
+                
+            except Exception as e:
+                print(f"  ⚠️ Error processant resultat: {e}")
                 continue
         
         return matches
@@ -327,7 +360,7 @@ class ActawpParserV52:
     def generate_json(self, team_id, team_key, team_name, coach, language='es'):
         """Genera JSON amb normalització automàtica"""
         print(f"\n{'='*70}")
-        print(f"📥 {team_name} - Parser v5.2 (Marcadors + Dates)")
+        print(f"📥 {team_name} - Parser v5.3 (DEFINITIU)")
         print(f"{'='*70}")
         
         result = {
@@ -338,7 +371,7 @@ class ActawpParserV52:
                 "team_name": team_name,
                 "coach": coach,
                 "downloaded_at": datetime.now().isoformat(),
-                "parser_version": "5.2_scores_dates"
+                "parser_version": "5.3_final"
             }
         }
         
@@ -379,28 +412,28 @@ class ActawpParserV52:
         result['team_stats'] = team_stats
         print(f"  ✅ {len(team_stats)} estadístiques")
         
-        # Pròxims partits (sense marcador)
+        # Pròxims partits
         print("\n3️⃣ PRÒXIMS PARTITS:")
         upcoming_data = self.get_tab_content(team_id, 'upcoming-matches', language)
         if upcoming_data and upcoming_data.get('code') == 0:
-            result['upcoming_matches'] = self.parse_matches(upcoming_data.get('content', ''), include_score=False)
+            result['upcoming_matches'] = self.parse_upcoming_matches(upcoming_data.get('content', ''))
             print(f"  ✅ {len(result['upcoming_matches'])} partits")
             if result['upcoming_matches']:
                 first = result['upcoming_matches'][0]
-                print(f"  📅 Pròxim: {first.get('away_team', '?')} - {first.get('date', '?')} {first.get('time', '?')}")
+                print(f"  📅 Pròxim: {first.get('team1', '?')} vs {first.get('team2', '?')} - {first.get('date', '?')}")
         else:
             result['upcoming_matches'] = []
         
-        # Últims resultats (amb marcador)
+        # Últims resultats
         print("\n4️⃣ ÚLTIMS RESULTATS:")
         results_data = self.get_tab_content(team_id, 'last-results', language)
         if results_data and results_data.get('code') == 0:
-            result['last_results'] = self.parse_matches(results_data.get('content', ''), include_score=True)
+            result['last_results'] = self.parse_last_results(results_data.get('content', ''))
             print(f"  ✅ {len(result['last_results'])} resultats")
             if result['last_results']:
                 first = result['last_results'][0]
                 score = first.get('score', '?')
-                print(f"  📊 Últim: {first.get('away_team', '?')} - {score}")
+                print(f"  📊 Últim: {first.get('team1', '?')} {score} {first.get('team2', '?')}")
         else:
             result['last_results'] = []
         
@@ -408,15 +441,15 @@ class ActawpParserV52:
 
 
 if __name__ == "__main__":
-    parser = ActawpParserV52()
+    parser = ActawpParserV53()
     
     print("""
 ╔══════════════════════════════════════════════════════════════╗
-║   PARSER ACTAWP v5.2                                        ║
+║   PARSER ACTAWP v5.3 - DEFINITIU                            ║
 ║   ✅ Noms nets (sense Ver/Veure)                           ║
 ║   ✅ Camps normalitzats (PJ, GT, G, EX...)                 ║
-║   ✨ MARCADORS dels resultats                              ║
-║   ✨ DATES dels pròxims partits                            ║
+║   ✅ MARCADORS correctes dels resultats                     ║
+║   ✅ DATES correctes dels pròxims partits                   ║
 ╚══════════════════════════════════════════════════════════════╝
 """)
     
@@ -459,10 +492,10 @@ if __name__ == "__main__":
         print("\n" + "="*70)
     
     print("""
-✅ JSON GENERATS AMB MARCADORS I DATES!
+✅ JSON GENERATS CORRECTAMENT!
 
 📤 Puja'ls a GitHub:
    git add actawp_*.json
-   git commit -m "✨ Afegir marcadors i dates"
+   git commit -m "✨ Parser v5.3 definitiu amb marcadors"
    git push
 """)
