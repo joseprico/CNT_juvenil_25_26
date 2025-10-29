@@ -5,8 +5,8 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2025-10-29T16:42:24.673716",
-    "parser_version": "5.3_final"
+    "downloaded_at": "2025-10-29T17:31:36.796965",
+    "parser_version": "5.4_logos"
   },
   "players": [
     {
@@ -467,77 +467,93 @@
   "upcoming_matches": [
     {
       "team1": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574238/results",
       "match_id": "143574238",
       "date": "Dom 09/11/2025",
       "time": "12:55",
       "date_time": "Dom 09/11/2025 12:55",
-      "team2": "C.N. MONTJUIC B"
+      "team2": "C.N. MONTJUIC B",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/AaLZ2cLfo4fC.30x30.jpg"
     },
     {
       "team1": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574239/results",
       "match_id": "143574239",
       "date": "Dom 16/11/2025",
       "time": "12:55",
       "date_time": "Dom 16/11/2025 12:55",
-      "team2": "C.E. MEDITERRANI"
+      "team2": "C.E. MEDITERRANI",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/AasntmnZMsxi.30x30.jpg"
     },
     {
       "team1": "C.N. RUBÍ",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/Aa0ntlmDPJHS.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574241/results",
       "match_id": "143574241",
       "date": "Dom 23/11/2025",
       "time": "11:30",
       "date_time": "Dom 23/11/2025 11:30",
-      "team2": "C.N. TERRASSA"
+      "team2": "C.N. TERRASSA",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg"
     },
     {
       "team1": "C.N. MONTJUIC B",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/AaLZ2cLfo4fC.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574244/results",
       "match_id": "143574244",
       "date": "Dom 30/11/2025",
       "time": "10:30",
       "date_time": "Dom 30/11/2025 10:30",
-      "team2": "C.N. TERRASSA"
+      "team2": "C.N. TERRASSA",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg"
     },
     {
       "team1": "C.E. MEDITERRANI",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/AasntmnZMsxi.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574245/results",
       "match_id": "143574245",
       "date": "Dom 14/12/2025",
       "time": "09:30",
       "date_time": "Dom 14/12/2025 09:30",
-      "team2": "C.N. TERRASSA"
+      "team2": "C.N. TERRASSA",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg"
     },
     {
       "team1": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574247/results",
       "match_id": "143574247",
       "date": "Dom 21/12/2025",
       "time": "12:55",
       "date_time": "Dom 21/12/2025 12:55",
-      "team2": "C.N. RUBÍ"
+      "team2": "C.N. RUBÍ",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/Aa0ntlmDPJHS.30x30.jpg"
     }
   ],
   "last_results": [
     {
       "team1": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143253265/results",
       "match_id": "143253265",
       "score_team1": 23,
       "score_team2": 7,
       "score": "23 - 7",
-      "team2": "C.N. MOLINS DE REI"
+      "team2": "C.N. MOLINS DE REI",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f4fc6ccd.30x30.jpg"
     },
     {
       "team1": "C.N. MONTJUIC A",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/AaLZ2cLfo4fC.30x30.jpg",
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143253266/results",
       "match_id": "143253266",
       "score_team1": 10,
       "score_team2": 20,
       "score": "10 - 20",
-      "team2": "C.N. TERRASSA"
+      "team2": "C.N. TERRASSA",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg"
     }
   ],
   "ranking": [
@@ -590,5 +606,5 @@
       "punts": 0
     }
   ],
-  "last_update": "2025-10-29T17:25:25.072715"
+  "last_update": "2025-10-29T17:32:04.092620"
 }
