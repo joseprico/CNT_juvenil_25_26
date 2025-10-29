@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2025-10-29T13:48:04.510994",
+    "downloaded_at": "2025-10-29T15:02:24.354895",
     "parser_version": "5.3_final"
   },
   "players": [
@@ -397,5 +397,43 @@
       "team2": "C.N. MONTJUIC"
     }
   ],
-  "last_update": "2025-10-29T13:48:16.498676"
+  "ranking": [
+    {
+      "posicio": "Veure",
+      "equip": "1",
+      "logo": null,
+      "partits": 0,
+      "guanyats": 0,
+      "empatats": 0,
+      "perduts": 0,
+      "gols_favor": 0,
+      "gols_contra": 0,
+      "punts": 0
+    },
+    {
+      "posicio": "Veure",
+      "equip": "2",
+      "logo": null,
+      "partits": 0,
+      "guanyats": 0,
+      "empatats": 0,
+      "perduts": 0,
+      "gols_favor": 0,
+      "gols_contra": 0,
+      "punts": 0
+    },
+    {
+      "posicio": "Veure",
+      "equip": "3",
+      "logo": null,
+      "partits": 0,
+      "guanyats": 0,
+      "empatats": 0,
+      "perduts": 0,
+      "gols_favor": 0,
+      "gols_contra": 0,
+      "punts": 0
+    }
+  ],
+  "last_update": "2025-10-29T15:02:39.267853"
 }
