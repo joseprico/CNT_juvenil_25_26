@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2025-10-29T07:34:05.459124",
+    "downloaded_at": "2025-10-29T10:31:44.229941",
     "parser_version": "5.3_final"
   },
   "players": [
@@ -506,8 +506,8 @@
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574245/results",
       "match_id": "143574245",
       "date": "Dom 14/12/2025",
-      "time": "11:00",
-      "date_time": "Dom 14/12/2025 11:00",
+      "time": "09:30",
+      "date_time": "Dom 14/12/2025 09:30",
       "team2": "C.N. TERRASSA"
     },
     {
