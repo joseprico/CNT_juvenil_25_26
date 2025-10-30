@@ -30,9 +30,6 @@ jobs:
         run: |
           python ultra_robust_parser.py
 
-      - name: Generate matches index
-      run: python3 generate_index.py
-      
       - name: Add timestamp to JSON files
         run: |
           python3 << EOF
