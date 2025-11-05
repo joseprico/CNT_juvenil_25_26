@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2025-11-05T10:44:04.879664",
+    "downloaded_at": "2025-11-05T13:05:16.254802",
     "parser_version": "5.4_logos"
   },
   "players": [
@@ -383,8 +383,8 @@
       "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/143649166/results",
       "match_id": "143649166",
       "date": "Dis 08/11/2025",
-      "time": "12:50",
-      "date_time": "Dis 08/11/2025 12:50",
+      "time": "11:00",
+      "date_time": "Dis 08/11/2025 11:00",
       "team2": "C.N. MOLINS DE REI",
       "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f4fc6ccd.30x30.jpg"
     },
@@ -518,6 +518,6 @@
       "punts": 0
     }
   ],
-  "last_update": "2025-11-05T13:18:50.686975+01:00",
-  "workflow_run": "163"
+  "last_update": "2025-11-05T14:05:31.737292+01:00",
+  "workflow_run": "164"
 }
