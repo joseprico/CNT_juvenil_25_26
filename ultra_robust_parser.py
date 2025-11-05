@@ -490,12 +490,10 @@ class ActawpParserV53:
                     
                     span = equip_col.find('span', class_='ellipsis')
                     equip_text = span.get_text(strip=True) if span else equip_col.get_text(strip=True)
+  # Extreure posició (primera columna abans de l'equip)
+posicio_text = str(idx)
                     
-                    posicio_text = '?'
-                    if equip_idx > 0:
-                        posicio_text = cols[0].get_text(strip=True)
-                    
-                    stats_start = equip_idx + 1
+stats_start = equip_idx + 1
                     
                     team_data = {
                         'posicio': posicio_text,
