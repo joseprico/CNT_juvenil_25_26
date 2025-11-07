@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2025-11-07T12:18:03.895874",
+    "downloaded_at": "2025-11-07T13:02:40.943567",
     "parser_version": "5.6_correccions"
   },
   "players": [
@@ -511,8 +511,8 @@
       "url": "https://actawp.natacio.cat/es/tournament/1317471/match/143574247/results",
       "match_id": "143574247",
       "date": "Dom 21/12/2025",
-      "time": "12:55",
-      "date_time": "Dom 21/12/2025 12:55",
+      "time": "10:15",
+      "date_time": "Dom 21/12/2025 10:15",
       "team2": "C.N. RUBÍ",
       "team2_logo": "https://cdn.leverade.com/thumbnails/Aa0ntlmDPJHS.30x30.jpg",
       "jornada": 6
@@ -594,6 +594,6 @@
       "punts": 0
     }
   ],
-  "last_update": "2025-11-07T13:37:01.942586+01:00",
-  "workflow_run": "224"
+  "last_update": "2025-11-07T14:03:09.226652+01:00",
+  "workflow_run": "225"
 }
