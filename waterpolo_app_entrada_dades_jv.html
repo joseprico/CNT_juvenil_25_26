@@ -612,33 +612,7 @@ function syncToFirebase() {
         updateFirebaseIndicator('disconnected');
     }
 }
-function endQuarter(quarter) {
-    const timestamp = Date.now();
-    quarterRealEndTimes[quarter] = timestamp;
-    
-    // ✅ CAPTURAR EL MARCADOR DEL QUART ABANS DE TANCAR-LO
-    captureLineupScore(quarter);
-    
-    // Tancar tots els jugadors que estiguin dins
-    playersInWater.forEach(num => {
-        playerWaterChanges.push({
-            playerNum: num,
-            quarter: quarter,
-            action: 'out',
-            timestamp: timestamp
-        });
-    });
-    
-    // Buidar playersInWater per aturar immediatament
-    playersInWater.clear();
-    
-    if(compactMode) renderCompactView();
-    renderLineups();
-    renderPeriodScores(); // ✅ Actualitzar també els marcadors visuals
-    saveToLocalStorage();
-    
-    alert(`✅ ${quarter.toUpperCase()} finalitzat correctament!`);
-}
+
 
 function calculatePlayingTimeForMatch(){
     const result={};
@@ -1765,7 +1739,7 @@ function confirmEndMatch() {
     
     if (confirm(`Segur que vols finalitzar el partit?\n\nMarcador: ${score}\n\nEs descarregarà el JSON automàticament.`)) {
         endQuarter('q4');
-        finalizeMatch();
+        //finalizeMatch();
     }
 }
 function winSwim(quarter, cntWins) {
@@ -2457,6 +2431,7 @@ document.addEventListener('DOMContentLoaded',function(){const o=document.getElem
 let startX = 0;
 let startY = 0;
 let isDragging = false;
+let hasMoved = false;
 window.isCurrentlyDragging = false; // ✅ Variable global
 
 document.addEventListener('touchstart', function(e) {
@@ -2466,17 +2441,19 @@ document.addEventListener('touchstart', function(e) {
     window.isCurrentlyDragging = false;
 }, { passive: true });
 
-document.addEventListener('touchmove', function(e) {
-    if (!isDragging) return;
-    
-    const currentX = e.touches[0].clientX;
-    const moveX = currentX - startX;
-    
-    // ✅ Marcar que s'està fent swipe
-    if (Math.abs(moveX) > 20) {
-        window.isCurrentlyDragging = true;
-        e.preventDefault();
-    }
+document.addEventListener('touchmove', function (e) {
+  if (!isDragging) return;
+
+  const currentX = e.touches[0].clientX;
+  const currentY = e.touches[0].clientY;
+  const moveX = currentX - startX;
+  const moveY = currentY - startY;
+
+  // Només bloqueja el comportament per defecte si és swipe horitzontal clar
+  if (Math.abs(moveX) > 20 && Math.abs(moveX) > Math.abs(moveY)) {
+    window.isCurrentlyDragging = true;
+    e.preventDefault();
+  }
 }, { passive: false });
 
 document.addEventListener('touchend', function(e) {
@@ -2739,34 +2716,34 @@ function startQuarter(q) {
     alert(`✅ ${q.toUpperCase()} començat!`);
 }
 
+// ✅ Modificar la funció endQuarter() existent
 function endQuarter(quarter) {
-    if (!currentMatch.quarterStartTimes[quarter]) {
-        alert('Aquest quart no s\'ha començat!');
-        return;
-    }
+    const timestamp = Date.now();
+    quarterRealEndTimes[quarter] = timestamp;
     
-    currentMatch.quarterRealEndTimes = currentMatch.quarterRealEndTimes || {};
-    currentMatch.quarterRealEndTimes[quarter] = Date.now();
+    captureLineupScore(quarter);
     
-    console.log(`⏹️ Quart ${quarter} finalitzat`);
+    playersInWater.forEach(num => {
+        playerWaterChanges.push({
+            playerNum: num,
+            quarter: quarter,
+            action: 'out',
+            timestamp: timestamp
+        });
+    });
     
-    // Actualitzar Firebase
-    syncToFirebase();
+    playersInWater.clear();
     
-    // 🔴 AFEGIR: Si és Q4, finalitzar partit
-    if (quarter === 'q4') {
-        console.log('🏁 És el Q4! Finalitzant partit automàticament...');
-        
-        // Petit delay per assegurar que Firebase s'ha actualitzat
-        setTimeout(() => {
-            finalizeMatch();
-        }, 500);
-    }
+    if(compactMode) renderCompactView();
+    renderLineups();
+    renderPeriodScores();
+    saveToLocalStorage();
     
-    // Re-renderitzar
-    renderQuarterControls();
+    // ✅ ATURAR CRONÒMETRE
+    stopQuarterTimer();
+    
+    alert(`✅ ${quarter.toUpperCase()} finalitzat correctament!`);
 }
-
 function rotacioCompleta() {
     // Verificar que hi ha exactament 7 jugadors dins
     if (playersInWater.size !== 7) {
@@ -3081,13 +3058,13 @@ document.head.appendChild(style);
 </script>
 <script>
     // 🔒 Bloqueo de clic derecho y atajos
-    document.addEventListener("contextmenu", event => event.preventDefault());
+/*    document.addEventListener("contextmenu", event => event.preventDefault());
     document.addEventListener("keydown", event => {
       if ((event.ctrlKey && ["s", "u"].includes(event.key.toLowerCase())) ||
           event.key === "F12") {
         event.preventDefault();
       }
-    });
+    });*/
     </script>
 </body>
 </html>
