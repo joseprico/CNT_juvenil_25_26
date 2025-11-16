@@ -479,7 +479,7 @@ let currentMatchRef = null;
 let isLocalUpdate = false; // Flag per evitar loops
 let firebaseSyncEnabled = false;
 let currentMatchID = null;	
-let players=[{num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'IAN BARTOLOME'},{num:5,name:'MARC MORENO'},{num:6,name:'SAMUEL DIAZ'},{num:7,name:'ORIOL SANCHEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'HECTOR DIOS'},{num:12,name:'LLATZER PEREZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
+let players=[{num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'IAN BARTOLOME'},{num:5,name:'MARC MORENO'},{num:6,name:'HECTOR DIOS'},{num:7,name:'ORIOL SANCHEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'BIEL GARCIA'},{num:12,name:'SAMUEL DIAZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
 let stats={},rivalStats=[],lineups={q1:[],q2:[],q3:[],q4:[]},periodScores={q1:{cnt:0,rival:0},q2:{cnt:0,rival:0},q3:{cnt:0,rival:0},q4:{cnt:0,rival:0}},tempsMortCNT=0,tempsMortRival=0,rivalTeam='',matchLocation='home',observacions='',currentGoalContext=null,currentExclusionContext=null,currentSaveContext=null,currentActionContext=null,actionsHistory=[],compactMode=true,chronologicalActions=[];
 let githubConfig={token:'',repo:'joseprico/CNT_juvenil_25_26',branch:'main'};
 let playersInWater=new Set();
@@ -1948,7 +1948,7 @@ function resetAll() {
     if (confirm('¿Seguro que quieres resetear todas las estadísticas?')) {
         // Resetear jugadores a los predefinidos del CNT
         players = [
-         {num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'IAN BARTOLOME'},{num:5,name:'MARC MORENO'},{num:6,name:'SAMUEL DIAZ'},{num:7,name:'ORIOL SANCHEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'HECTOR DIOS'},{num:12,name:'LLATZER PEREZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
+         {num:1,name:'MAX VALLS'},{num:2,name:'ARNAU MERCADE'},{num:3,name:'JORDI TARRADAS'},{num:4,name:'IAN BARTOLOME'},{num:5,name:'MARC MORENO'},{num:6,name:'HECTOR DIOS'},{num:7,name:'ORIOL SANCHEZ'},{num:8,name:'ROGER FARRE'},{num:9,name:'MARTI ARIMON'},{num:10,name:'MARC CAMPAÑA'},{num:11,name:'BIEL GARCIA'},{num:12,name:'SAMUEL DIAZ'},{num:13,name:'ERIC MORA'},{num:14,name:'POL RICO'}];
 
           // Resetear estadísticas de jugadores
         stats = {};
