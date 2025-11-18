@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2025-11-18T16:49:17.250061",
+    "downloaded_at": "2025-11-18T17:11:44.758236",
     "parser_version": "5.6_correccions"
   },
   "players": [
@@ -346,20 +346,7 @@
       "MVP": 0
     }
   ],
-  "team_stats": {
-    "Punts": 6,
-    "En favor": 55,
-    "En contra": 35,
-    "Partits jugats": 3,
-    "Partits guanyats": 2,
-    "Partits empatats": 0,
-    "Partits perduts": 1,
-    "Gols penal": 11,
-    "Expulsions per 20 segons": 31,
-    "Gols": 44,
-    "Faltes per penal": 12,
-    "Penals fallats": 4
-  },
+  "team_stats": {},
   "upcoming_matches": [
     {
       "team1": "C.N. TERRASSA A",
@@ -514,6 +501,6 @@
       "diferencia": 0
     }
   ],
-  "last_update": "2025-11-18T17:50:14.385708+01:00",
-  "workflow_run": "556"
+  "last_update": "2025-11-18T18:13:44.959401+01:00",
+  "workflow_run": "557"
 }
