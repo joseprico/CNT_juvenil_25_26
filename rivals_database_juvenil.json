@@ -26,6 +26,27 @@
 		{"num": 14, "name": "PABLO RODRIGUEZ LAGUNA"}
       ]
     },
+	  "CN RUBI": {
+      "fullName": "CN RUBI",
+      "lastPlayed": null,
+      "lastUpdated": null,
+      "players": [
+        {"num": 1, "name": "DANIEL JURADO PEREZ"},
+        {"num": 2, "name": "RODRIGO RAJAO PERRONE"},
+        {"num": 3, "name": "PERE PINA"},
+        {"num": 4, "name": "PAU PINAN"},
+        {"num": 5, "name": "BIEL FONTOVA"},
+        {"num": 6, "name": "ADRIAN RODRIGUEZ"},
+        {"num": 7, "name": "NIL MONLEON"},
+        {"num": 8, "name": "OSCAR VAN DOORN"},
+        {"num": 9, "name": "MARC VAL BUENO"},
+        {"num": 10, "name": "POL MONTES"},
+        {"num": 11, "name": "TOMAS PELEGERO"},
+        {"num": 12, "name": "NACHO PINO"},
+        {"num": 13, "name": "ADRIA FORT MORET"},
+		{"num": 14, "name": "ENZO ALVAREZ NAVEIRO"}
+      ]
+    },
 	"PLANTILLA_BUIDA": {
       "fullName": "Equip Nou",
       "lastPlayed": null,
