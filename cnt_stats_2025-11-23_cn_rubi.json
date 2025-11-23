@@ -1825,24 +1825,6 @@
       "team": "cnt"
     },
     {
-      "timestamp": 1763896339991,
-      "quarter": "q3",
-      "type": "water-change",
-      "action": "out",
-      "team": "cnt",
-      "playerNum": 13,
-      "playerName": "ERIC MORA"
-    },
-    {
-      "timestamp": 1763896340699,
-      "quarter": "q3",
-      "type": "water-change",
-      "action": "in",
-      "team": "cnt",
-      "playerNum": 1,
-      "playerName": "MAX VALLS"
-    },
-    {
       "timestamp": 1763896357935,
       "quarter": "q3",
       "type": "action",
@@ -3083,7 +3065,7 @@
       "timestamp": 1763896318912
     },
     {
-      "playerNum": 13,
+      "playerNum": 1,
       "quarter": "q3",
       "action": "in",
       "timestamp": 1763896318912
