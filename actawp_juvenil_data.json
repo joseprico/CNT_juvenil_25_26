@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2025-11-30T11:07:27.294582",
+    "downloaded_at": "2025-11-30T12:16:21.991286",
     "parser_version": "5.6_correccions"
   },
   "players": [
@@ -551,14 +551,14 @@
       "posicio": "1",
       "equip": "C.E. MEDITERRANI",
       "logo": "https://cdn.leverade.com/thumbnails/AasntmnZMsxi.30x30.jpg",
-      "punts": 9,
-      "partits": 3,
-      "guanyats": 3,
+      "punts": 11,
+      "partits": 4,
+      "guanyats": 4,
       "empatats": 0,
       "perduts": 0,
-      "gols_favor": 54,
-      "gols_contra": 24,
-      "diferencia": 30
+      "gols_favor": 70,
+      "gols_contra": 39,
+      "diferencia": 31
     },
     {
       "posicio": "2",
@@ -577,13 +577,13 @@
       "posicio": "3",
       "equip": "C.N. RUBÍ",
       "logo": "https://cdn.leverade.com/thumbnails/Aa0ntlmDPJHS.30x30.jpg",
-      "punts": 3,
-      "partits": 3,
+      "punts": 4,
+      "partits": 4,
       "guanyats": 1,
       "empatats": 0,
-      "perduts": 2,
-      "gols_favor": 36,
-      "gols_contra": 38,
+      "perduts": 3,
+      "gols_favor": 51,
+      "gols_contra": 54,
       "diferencia": 0
     },
     {
@@ -600,6 +600,6 @@
       "diferencia": 0
     }
   ],
-  "last_update": "2025-11-30T12:31:33.648152+01:00",
-  "workflow_run": "899"
+  "last_update": "2025-11-30T13:16:52.062524+01:00",
+  "workflow_run": "900"
 }
