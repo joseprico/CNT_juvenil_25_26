@@ -645,13 +645,13 @@ if __name__ == "__main__":
 ╚══════════════════════════════════════════════════════════════╝
 """)
     
-     teams = {
+    teams = {
         'juvenil': {
             'id': '15621223',
             'name': 'CN Terrassa Juvenil',
             'coach': 'Jordi Busquets',
             'language': 'es',
-            'ranking_url': 'https://actawp.natacio.cat/ca/tournament/1317471/ranking/'
+            'ranking_url': 'https://actawp.natacio.cat/ca/tournament/1317471/ranking/3669887'
         },
         'cadet': {
             'id': '15621224',
