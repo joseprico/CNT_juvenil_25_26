@@ -186,7 +186,10 @@ jobs:
             echo "changes=true" >> $GITHUB_OUTPUT
             echo "✅ S'han detectat canvis en els JSON"
           fi
-      
+      - name: 📋 Actualitzar plantilles rivals
+        run: python update_rivals_database.py juvenil
+        continue-on-error: true
+        
       - name: Commit and push if changed
         if: steps.check_changes.outputs.changes == 'true'
         run: |
