@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2025-11-12",
+    "lastUpdated": "2026-01-05",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -10,62 +10,249 @@
       "lastPlayed": null,
       "lastUpdated": null,
       "players": [
-        {"num": 1, "name": "ISAAC JIMENEZ ZUNIGA"},
-        {"num": 2, "name": "STEFAN DJURDJEVIC"},
-        {"num": 3, "name": "FRANCESC TENA BARO"},
-        {"num": 4, "name": "MAHMOUD OSMAN"},
-        {"num": 5, "name": "ALEX RABELLA OVEJERO"},
-        {"num": 6, "name": "MARTI SANCHO GUILLEN"},
-        {"num": 7, "name": "LUIS ROJO BALANYA"},
-        {"num": 8, "name": "MARC MCCAVANAGH PEREZ"},
-        {"num": 9, "name": "ALEIX GUERRERO GARCIA"},
-        {"num": 10, "name": "MATIAS MIRANDA FERREIRA"},
-        {"num": 11, "name": "BERNAT MARTINEZ VAZQUEZ"},
-        {"num": 12, "name": "ORIOL LOPEZ CHARLES"},
-        {"num": 13, "name": "NOE GARCIA SIMON"},
-		{"num": 14, "name": "PABLO RODRIGUEZ LAGUNA"}
+        {
+          "num": 1,
+          "name": "ISAAC JIMENEZ ZUNIGA"
+        },
+        {
+          "num": 2,
+          "name": "STEFAN DJURDJEVIC"
+        },
+        {
+          "num": 3,
+          "name": "FRANCESC TENA BARO"
+        },
+        {
+          "num": 4,
+          "name": "MAHMOUD OSMAN"
+        },
+        {
+          "num": 5,
+          "name": "ALEX RABELLA OVEJERO"
+        },
+        {
+          "num": 6,
+          "name": "MARTI SANCHO GUILLEN"
+        },
+        {
+          "num": 7,
+          "name": "LUIS ROJO BALANYA"
+        },
+        {
+          "num": 8,
+          "name": "MARC MCCAVANAGH PEREZ"
+        },
+        {
+          "num": 9,
+          "name": "ALEIX GUERRERO GARCIA"
+        },
+        {
+          "num": 10,
+          "name": "MATIAS MIRANDA FERREIRA"
+        },
+        {
+          "num": 11,
+          "name": "BERNAT MARTINEZ VAZQUEZ"
+        },
+        {
+          "num": 12,
+          "name": "ORIOL LOPEZ CHARLES"
+        },
+        {
+          "num": 13,
+          "name": "NOE GARCIA SIMON"
+        },
+        {
+          "num": 14,
+          "name": "PABLO RODRIGUEZ LAGUNA"
+        }
       ]
     },
-	  "CN RUBI": {
+    "CN RUBI": {
       "fullName": "CN RUBI",
       "lastPlayed": null,
       "lastUpdated": null,
       "players": [
-        {"num": 1, "name": "DANIEL JURADO PEREZ"},
-        {"num": 2, "name": "RODRIGO RAJAO PERRONE"},
-        {"num": 3, "name": "PERE PINA"},
-        {"num": 4, "name": "PAU PINAN"},
-        {"num": 5, "name": "BIEL FONTOVA"},
-        {"num": 6, "name": "ADRIAN RODRIGUEZ"},
-        {"num": 7, "name": "NIL MONLEON"},
-        {"num": 8, "name": "OSCAR VAN DOORN"},
-        {"num": 9, "name": "MARC VAL BUENO"},
-        {"num": 10, "name": "POL MONTES"},
-        {"num": 11, "name": "TOMAS PELEGERO"},
-        {"num": 12, "name": "NACHO PINO"},
-        {"num": 13, "name": "ADRIA FORT MORET"},
-		{"num": 14, "name": "ENZO ALVAREZ NAVEIRO"}
+        {
+          "num": 1,
+          "name": "DANIEL JURADO PEREZ"
+        },
+        {
+          "num": 2,
+          "name": "RODRIGO RAJAO PERRONE"
+        },
+        {
+          "num": 3,
+          "name": "PERE PINA"
+        },
+        {
+          "num": 4,
+          "name": "PAU PINAN"
+        },
+        {
+          "num": 5,
+          "name": "BIEL FONTOVA"
+        },
+        {
+          "num": 6,
+          "name": "ADRIAN RODRIGUEZ"
+        },
+        {
+          "num": 7,
+          "name": "NIL MONLEON"
+        },
+        {
+          "num": 8,
+          "name": "OSCAR VAN DOORN"
+        },
+        {
+          "num": 9,
+          "name": "MARC VAL BUENO"
+        },
+        {
+          "num": 10,
+          "name": "POL MONTES"
+        },
+        {
+          "num": 11,
+          "name": "TOMAS PELEGERO"
+        },
+        {
+          "num": 12,
+          "name": "NACHO PINO"
+        },
+        {
+          "num": 13,
+          "name": "ADRIA FORT MORET"
+        },
+        {
+          "num": 14,
+          "name": "ENZO ALVAREZ NAVEIRO"
+        }
       ]
     },
-	"PLANTILLA_BUIDA": {
+    "PLANTILLA_BUIDA": {
       "fullName": "Equip Nou",
       "lastPlayed": null,
       "lastUpdated": null,
       "players": [
-        {"num": 1, "name": "Porter"},
-        {"num": 2, "name": "Jugador 2"},
-        {"num": 3, "name": "Jugador 3"},
-        {"num": 4, "name": "Jugador 4"},
-        {"num": 5, "name": "Jugador 5"},
-        {"num": 6, "name": "Jugador 6"},
-        {"num": 7, "name": "Jugador 7"},
-        {"num": 8, "name": "Jugador 8"},
-        {"num": 9, "name": "Jugador 9"},
-        {"num": 10, "name": "Jugador 10"},
-        {"num": 11, "name": "Jugador 11"},
-        {"num": 12, "name": "Jugador 12"},
-        {"num": 13, "name": "Porter Suplent"}
+        {
+          "num": 1,
+          "name": "Porter"
+        },
+        {
+          "num": 2,
+          "name": "Jugador 2"
+        },
+        {
+          "num": 3,
+          "name": "Jugador 3"
+        },
+        {
+          "num": 4,
+          "name": "Jugador 4"
+        },
+        {
+          "num": 5,
+          "name": "Jugador 5"
+        },
+        {
+          "num": 6,
+          "name": "Jugador 6"
+        },
+        {
+          "num": 7,
+          "name": "Jugador 7"
+        },
+        {
+          "num": 8,
+          "name": "Jugador 8"
+        },
+        {
+          "num": 9,
+          "name": "Jugador 9"
+        },
+        {
+          "num": 10,
+          "name": "Jugador 10"
+        },
+        {
+          "num": 11,
+          "name": "Jugador 11"
+        },
+        {
+          "num": 12,
+          "name": "Jugador 12"
+        },
+        {
+          "num": 13,
+          "name": "Porter Suplent"
+        }
       ]
-	}
+    },
+    "U.E. D'HORTA": {
+      "fullName": "U.E. D'HORTA",
+      "lastPlayed": "2026-01-05",
+      "lastUpdated": "2026-01-05",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/143574177/stats",
+      "players": [
+        {
+          "num": 1,
+          "name": "ALVARO CAPILLA COBO"
+        },
+        {
+          "num": 2,
+          "name": "ARES CEREZUELA CEREIJO"
+        },
+        {
+          "num": 3,
+          "name": "GUILLERMO GORDO NATAL"
+        },
+        {
+          "num": 4,
+          "name": "HUGO PEREIRA DE OLIVEIRA"
+        },
+        {
+          "num": 5,
+          "name": "DANIEL DOMINGUEZ PEREZ"
+        },
+        {
+          "num": 6,
+          "name": "BERNAL PARIENTE LOPEZ"
+        },
+        {
+          "num": 7,
+          "name": "JEFFERSON FERRERAS SALDAÑA"
+        },
+        {
+          "num": 8,
+          "name": "ERIC BLANCO RODRIGUEZ"
+        },
+        {
+          "num": 9,
+          "name": "POL FONT SUAREZ"
+        },
+        {
+          "num": 10,
+          "name": "NICOLAS SEOANE DORCA"
+        },
+        {
+          "num": 11,
+          "name": "MARC SUAREZ VAN DAM"
+        },
+        {
+          "num": 12,
+          "name": "GERARD PRADAS PEIRON"
+        },
+        {
+          "num": 13,
+          "name": "POL LOBO BERTRAN"
+        },
+        {
+          "num": 14,
+          "name": "ISAAC SORIANO SERRANO"
+        }
+      ]
+    }
   }
 }
