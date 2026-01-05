@@ -192,11 +192,11 @@ jobs:
 
       - name: 📋 Actualitzar plantilles rivals
         run: |
-          python update_rivals_database.py cadet
+          python update_rivals_database.py juvenil
           echo "📂 Fitxers JSON al directori:"
           ls -la *.json
-          echo "📄 Contingut rivals_database_cadet.json:"
-          cat rivals_database_cadet.json || echo "No existeix"
+          echo "📄 Contingut rivals_database_juvenil.json:"
+          cat rivals_database_juvenil.json || echo "No existeix"
         continue-on-error: true
         
       - name: Commit and push if changed
