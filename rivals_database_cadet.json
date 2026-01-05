@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2026-01-05",
+    "description": "Base de dades de plantilles d'equips rivals - CN Terrassa CADET"
+  },
+  "teams": {
+    "U.E. D'HORTA": {
+      "fullName": "U.E. D'HORTA",
+      "lastPlayed": "2026-01-05",
+      "lastUpdated": "2026-01-05",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317474/match/143649201/stats",
+      "players": [
+        {
+          "num": 1,
+          "name": "IGNASI ALVAREZ DE EULATE BARBERA"
+        },
+        {
+          "num": 2,
+          "name": "ARES CEREZUELA CEREIJO"
+        },
+        {
+          "num": 3,
+          "name": "POL CEREIJO GASSOL (C)"
+        },
+        {
+          "num": 4,
+          "name": "ERIC M. VAQUERO BAENA"
+        },
+        {
+          "num": 5,
+          "name": "EDER LINARES VALLADOLID"
+        },
+        {
+          "num": 6,
+          "name": "GERARD PRADAS PEIRON"
+        },
+        {
+          "num": 7,
+          "name": "MARTI DE POMBO OCHOA"
+        },
+        {
+          "num": 8,
+          "name": "HUGO PEREIRA DE OLIVEIRA"
+        },
+        {
+          "num": 9,
+          "name": "MARCOS VIDAL VIDAL"
+        },
+        {
+          "num": 10,
+          "name": "JAN TIO CANO"
+        },
+        {
+          "num": 11,
+          "name": "DANIEL DOMINGUEZ PEREZ"
+        },
+        {
+          "num": 12,
+          "name": "NICOLAS SEOANE DORCA"
+        },
+        {
+          "num": 14,
+          "name": "DIEGO LAZAGA SOLA"
+        }
+      ]
+    }
+  }
+}
