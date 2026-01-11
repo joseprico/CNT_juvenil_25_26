@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-01-05",
+    "lastUpdated": "2026-01-11",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -251,6 +251,70 @@
         {
           "num": 14,
           "name": "ISAAC SORIANO SERRANO"
+        }
+      ]
+    },
+    "C.N. SANT ANDREU": {
+      "fullName": "C.N. SANT ANDREU",
+      "lastPlayed": "2026-01-11",
+      "lastUpdated": "2026-01-11",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/143574210/stats",
+      "players": [
+        {
+          "num": 1,
+          "name": "YAHYA EL HARRAK SAMADI"
+        },
+        {
+          "num": 2,
+          "name": "CESC CLAIA MURILLO"
+        },
+        {
+          "num": 3,
+          "name": "MARTI GARCIA ESPEJO"
+        },
+        {
+          "num": 4,
+          "name": "UNAI GONZALEZ JORGE"
+        },
+        {
+          "num": 5,
+          "name": "RUBEN ROMERO LOPEZ"
+        },
+        {
+          "num": 6,
+          "name": "TIAGO HENRIQUES  FINSTERWALD"
+        },
+        {
+          "num": 7,
+          "name": "ROGER PUIGDERRAJOLS RECODER"
+        },
+        {
+          "num": 8,
+          "name": "MAGI PONT  GARCIA"
+        },
+        {
+          "num": 9,
+          "name": "ICAR SANTIN  GARCIA (C)"
+        },
+        {
+          "num": 10,
+          "name": "GUILLEM PLANAS  CABANILLAS"
+        },
+        {
+          "num": 11,
+          "name": "JOFRE CASTAÑO NEIRA"
+        },
+        {
+          "num": 12,
+          "name": "ORIOL LOPEZ RODRIGUEZ"
+        },
+        {
+          "num": 13,
+          "name": "SAMUEL PEREZ SANKAREH"
+        },
+        {
+          "num": 14,
+          "name": "JORDI QUINTANA LUJAN"
         }
       ]
     }
