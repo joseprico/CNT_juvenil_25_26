@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-01-11T11:35:50.984189",
+    "downloaded_at": "2026-01-11T13:05:49.057895",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -824,10 +824,10 @@
         {
           "name": "HECTOR MOYANO MORAY",
           "goals": 12,
-          "games": 15,
+          "games": 16,
           "exclusions": 10,
           "penalty_goals": 4,
-          "avg_goals": 0.8
+          "avg_goals": 0.75
         },
         {
           "name": "BRUC GONZALEZ I MARTIN",
@@ -1554,6 +1554,6 @@
       }
     }
   },
-  "last_update": "2026-01-11T13:18:06.140324+01:00",
-  "workflow_run": "2139"
+  "last_update": "2026-01-11T14:07:05.611598+01:00",
+  "workflow_run": "2140"
 }
