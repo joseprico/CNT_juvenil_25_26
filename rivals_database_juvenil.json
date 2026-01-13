@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-01-11",
+    "lastUpdated": "2026-01-13",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -315,6 +315,70 @@
         {
           "num": 14,
           "name": "JORDI QUINTANA LUJAN"
+        }
+      ]
+    },
+    "C.N. SABADELL": {
+      "fullName": "C.N. SABADELL",
+      "lastPlayed": "2026-01-13",
+      "lastUpdated": "2026-01-13",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/143574235/stats",
+      "players": [
+        {
+          "num": 1,
+          "name": "DAVID IZA TRONCONE"
+        },
+        {
+          "num": 2,
+          "name": "NATHAN PETER BAUER"
+        },
+        {
+          "num": 3,
+          "name": "GERARD MARTI CIVICO (C)"
+        },
+        {
+          "num": 4,
+          "name": "MAX ALEMANY LESMA"
+        },
+        {
+          "num": 5,
+          "name": "GUIU RUIZ GARCIA"
+        },
+        {
+          "num": 6,
+          "name": "POL GUERRERO DOMINGUEZ"
+        },
+        {
+          "num": 7,
+          "name": "REDA ARAB BEKKAL"
+        },
+        {
+          "num": 8,
+          "name": "ALESSANDRO COLTURI"
+        },
+        {
+          "num": 9,
+          "name": "SOUFIAN MAGHNINE ANANE"
+        },
+        {
+          "num": 10,
+          "name": "GABRIEL ZSOMBOR GARWAH"
+        },
+        {
+          "num": 11,
+          "name": "ENZO CARRASCO GONZALEZ"
+        },
+        {
+          "num": 12,
+          "name": "GERARD CURTO ESCORIHUELA"
+        },
+        {
+          "num": 13,
+          "name": "JAUME PRAT BERNAL"
+        },
+        {
+          "num": 14,
+          "name": "LUCA ROTTA BARSOTTI"
         }
       ]
     }
