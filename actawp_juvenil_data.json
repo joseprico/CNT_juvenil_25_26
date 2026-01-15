@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-01-15T16:20:07.743943",
+    "downloaded_at": "2026-01-15T16:59:31.001376",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -1328,48 +1328,7 @@
         "W"
       ],
       "form_string": "WWWWW",
-      "top_scorers": [
-        {
-          "name": "GUILLEM NAVARRO PICAZO",
-          "goals": 19,
-          "games": 7,
-          "exclusions": 6,
-          "penalty_goals": 4,
-          "avg_goals": 2.71
-        },
-        {
-          "name": "EDGAR VILCHEZ RUIZ",
-          "goals": 18,
-          "games": 7,
-          "exclusions": 2,
-          "penalty_goals": 0,
-          "avg_goals": 2.57
-        },
-        {
-          "name": "GENIS BATISTA ALFONSO",
-          "goals": 15,
-          "games": 6,
-          "exclusions": 4,
-          "penalty_goals": 2,
-          "avg_goals": 2.5
-        },
-        {
-          "name": "NIKITA RUDOI BOBULICI",
-          "goals": 14,
-          "games": 7,
-          "exclusions": 3,
-          "penalty_goals": 0,
-          "avg_goals": 2.0
-        },
-        {
-          "name": "TIAGO CARRIO MANDOLINI",
-          "goals": 14,
-          "games": 4,
-          "exclusions": 3,
-          "penalty_goals": 4,
-          "avg_goals": 3.5
-        }
-      ],
+      "top_scorers": [],
       "stats": {
         "total_gf": 98,
         "total_gc": 31,
@@ -1380,7 +1339,7 @@
         "draws": 0,
         "losses": 0,
         "trend": "hot",
-        "total_exclusions": 18
+        "total_exclusions": 0
       }
     },
     "C.E. MEDITERRANI": {
@@ -1618,6 +1577,6 @@
       }
     }
   },
-  "last_update": "2026-01-15T17:22:35.317947+01:00",
-  "workflow_run": "2265"
+  "last_update": "2026-01-15T18:01:47.948694+01:00",
+  "workflow_run": "2266"
 }
