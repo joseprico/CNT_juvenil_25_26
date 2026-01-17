@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-01-17T17:09:29.938576",
+    "downloaded_at": "2026-01-17T17:39:53.013228",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -1385,10 +1385,10 @@
         {
           "name": "ALEJANDRO RUDZEVICH RAMIREZ",
           "goals": 40,
-          "games": 11,
+          "games": 12,
           "exclusions": 9,
           "penalty_goals": 9,
-          "avg_goals": 3.64
+          "avg_goals": 3.33
         },
         {
           "name": "MARTI PIÑEIRA GONZALEZ",
@@ -1409,10 +1409,10 @@
         {
           "name": "MARC ASTOR MUNTANE",
           "goals": 18,
-          "games": 9,
+          "games": 10,
           "exclusions": 6,
           "penalty_goals": 1,
-          "avg_goals": 2.0
+          "avg_goals": 1.8
         },
         {
           "name": "ALVARO GARROTE GOMEZ",
@@ -1554,6 +1554,6 @@
       }
     }
   },
-  "last_update": "2026-01-17T18:10:55.061547+01:00",
-  "workflow_run": "2324"
+  "last_update": "2026-01-17T18:42:47.476968+01:00",
+  "workflow_run": "2325"
 }
