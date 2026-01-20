@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-01-13",
+    "lastUpdated": "2026-01-20",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -320,65 +320,61 @@
     },
     "C.N. SABADELL": {
       "fullName": "C.N. SABADELL",
-      "lastPlayed": "2026-01-13",
-      "lastUpdated": "2026-01-13",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/143574235/stats",
+      "lastPlayed": "2026-01-20",
+      "lastUpdated": "2026-01-20",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027307/stats",
       "players": [
         {
           "num": 1,
-          "name": "DAVID IZA TRONCONE"
+          "name": "ADRIA GONZALEZ CUBERO"
         },
         {
           "num": 2,
-          "name": "NATHAN PETER BAUER"
+          "name": "STEFAN DJURDJEVIC"
         },
         {
           "num": 3,
-          "name": "GERARD MARTI CIVICO (C)"
+          "name": "FRANCESC TENA BARO"
         },
         {
           "num": 4,
-          "name": "MAX ALEMANY LESMA"
+          "name": "MAHMOUD OSMAN"
         },
         {
           "num": 5,
-          "name": "GUIU RUIZ GARCIA"
+          "name": "ALEX RABELLA OVEJERO"
         },
         {
           "num": 6,
-          "name": "POL GUERRERO DOMINGUEZ"
+          "name": "MARTI SANCHO GUILLEN"
         },
         {
           "num": 7,
-          "name": "REDA ARAB BEKKAL"
+          "name": "LUIS ROJO BALANYA"
         },
         {
           "num": 8,
-          "name": "ALESSANDRO COLTURI"
+          "name": "MARC MCCAVANAGH PEREZ"
         },
         {
           "num": 9,
-          "name": "SOUFIAN MAGHNINE ANANE"
-        },
-        {
-          "num": 10,
-          "name": "GABRIEL ZSOMBOR GARWAH"
+          "name": "ALEIX GUERRERO GARCIA"
         },
         {
           "num": 11,
-          "name": "ENZO CARRASCO GONZALEZ"
+          "name": "BERNAT MARTINEZ VAZQUEZ"
         },
         {
           "num": 12,
-          "name": "GERARD CURTO ESCORIHUELA"
+          "name": "ORIOL LOPEZ CHARLES"
         },
         {
           "num": 13,
-          "name": "JAUME PRAT BERNAL"
+          "name": "NOE GARCIA SIMON"
         },
         {
           "num": 14,
-          "name": "LUCA ROTTA BARSOTTI"
+          "name": "PABLO RODRIGUEZ LAGUNA"
         }
       ]
     }
