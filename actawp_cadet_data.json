@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-01-24T19:34:05.279479",
+    "downloaded_at": "2026-01-24T20:40:48.842673",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -32,7 +32,7 @@
     },
     {
       "Nombre": "BIEL COBACHO BOLDU",
-      "PJ": 6,
+      "PJ": 7,
       "GT": 15,
       "G": 12,
       "GP": 3,
@@ -263,7 +263,7 @@
     },
     {
       "Nombre": "OLIVER HERRERA MENDOZA",
-      "PJ": 9,
+      "PJ": 10,
       "GT": 2,
       "G": 2,
       "GP": 0,
@@ -1554,6 +1554,6 @@
       }
     }
   },
-  "last_update": "2026-01-24T21:10:07.271768+01:00",
-  "workflow_run": "2527"
+  "last_update": "2026-01-24T21:42:08.506996+01:00",
+  "workflow_run": "2528"
 }
