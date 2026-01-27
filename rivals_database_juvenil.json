@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-01-20",
+    "lastUpdated": "2026-01-27",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -320,61 +320,65 @@
     },
     "C.N. SABADELL": {
       "fullName": "C.N. SABADELL",
-      "lastPlayed": "2026-01-20",
-      "lastUpdated": "2026-01-20",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027307/stats",
+      "lastPlayed": "2026-01-27",
+      "lastUpdated": "2026-01-27",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027310/stats",
       "players": [
         {
           "num": 1,
-          "name": "ADRIA GONZALEZ CUBERO"
+          "name": "JAIRO BARGALLO ERAZO"
         },
         {
           "num": 2,
-          "name": "STEFAN DJURDJEVIC"
+          "name": "GAEL APARICIO LOPEZ"
         },
         {
           "num": 3,
-          "name": "FRANCESC TENA BARO"
+          "name": "SEBAS LERIDA CARRIZOSA"
         },
         {
           "num": 4,
-          "name": "MAHMOUD OSMAN"
+          "name": "ALVARO CARRASQUILLA LOPEZ"
         },
         {
           "num": 5,
-          "name": "ALEX RABELLA OVEJERO"
+          "name": "ERMENGOL LLORENC SAPES"
         },
         {
           "num": 6,
-          "name": "MARTI SANCHO GUILLEN"
+          "name": "PAU VIVES ARJONA"
         },
         {
           "num": 7,
-          "name": "LUIS ROJO BALANYA"
+          "name": "NIKITA RUDOI BOBULICI"
         },
         {
           "num": 8,
-          "name": "MARC MCCAVANAGH PEREZ"
+          "name": "IKER TENA SIERRA"
         },
         {
           "num": 9,
-          "name": "ALEIX GUERRERO GARCIA"
+          "name": "IKER GARCIA LOPEZ"
+        },
+        {
+          "num": 10,
+          "name": "GENIS BATISTA ALFONSO"
         },
         {
           "num": 11,
-          "name": "BERNAT MARTINEZ VAZQUEZ"
+          "name": "DAAN KNIP SANCHEZ"
         },
         {
           "num": 12,
-          "name": "ORIOL LOPEZ CHARLES"
+          "name": "EDGAR VILCHEZ RUIZ"
         },
         {
           "num": 13,
-          "name": "NOE GARCIA SIMON"
+          "name": "NOAH ROMEVA RIBA (C)"
         },
         {
           "num": 14,
-          "name": "PABLO RODRIGUEZ LAGUNA"
+          "name": "GUILLEM NAVARRO PICAZO"
         }
       ]
     }
