@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-01-27",
+    "lastUpdated": "2026-02-03",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -320,9 +320,9 @@
     },
     "C.N. SABADELL": {
       "fullName": "C.N. SABADELL",
-      "lastPlayed": "2026-01-27",
-      "lastUpdated": "2026-01-27",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027310/stats",
+      "lastPlayed": "2026-02-03",
+      "lastUpdated": "2026-02-03",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027302/stats",
       "players": [
         {
           "num": 1,
@@ -334,7 +334,7 @@
         },
         {
           "num": 3,
-          "name": "SEBAS LERIDA CARRIZOSA"
+          "name": "PAU VIVES ARJONA"
         },
         {
           "num": 4,
@@ -346,7 +346,7 @@
         },
         {
           "num": 6,
-          "name": "PAU VIVES ARJONA"
+          "name": "ERIK MOYA CORTES"
         },
         {
           "num": 7,
@@ -358,7 +358,7 @@
         },
         {
           "num": 9,
-          "name": "IKER GARCIA LOPEZ"
+          "name": "BINE STROMAJER"
         },
         {
           "num": 10,
