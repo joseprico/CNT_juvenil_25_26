@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-02-03",
+    "lastUpdated": "2026-02-08",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -379,6 +379,70 @@
         {
           "num": 14,
           "name": "GUILLEM NAVARRO PICAZO"
+        }
+      ]
+    },
+    "C.N. MONTJUIC A": {
+      "fullName": "C.N. MONTJUIC A",
+      "lastPlayed": "2026-02-08",
+      "lastUpdated": "2026-02-08",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027315/stats",
+      "players": [
+        {
+          "num": 1,
+          "name": "ADRIA GONZALEZ CUBERO"
+        },
+        {
+          "num": 2,
+          "name": "STEFAN DJURDJEVIC"
+        },
+        {
+          "num": 3,
+          "name": "FRANCESC TENA BARO"
+        },
+        {
+          "num": 4,
+          "name": "MAHMOUD OSMAN"
+        },
+        {
+          "num": 5,
+          "name": "ALEX RABELLA OVEJERO"
+        },
+        {
+          "num": 6,
+          "name": "MARTI SANCHO GUILLEN"
+        },
+        {
+          "num": 7,
+          "name": "LUIS ROJO BALANYA"
+        },
+        {
+          "num": 8,
+          "name": "MARC MCCAVANAGH PEREZ"
+        },
+        {
+          "num": 9,
+          "name": "ALEIX GUERRERO GARCIA"
+        },
+        {
+          "num": 10,
+          "name": "MATIAS MIRANDA FERREIRA"
+        },
+        {
+          "num": 11,
+          "name": "BERNAT MARTINEZ VAZQUEZ"
+        },
+        {
+          "num": 12,
+          "name": "ORIOL LOPEZ CHARLES"
+        },
+        {
+          "num": 13,
+          "name": "NOE GARCIA SIMON"
+        },
+        {
+          "num": 14,
+          "name": "PABLO RODRIGUEZ LAGUNA"
         }
       ]
     }
