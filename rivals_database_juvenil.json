@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-02-08",
+    "lastUpdated": "2026-02-15",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -384,65 +384,65 @@
     },
     "C.N. MONTJUIC A": {
       "fullName": "C.N. MONTJUIC A",
-      "lastPlayed": "2026-02-08",
-      "lastUpdated": "2026-02-08",
+      "lastPlayed": "2026-02-15",
+      "lastUpdated": "2026-02-15",
       "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027315/stats",
       "players": [
         {
           "num": 1,
-          "name": "IVAN BAENA NIKIFOROV"
+          "name": "ADRIA GONZALEZ CUBERO"
         },
         {
           "num": 2,
-          "name": "MARC PARERA ALONSO"
+          "name": "STEFAN DJURDJEVIC"
         },
         {
           "num": 3,
-          "name": "ARTIYOM ISAIENKO"
+          "name": "FRANCESC TENA BARO"
         },
         {
           "num": 4,
-          "name": "LUCA JOVANOVSKI GALLEGO"
+          "name": "MAHMOUD OSMAN"
         },
         {
           "num": 5,
-          "name": "GABRIEL GARCIA SORIA"
+          "name": "ALEX RABELLA OVEJERO"
         },
         {
           "num": 6,
-          "name": "ADAM BONETE ERDELYI"
+          "name": "MARTI SANCHO GUILLEN"
         },
         {
           "num": 7,
-          "name": "IAGO CALVO RAMOS"
+          "name": "LUIS ROJO BALANYA"
         },
         {
           "num": 8,
-          "name": "NESTOR HUGUET SAN AGUSTIN"
+          "name": "MARC MCCAVANAGH PEREZ"
         },
         {
           "num": 9,
-          "name": "ADRIA BUIL MONTEVERDE"
+          "name": "ALEIX GUERRERO GARCIA"
         },
         {
           "num": 10,
-          "name": "PAU RUEDA CAMINS"
+          "name": "MATIAS MIRANDA FERREIRA"
         },
         {
           "num": 11,
-          "name": "MARIO PERIBAÑEZ GISBERT"
+          "name": "BERNAT MARTINEZ VAZQUEZ"
         },
         {
           "num": 12,
-          "name": "ROMEO SCARPO ROUX"
+          "name": "ORIOL LOPEZ CHARLES"
         },
         {
           "num": 13,
-          "name": "NICOLAS SANCHEZ CHAWEZ"
+          "name": "NOE GARCIA SIMON"
         },
         {
           "num": 14,
-          "name": "Jorel Vasques Beltran"
+          "name": "PABLO RODRIGUEZ LAGUNA"
         }
       ]
     }
