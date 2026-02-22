@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-02-15",
+    "lastUpdated": "2026-02-22",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -448,9 +448,9 @@
     },
     "C.E. MEDITERRANI": {
       "fullName": "C.E. MEDITERRANI",
-      "lastPlayed": "2026-02-15",
-      "lastUpdated": "2026-02-15",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027315/stats",
+      "lastPlayed": "2026-02-22",
+      "lastUpdated": "2026-02-22",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027319/stats",
       "players": [
         {
           "num": 1,
@@ -506,7 +506,7 @@
         },
         {
           "num": 14,
-          "name": "PABLO RODRIGUEZ LAGUNA"
+          "name": "CALIN BORCEA"
         }
       ]
     }
