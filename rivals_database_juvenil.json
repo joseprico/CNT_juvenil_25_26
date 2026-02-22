@@ -509,6 +509,70 @@
           "name": "CALIN BORCEA"
         }
       ]
+    },
+    "C.N. BARCELONA": {
+      "fullName": "C.N. BARCELONA",
+      "lastPlayed": "2026-02-22",
+      "lastUpdated": "2026-02-22",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027322/stats",
+      "players": [
+        {
+          "num": 1,
+          "name": "ALEJANDRO PEDREÑO CASINO"
+        },
+        {
+          "num": 2,
+          "name": "GUERAU NAVARRO BUENO"
+        },
+        {
+          "num": 3,
+          "name": "ERIC PEDREROL SARDAÑA"
+        },
+        {
+          "num": 4,
+          "name": "IGNACIO MERCEDES ECHERIA"
+        },
+        {
+          "num": 5,
+          "name": "BIEL ESPINO HERNANDEZ"
+        },
+        {
+          "num": 6,
+          "name": "ERIC GORDO ROMERO"
+        },
+        {
+          "num": 7,
+          "name": "MARIO PAZ NUÑEZ"
+        },
+        {
+          "num": 8,
+          "name": "ERIC RAUL RIO CHACHA"
+        },
+        {
+          "num": 9,
+          "name": "SVILEN PIRALKOV COELLO"
+        },
+        {
+          "num": 10,
+          "name": "PAU ORTIZ MINGUET (C)"
+        },
+        {
+          "num": 11,
+          "name": "PHILIPPE KRYKORKA CERQUEIRA CESAR"
+        },
+        {
+          "num": 12,
+          "name": "MARTI ORTIZ MINGUET"
+        },
+        {
+          "num": 13,
+          "name": "ALEX VILAR TORRENT"
+        },
+        {
+          "num": 14,
+          "name": "PABLO MARTINEZ-SANDOVAL CARQUEIJEDA"
+        }
+      ]
     }
   }
 }
