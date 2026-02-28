@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-02-28T09:43:56.731536",
+    "downloaded_at": "2026-02-28T11:08:40.617955",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -82,6 +82,27 @@
       "TA": 0,
       "TR": 0,
       "EX": 8,
+      "ED": 0,
+      "EB": 0,
+      "EN": 0,
+      "EP": 0,
+      "P": 0,
+      "PF": 0,
+      "O": 0,
+      "TM": 0,
+      "JL": 0,
+      "MVP": 0
+    },
+    {
+      "Nombre": "DAVID CASADO FUENTES",
+      "PJ": 0,
+      "GT": 0,
+      "G": 0,
+      "GP": 0,
+      "G5P": 0,
+      "TA": 0,
+      "TR": 0,
+      "EX": 0,
       "ED": 0,
       "EB": 0,
       "EN": 0,
@@ -1616,6 +1637,6 @@
       }
     }
   },
-  "last_update": "2026-02-28T11:43:55.887611+01:00",
-  "workflow_run": "3264"
+  "last_update": "2026-02-28T12:11:08.974121+01:00",
+  "workflow_run": "3265"
 }
