@@ -573,6 +573,70 @@
           "name": "PABLO MARTINEZ-SANDOVAL CARQUEIJEDA"
         }
       ]
+    },
+    "C.N. ATL BARCELONETA": {
+      "fullName": "C.N. ATL BARCELONETA",
+      "lastPlayed": "2026-03-01",
+      "lastUpdated": "2026-03-01",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027320/stats",
+      "players": [
+        {
+          "num": 1,
+          "name": "BRUNO DELMAS TORTORELLA"
+        },
+        {
+          "num": 2,
+          "name": "ADRIAN ALEJANDRO ANTIOS CHEDIAK"
+        },
+        {
+          "num": 3,
+          "name": "PABLO VIALE RAYA"
+        },
+        {
+          "num": 4,
+          "name": "PAU MENÉNDEZ PEÑA"
+        },
+        {
+          "num": 5,
+          "name": "JOHN JOSEPH SHINSKE MARTIN"
+        },
+        {
+          "num": 6,
+          "name": "RICHARD ALEXANDRE CEREÑO MALDONADO"
+        },
+        {
+          "num": 7,
+          "name": "CESC AGUIRRE RUBIO"
+        },
+        {
+          "num": 8,
+          "name": "TONY VILLEGAS RODRIGUEZ"
+        },
+        {
+          "num": 9,
+          "name": "ENZO FERNANDEZ PERRIER (C)"
+        },
+        {
+          "num": 10,
+          "name": "MARCOS ELCHE HERNANDEZ"
+        },
+        {
+          "num": 11,
+          "name": "FELIPE SEI LARA"
+        },
+        {
+          "num": 12,
+          "name": "LUCA SUBIRATS VAZQUEZ"
+        },
+        {
+          "num": 13,
+          "name": "HUGO MARTIN MORON"
+        },
+        {
+          "num": 14,
+          "name": "POL GINABREDA CABELLO"
+        }
+      ]
     }
   }
 }
