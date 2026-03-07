@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-03-07T13:12:27.895825",
+    "downloaded_at": "2026-03-07T14:14:43.828966",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -53,7 +53,7 @@
     },
     {
       "Nombre": "DANIEL LINARES MATARIN",
-      "PJ": 0,
+      "PJ": 1,
       "GT": 1,
       "G": 1,
       "GP": 0,
@@ -852,10 +852,10 @@
         {
           "name": "BRUC GONZALEZ I MARTIN",
           "goals": 14,
-          "games": 21,
+          "games": 22,
           "exclusions": 11,
           "penalty_goals": 0,
-          "avg_goals": 0.67
+          "avg_goals": 0.64
         }
       ],
       "stats": {
@@ -1574,6 +1574,6 @@
       }
     }
   },
-  "last_update": "2026-03-07T14:52:01.971268+01:00",
-  "workflow_run": "3424"
+  "last_update": "2026-03-07T15:16:06.793108+01:00",
+  "workflow_run": "3425"
 }
