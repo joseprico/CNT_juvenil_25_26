@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-03-14T16:52:41.226956",
+    "downloaded_at": "2026-03-14T19:00:07.009528",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -468,7 +468,96 @@
     "Penaltis fallados": 10,
     "Tiempos muertos": 21
   },
-  "upcoming_matches": [],
+  "upcoming_matches": [
+    {
+      "team1": "C.N. TERRASSA",
+      "team2": "U.E. D'HORTA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/AaEBEa7OVvwB.30x30.jpg",
+      "date_time": "Dom, 15/03/2026 09:00 163 - Terrassa C.N.",
+      "jornada": 1,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027328/results",
+      "date": "15/03/2026",
+      "time": "09:00"
+    },
+    {
+      "team1": "C.N. SANT ANDREU",
+      "team2": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/AaTcV9fsgKzp.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "date_time": "Vie, 20/03/2026 21:15 164 - St Andreu, CN (25 M.)",
+      "jornada": 2,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027309/results",
+      "date": "20/03/2026",
+      "time": "21:15"
+    },
+    {
+      "team1": "C.N. BARCELONA",
+      "team2": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/AaT38Tf1E4Fg.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "date_time": "Jue, 26/03/2026 20:45 160 - Barcelona, CN - Nova Escollera - 50m",
+      "jornada": 3,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027333/results",
+      "date": "26/03/2026",
+      "time": "20:45"
+    },
+    {
+      "team1": "C.N. SABADELL",
+      "team2": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/AaJFwTq1SdZo.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "date_time": "Dom, 19/04/2026 12:45 264 - Sabadell, CN - Can Llong - 33m",
+      "jornada": 4,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027342/results",
+      "date": "19/04/2026",
+      "time": "12:45"
+    },
+    {
+      "team1": "C.N. TERRASSA",
+      "team2": "C.N. SANT ANDREU",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/AaTcV9fsgKzp.30x30.jpg",
+      "date_time": "Mié, 22/04/2026 21:00 163 - Terrassa C.N.",
+      "jornada": 5,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027337/results",
+      "date": "22/04/2026",
+      "time": "21:00"
+    },
+    {
+      "team1": "C.N. TERRASSA",
+      "team2": "C.N. MONTJUIC A",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/AaLZ2cLfo4fC.30x30.jpg",
+      "date_time": "Dom, 26/04/2026 12:55 163 - Terrassa C.N.",
+      "jornada": 6,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027346/results",
+      "date": "26/04/2026",
+      "time": "12:55"
+    },
+    {
+      "team1": "C.N. TERRASSA",
+      "team2": "C.E. MEDITERRANI",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/AasntmnZMsxi.30x30.jpg",
+      "date_time": "Dom, 10/05/2026 12:55 163 - Terrassa C.N.",
+      "jornada": 7,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027351/results",
+      "date": "10/05/2026",
+      "time": "12:55"
+    },
+    {
+      "team1": "C.N. ATL BARCELONETA",
+      "team2": "C.N. TERRASSA",
+      "team1_logo": "https://cdn.leverade.com/thumbnails/AaS9iMCevN9M.30x30.jpg",
+      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
+      "date_time": "Dom, 17/05/2026 09:15 166 - Atlètic Barceloneta, CN - 33m coberta",
+      "jornada": 8,
+      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027352/results",
+      "date": "17/05/2026",
+      "time": "09:15"
+    }
+  ],
   "last_results": [
     {
       "team1": "C.N. TERRASSA",
@@ -1546,6 +1635,6 @@
       }
     }
   },
-  "last_update": "2026-03-14T19:19:58.609484+01:00",
-  "workflow_run": "3585"
+  "last_update": "2026-03-14T20:02:52.320834+01:00",
+  "workflow_run": "3586"
 }
