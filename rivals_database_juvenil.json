@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-03-08",
+    "lastUpdated": "2026-03-15",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -192,13 +192,13 @@
     },
     "U.E. D'HORTA": {
       "fullName": "U.E. D'HORTA",
-      "lastPlayed": "2026-03-08",
-      "lastUpdated": "2026-03-08",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027313/stats",
+      "lastPlayed": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027325/stats",
       "players": [
         {
           "num": 1,
-          "name": "IGNASI ALVAREZ DE EULATE BARBERA"
+          "name": "ALVARO CAPILLA COBO"
         },
         {
           "num": 2,
