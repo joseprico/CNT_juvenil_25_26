@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-03-15",
+    "lastUpdated": "2026-03-20",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -512,9 +512,9 @@
     },
     "C.N. BARCELONA": {
       "fullName": "C.N. BARCELONA",
-      "lastPlayed": "2026-03-01",
-      "lastUpdated": "2026-03-01",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027322/stats",
+      "lastPlayed": "2026-03-20",
+      "lastUpdated": "2026-03-20",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027329/stats",
       "players": [
         {
           "num": 1,
@@ -522,7 +522,7 @@
         },
         {
           "num": 2,
-          "name": "GUERAU NAVARRO BUENO"
+          "name": "PAU LOPEZ FERNANDEZ"
         },
         {
           "num": 3,
@@ -530,11 +530,11 @@
         },
         {
           "num": 4,
-          "name": "IGNACIO MERCEDES ECHERIA"
+          "name": "GUERAU NAVARRO BUENO"
         },
         {
           "num": 5,
-          "name": "BIEL ESPINO HERNANDEZ"
+          "name": "ERIC RAUL RIO CHACHA"
         },
         {
           "num": 6,
@@ -546,7 +546,7 @@
         },
         {
           "num": 8,
-          "name": "ERIC RAUL RIO CHACHA"
+          "name": "PHILIPPE KRYKORKA CERQUEIRA CESAR"
         },
         {
           "num": 9,
@@ -558,15 +558,11 @@
         },
         {
           "num": 11,
-          "name": "PHILIPPE KRYKORKA CERQUEIRA CESAR"
+          "name": "ALEIX VALERO COLLADO"
         },
         {
           "num": 12,
           "name": "MARTI ORTIZ MINGUET"
-        },
-        {
-          "num": 13,
-          "name": "ALEX VILAR TORRENT"
         },
         {
           "num": 14,
