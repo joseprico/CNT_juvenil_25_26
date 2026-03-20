@@ -1,7 +1,7 @@
 {
   "temporada": "25/26 JUVENIL",
   "equip": "CN TERRASSA",
-  "data": "2026-03-20T21:15:40.979Z",
+  "data": "2026-03-20T21:28:14.758Z",
   "scoreCNT": 18,
   "scoreRival": 8,
   "lineups": {
@@ -63,7 +63,7 @@
   "tempsMortCNT": 0,
   "tempsMortRival": 2,
   "rivalTeam": "CN Sant Andreu",
-  "matchLocation": "home",
+  "matchLocation": "away",
   "rivalStats": [
     {
       "num": 1,
