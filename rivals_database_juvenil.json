@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-03-20",
+    "lastUpdated": "2026-03-26",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -320,9 +320,9 @@
     },
     "C.N. SABADELL": {
       "fullName": "C.N. SABADELL",
-      "lastPlayed": "2026-02-03",
-      "lastUpdated": "2026-02-03",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027302/stats",
+      "lastPlayed": "2026-03-26",
+      "lastUpdated": "2026-03-26",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027316/stats",
       "players": [
         {
           "num": 1,
@@ -338,7 +338,7 @@
         },
         {
           "num": 4,
-          "name": "ALVARO CARRASQUILLA LOPEZ"
+          "name": "ELIAS QUIRANTE TAALI"
         },
         {
           "num": 5,
@@ -350,7 +350,7 @@
         },
         {
           "num": 7,
-          "name": "NIKITA RUDOI BOBULICI"
+          "name": "GENIS BATISTA ALFONSO"
         },
         {
           "num": 8,
@@ -362,7 +362,7 @@
         },
         {
           "num": 10,
-          "name": "GENIS BATISTA ALFONSO"
+          "name": "TIAGO CARRIO MANDOLINI"
         },
         {
           "num": 11,
