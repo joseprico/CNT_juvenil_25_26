@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-04-02",
+    "lastUpdated": "2026-04-09",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -320,8 +320,8 @@
     },
     "C.N. SABADELL": {
       "fullName": "C.N. SABADELL",
-      "lastPlayed": "2026-04-02",
-      "lastUpdated": "2026-04-02",
+      "lastPlayed": "2026-04-09",
+      "lastUpdated": "2026-04-09",
       "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027316/stats",
       "players": [
         {
