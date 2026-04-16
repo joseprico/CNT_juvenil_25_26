@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-04-09",
+    "lastUpdated": "2026-04-16",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -320,9 +320,9 @@
     },
     "C.N. SABADELL": {
       "fullName": "C.N. SABADELL",
-      "lastPlayed": "2026-04-09",
-      "lastUpdated": "2026-04-09",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027316/stats",
+      "lastPlayed": "2026-04-16",
+      "lastUpdated": "2026-04-16",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027338/stats",
       "players": [
         {
           "num": 1,
@@ -350,7 +350,7 @@
         },
         {
           "num": 7,
-          "name": "GENIS BATISTA ALFONSO"
+          "name": "NIKITA RUDOI BOBULICI"
         },
         {
           "num": 8,
@@ -358,7 +358,7 @@
         },
         {
           "num": 9,
-          "name": "BINE STROMAJER"
+          "name": "GENIS BATISTA ALFONSO"
         },
         {
           "num": 10,
@@ -366,7 +366,7 @@
         },
         {
           "num": 11,
-          "name": "DAAN KNIP SANCHEZ"
+          "name": "IKER GARCIA LOPEZ"
         },
         {
           "num": 12,
