@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-04-18T15:28:05.671259",
+    "downloaded_at": "2026-04-18T15:59:19.537502",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -965,10 +965,10 @@
         {
           "name": "BRUC GONZALEZ I MARTIN",
           "goals": 16,
-          "games": 25,
+          "games": 26,
           "exclusions": 12,
           "penalty_goals": 0,
-          "avg_goals": 0.64
+          "avg_goals": 0.62
         }
       ],
       "stats": {
@@ -1570,6 +1570,6 @@
       }
     }
   },
-  "last_update": "2026-04-18T16:29:22.413733+01:00",
-  "workflow_run": "4184"
+  "last_update": "2026-04-18T17:00:54.056540+01:00",
+  "workflow_run": "4185"
 }
