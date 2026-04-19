@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-04-16",
+    "lastUpdated": "2026-04-19",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -256,65 +256,65 @@
     },
     "C.N. SANT ANDREU": {
       "fullName": "C.N. SANT ANDREU",
-      "lastPlayed": "2026-03-15",
-      "lastUpdated": "2026-03-15",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027327/stats",
+      "lastPlayed": "2026-04-19",
+      "lastUpdated": "2026-04-19",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027340/stats",
       "players": [
         {
           "num": 1,
-          "name": "ADRIA GONZALEZ CUBERO"
+          "name": "BRUNO DELMAS TORTORELLA"
         },
         {
           "num": 2,
-          "name": "STEFAN DJURDJEVIC"
+          "name": "CESC AGUIRRE RUBIO"
         },
         {
           "num": 3,
-          "name": "FRANCESC TENA BARO"
+          "name": "PABLO VIALE RAYA"
         },
         {
           "num": 4,
-          "name": "MAHMOUD OSMAN"
+          "name": "PAU MENÉNDEZ PEÑA"
         },
         {
           "num": 5,
-          "name": "ALEX RABELLA OVEJERO"
+          "name": "JOHN JOSEPH SHINSKE MARTIN"
         },
         {
           "num": 6,
-          "name": "MARTI SANCHO GUILLEN"
+          "name": "RICHARD ALEXANDRE CEREÑO MALDONADO"
         },
         {
           "num": 7,
-          "name": "LUIS ROJO BALANYA"
+          "name": "ROBERT-ANDREI CIMPOERU"
         },
         {
           "num": 8,
-          "name": "MARC MCCAVANAGH PEREZ"
+          "name": "TONY VILLEGAS RODRIGUEZ"
         },
         {
           "num": 9,
-          "name": "ALEIX GUERRERO GARCIA"
+          "name": "LUCA SUBIRATS VAZQUEZ"
         },
         {
           "num": 10,
-          "name": "MATIAS MIRANDA FERREIRA"
+          "name": "MARCOS ELCHE HERNANDEZ"
         },
         {
           "num": 11,
-          "name": "BERNAT MARTINEZ VAZQUEZ"
+          "name": "FELIPE SEI LARA"
         },
         {
           "num": 12,
-          "name": "ORIOL LOPEZ CHARLES"
+          "name": "DANIEL MERIDA OROZCO"
         },
         {
           "num": 13,
-          "name": "NOE GARCIA SIMON"
+          "name": "HUGO MARTIN MORON"
         },
         {
           "num": 14,
-          "name": "TEO RODRIGUEZ MARTINEZ"
+          "name": "POL GINABREDA CABELLO"
         }
       ]
     },
