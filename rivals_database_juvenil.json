@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2026-04-19",
+    "lastUpdated": "2026-04-22",
     "description": "Base de dades de plantilles d'equips rivals - CN Terrassa JUVENIL"
   },
   "teams": {
@@ -384,9 +384,9 @@
     },
     "C.N. MONTJUIC A": {
       "fullName": "C.N. MONTJUIC A",
-      "lastPlayed": "2026-02-15",
-      "lastUpdated": "2026-02-15",
-      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027315/stats",
+      "lastPlayed": "2026-04-22",
+      "lastUpdated": "2026-04-22",
+      "sourceMatch": "https://actawp.natacio.cat/ca/tournament/1317471/match/144027343/stats",
       "players": [
         {
           "num": 1,
@@ -414,7 +414,7 @@
         },
         {
           "num": 7,
-          "name": "LUIS ROJO BALANYA"
+          "name": "CALIN BORCEA"
         },
         {
           "num": 8,
@@ -422,7 +422,7 @@
         },
         {
           "num": 9,
-          "name": "ALEIX GUERRERO GARCIA"
+          "name": "TEO RODRIGUEZ MARTINEZ"
         },
         {
           "num": 10,
