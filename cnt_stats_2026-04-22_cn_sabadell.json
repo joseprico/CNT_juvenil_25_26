@@ -1,9 +1,9 @@
 {
   "temporada": "25/26 JUVENIL",
   "equip": "CN TERRASSA",
-  "data": "2026-04-22T13:38:57.788Z",
+  "data": "2026-04-22T13:41:34.126Z",
   "scoreCNT": 10,
-  "scoreRival": 0,
+  "scoreRival": 22,
   "lineups": {
     "q1": [],
     "q2": [],
@@ -31,7 +31,7 @@
   "tempsMortCNT": 0,
   "tempsMortRival": 0,
   "rivalTeam": "C.N. SABADELL",
-  "matchLocation": "home",
+  "matchLocation": "away",
   "rivalStats": [
     {
       "num": 1,
@@ -50,7 +50,7 @@
     {
       "num": 2,
       "name": "GAEL APARICIO LOPEZ",
-      "gols": 0,
+      "gols": 2,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -59,12 +59,25 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 1,
+        "h+": 0,
+        "penalty": 1,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 2
+      },
+      "fieldZones": {
+        "5m-left": 2
+      }
     },
     {
       "num": 3,
       "name": "PAU VIVES ARJONA",
-      "gols": 0,
+      "gols": 4,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -73,12 +86,25 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 3,
+        "h+": 0,
+        "penalty": 1,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 4
+      },
+      "fieldZones": {
+        "5m-left": 4
+      }
     },
     {
       "num": 4,
       "name": "ELIAS QUIRANTE TAALI",
-      "gols": 0,
+      "gols": 2,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -87,12 +113,25 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 2,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 2
+      },
+      "fieldZones": {
+        "5m-left": 2
+      }
     },
     {
       "num": 5,
       "name": "ERMENGOL LLORENC SAPES",
-      "gols": 0,
+      "gols": 1,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -101,12 +140,25 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 1,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 1
+      },
+      "fieldZones": {
+        "5m-left": 1
+      }
     },
     {
       "num": 6,
       "name": "ERIK MOYA CORTES",
-      "gols": 0,
+      "gols": 2,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -115,12 +167,25 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 2,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 2
+      },
+      "fieldZones": {
+        "5m-left": 2
+      }
     },
     {
       "num": 7,
       "name": "NIKITA RUDOI BOBULICI",
-      "gols": 0,
+      "gols": 1,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -129,7 +194,20 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 1,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 1
+      },
+      "fieldZones": {
+        "5m-left": 1
+      }
     },
     {
       "num": 8,
@@ -147,8 +225,8 @@
     },
     {
       "num": 9,
-      "name": "GENIS BATISTA ALFONSO",
-      "gols": 0,
+      "name": "BINE STROMAJER",
+      "gols": 3,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -157,12 +235,25 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 3,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 3
+      },
+      "fieldZones": {
+        "5m-left": 3
+      }
     },
     {
       "num": 10,
       "name": "TIAGO CARRIO MANDOLINI",
-      "gols": 0,
+      "gols": 3,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -171,12 +262,25 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 3,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 3
+      },
+      "fieldZones": {
+        "5m-left": 3
+      }
     },
     {
       "num": 11,
       "name": "IKER GARCIA LOPEZ",
-      "gols": 0,
+      "gols": 2,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -185,7 +289,20 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 2,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 2
+      },
+      "fieldZones": {
+        "5m-left": 2
+      }
     },
     {
       "num": 12,
@@ -218,7 +335,7 @@
     {
       "num": 14,
       "name": "GUILLEM NAVARRO PICAZO",
-      "gols": 0,
+      "gols": 2,
       "exclusions": 0,
       "assistencies": 0,
       "parades": 0,
@@ -227,7 +344,20 @@
       "blocks": 0,
       "xutsFallats": 0,
       "contrafaltes": 0,
-      "infraccions2m": 0
+      "infraccions2m": 0,
+      "goalTypes": {
+        "normal": 2,
+        "h+": 0,
+        "penalty": 0,
+        "contra": 0,
+        "boya": 0
+      },
+      "goalZones": {
+        "mid-left": 2
+      },
+      "fieldZones": {
+        "5m-left": 2
+      }
     }
   ],
   "jugadors": [
@@ -944,6 +1074,270 @@
       "team": "cnt",
       "playerNum": 14,
       "playerName": "POL RICO"
+    },
+    {
+      "timestamp": 1776865167807,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 1,
+      "playerName": "GAEL APARICIO LOPEZ",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865171508,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "penalty",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 1,
+      "playerName": "GAEL APARICIO LOPEZ",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865176928,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 3,
+      "playerName": "ELIAS QUIRANTE TAALI",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865189967,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 3,
+      "playerName": "ELIAS QUIRANTE TAALI",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865197158,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 2,
+      "playerName": "PAU VIVES ARJONA",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865200729,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "penalty",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 2,
+      "playerName": "PAU VIVES ARJONA",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865203983,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 2,
+      "playerName": "PAU VIVES ARJONA",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865206670,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 2,
+      "playerName": "PAU VIVES ARJONA",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865211506,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 4,
+      "playerName": "ERMENGOL LLORENC SAPES",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865216008,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 5,
+      "playerName": "ERIK MOYA CORTES",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865219063,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 5,
+      "playerName": "ERIK MOYA CORTES",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865224554,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 6,
+      "playerName": "NIKITA RUDOI BOBULICI",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865244821,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 8,
+      "playerName": "BINE STROMAJER",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865249247,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 8,
+      "playerName": "BINE STROMAJER",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865252527,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 8,
+      "playerName": "BINE STROMAJER",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865258695,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 9,
+      "playerName": "TIAGO CARRIO MANDOLINI",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865261282,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 9,
+      "playerName": "TIAGO CARRIO MANDOLINI",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865263919,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 9,
+      "playerName": "TIAGO CARRIO MANDOLINI",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865273782,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 10,
+      "playerName": "IKER GARCIA LOPEZ",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865278310,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 10,
+      "playerName": "IKER GARCIA LOPEZ",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865285974,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 13,
+      "playerName": "GUILLEM NAVARRO PICAZO",
+      "goalkeeperNum": null
+    },
+    {
+      "timestamp": 1776865289858,
+      "quarter": "q1",
+      "type": "goal",
+      "goalType": "normal",
+      "goalZone": "mid-left",
+      "fieldZone": "5m-left",
+      "team": "rival",
+      "playerNum": 13,
+      "playerName": "GUILLEM NAVARRO PICAZO",
+      "goalkeeperNum": null
     }
   ],
   "quarterStartTimes": {
