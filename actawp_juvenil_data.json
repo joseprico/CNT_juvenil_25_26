@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-04-30T15:09:00.778598",
+    "downloaded_at": "2026-04-30T16:52:21.617664",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -489,30 +489,7 @@
     "Penaltis fallados": 12,
     "Tiempos muertos": 29
   },
-  "upcoming_matches": [
-    {
-      "team1": "C.N. TERRASSA",
-      "team2": "C.E. MEDITERRANI",
-      "team1_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
-      "team2_logo": "https://cdn.leverade.com/thumbnails/AasntmnZMsxi.30x30.jpg",
-      "date_time": "Dom, 10/05/2026 12:55 163 - Terrassa C.N.",
-      "jornada": 1,
-      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027351/results",
-      "date": "10/05/2026",
-      "time": "12:55"
-    },
-    {
-      "team1": "C.N. ATL BARCELONETA",
-      "team2": "C.N. TERRASSA",
-      "team1_logo": "https://cdn.leverade.com/thumbnails/AaS9iMCevN9M.30x30.jpg",
-      "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
-      "date_time": "Dom, 17/05/2026 09:15 166 - Atlètic Barceloneta, CN - 33m coberta",
-      "jornada": 2,
-      "url": "https://actawp.natacio.cat/es/tournament/1317471/match/144027352/results",
-      "date": "17/05/2026",
-      "time": "09:15"
-    }
-  ],
+  "upcoming_matches": [],
   "last_results": [
     {
       "team1": "C.N. TERRASSA",
@@ -1243,48 +1220,7 @@
         "L"
       ],
       "form_string": "WLWLL",
-      "top_scorers": [
-        {
-          "name": "POL FONT SUAREZ",
-          "goals": 55,
-          "games": 17,
-          "exclusions": 10,
-          "penalty_goals": 16,
-          "avg_goals": 3.24
-        },
-        {
-          "name": "JEFFERSON FERRERAS SALDAÑA",
-          "goals": 47,
-          "games": 18,
-          "exclusions": 15,
-          "penalty_goals": 3,
-          "avg_goals": 2.61
-        },
-        {
-          "name": "ORIOL HURTADO CLOPES",
-          "goals": 46,
-          "games": 12,
-          "exclusions": 17,
-          "penalty_goals": 16,
-          "avg_goals": 3.83
-        },
-        {
-          "name": "MARC SUAREZ VAN DAM",
-          "goals": 44,
-          "games": 18,
-          "exclusions": 13,
-          "penalty_goals": 0,
-          "avg_goals": 2.44
-        },
-        {
-          "name": "BERNAL PARIENTE LOPEZ",
-          "goals": 20,
-          "games": 18,
-          "exclusions": 9,
-          "penalty_goals": 2,
-          "avg_goals": 1.11
-        }
-      ],
+      "top_scorers": [],
       "stats": {
         "total_gf": 60,
         "total_gc": 63,
@@ -1295,7 +1231,7 @@
         "draws": 0,
         "losses": 3,
         "trend": "hot",
-        "total_exclusions": 64
+        "total_exclusions": 0
       }
     },
     "C.E. MEDITERRANI": {
@@ -1650,6 +1586,6 @@
       }
     }
   },
-  "last_update": "2026-04-30T16:11:48.254543+01:00",
-  "workflow_run": "4333"
+  "last_update": "2026-04-30T18:04:22.409129+01:00",
+  "workflow_run": "4334"
 }
