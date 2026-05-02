@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-05-02T09:43:02.274950",
+    "downloaded_at": "2026-05-02T10:40:36.859098",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -1162,7 +1162,48 @@
         "L"
       ],
       "form_string": "WLWLL",
-      "top_scorers": [],
+      "top_scorers": [
+        {
+          "name": "ALEJANDRO RUDZEVICH RAMIREZ",
+          "goals": 84,
+          "games": 22,
+          "exclusions": 18,
+          "penalty_goals": 27,
+          "avg_goals": 3.82
+        },
+        {
+          "name": "AXEL GUICH JIMENEZ",
+          "goals": 48,
+          "games": 17,
+          "exclusions": 12,
+          "penalty_goals": 10,
+          "avg_goals": 2.82
+        },
+        {
+          "name": "MARTI PIÑEIRA GONZALEZ",
+          "goals": 33,
+          "games": 19,
+          "exclusions": 12,
+          "penalty_goals": 4,
+          "avg_goals": 1.74
+        },
+        {
+          "name": "MARC ASTOR MUNTANE",
+          "goals": 31,
+          "games": 20,
+          "exclusions": 14,
+          "penalty_goals": 1,
+          "avg_goals": 1.55
+        },
+        {
+          "name": "ALVARO GARROTE GOMEZ",
+          "goals": 28,
+          "games": 18,
+          "exclusions": 15,
+          "penalty_goals": 5,
+          "avg_goals": 1.56
+        }
+      ],
       "stats": {
         "total_gf": 61,
         "total_gc": 59,
@@ -1173,7 +1214,7 @@
         "draws": 0,
         "losses": 3,
         "trend": "hot",
-        "total_exclusions": 0
+        "total_exclusions": 71
       }
     },
     "C.E. MEDITERRANI": {
@@ -1528,6 +1569,6 @@
       }
     }
   },
-  "last_update": "2026-05-02T10:48:25.755628+01:00",
-  "workflow_run": "4352"
+  "last_update": "2026-05-02T11:41:57.095447+01:00",
+  "workflow_run": "4353"
 }
