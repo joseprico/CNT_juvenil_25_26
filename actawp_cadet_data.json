@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-05-04T15:27:35.842980",
+    "downloaded_at": "2026-05-04T19:03:26.123827",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -866,123 +866,6 @@
         "total_exclusions": 100
       }
     },
-    "C.N. SABADELL": {
-      "team_id": "15616558",
-      "last_results": [
-        {
-          "team1": "C.N. SABADELL",
-          "team2": "C.N. BARCELONA A",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AaJFwTq1SdZo.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaT38Tf1E4Fg.30x30.jpg",
-          "score": "8-11",
-          "date": "",
-          "jornada": 1,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027438/results"
-        },
-        {
-          "team1": "C.N. SABADELL",
-          "team2": "U.E. D'HORTA",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AaJFwTq1SdZo.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaEBEa7OVvwB.30x30.jpg",
-          "score": "16-9",
-          "date": "",
-          "jornada": 2,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027447/results"
-        },
-        {
-          "team1": "C.N. SABADELL",
-          "team2": "C.N. SANT ANDREU A",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AaJFwTq1SdZo.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaTcV9fsgKzp.30x30.jpg",
-          "score": "10-9",
-          "date": "",
-          "jornada": 3,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027454/results"
-        },
-        {
-          "team1": "C.E. MEDITERRANI",
-          "team2": "C.N. SABADELL",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AasntmnZMsxi.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaJFwTq1SdZo.30x30.jpg",
-          "score": "11-20",
-          "date": "",
-          "jornada": 4,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027450/results"
-        },
-        {
-          "team1": "C.N. POBLE NOU A",
-          "team2": "C.N. SABADELL",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AavYwrQJ36uU.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaJFwTq1SdZo.30x30.jpg",
-          "score": "9-13",
-          "date": "",
-          "jornada": 5,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027414/results"
-        }
-      ],
-      "form": [
-        "L",
-        "W",
-        "W",
-        "W",
-        "W"
-      ],
-      "form_string": "LWWWW",
-      "top_scorers": [
-        {
-          "name": "HUGO RODRIGUEZ BELTRAN",
-          "goals": 64,
-          "games": 18,
-          "exclusions": 14,
-          "penalty_goals": 20,
-          "avg_goals": 3.56
-        },
-        {
-          "name": "ASIER RUIZ GARCIA",
-          "goals": 58,
-          "games": 19,
-          "exclusions": 14,
-          "penalty_goals": 3,
-          "avg_goals": 3.05
-        },
-        {
-          "name": "BINE STROMAJER",
-          "goals": 47,
-          "games": 16,
-          "exclusions": 19,
-          "penalty_goals": 4,
-          "avg_goals": 2.94
-        },
-        {
-          "name": "MARC CAAMAÑO LEÓN",
-          "goals": 41,
-          "games": 19,
-          "exclusions": 21,
-          "penalty_goals": 2,
-          "avg_goals": 2.16
-        },
-        {
-          "name": "ALEJANDRO CABERO GALLARDO",
-          "goals": 30,
-          "games": 17,
-          "exclusions": 21,
-          "penalty_goals": 0,
-          "avg_goals": 1.76
-        }
-      ],
-      "stats": {
-        "total_gf": 67,
-        "total_gc": 49,
-        "avg_gf": 13.4,
-        "avg_gc": 9.8,
-        "matches_played": 5,
-        "wins": 4,
-        "draws": 0,
-        "losses": 1,
-        "trend": "hot",
-        "total_exclusions": 89
-      }
-    },
     "C.N. ATL BARCELONETA": {
       "team_id": "15617348",
       "last_results": [
@@ -1334,123 +1217,6 @@
         "total_exclusions": 79
       }
     },
-    "U.E. D'HORTA": {
-      "team_id": "15609772",
-      "last_results": [
-        {
-          "team1": "C.N. SABADELL",
-          "team2": "U.E. D'HORTA",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AaJFwTq1SdZo.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaEBEa7OVvwB.30x30.jpg",
-          "score": "16-9",
-          "date": "",
-          "jornada": 1,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027447/results"
-        },
-        {
-          "team1": "U.E. D'HORTA",
-          "team2": "C.N. BARCELONA A",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AaEBEa7OVvwB.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaT38Tf1E4Fg.30x30.jpg",
-          "score": "16-20",
-          "date": "",
-          "jornada": 2,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027459/results"
-        },
-        {
-          "team1": "C.E. MEDITERRANI",
-          "team2": "U.E. D'HORTA",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AasntmnZMsxi.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaEBEa7OVvwB.30x30.jpg",
-          "score": "11-10",
-          "date": "",
-          "jornada": 3,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027455/results"
-        },
-        {
-          "team1": "U.E. D'HORTA",
-          "team2": "C.N. TERRASSA A",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AaEBEa7OVvwB.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/rfen_f74fa6fe.30x30.jpg",
-          "score": "13-21",
-          "date": "",
-          "jornada": 4,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027443/results"
-        },
-        {
-          "team1": "C.N. POBLE NOU A",
-          "team2": "U.E. D'HORTA",
-          "team1_logo": "https://cdn.leverade.com/thumbnails/AavYwrQJ36uU.30x30.jpg",
-          "team2_logo": "https://cdn.leverade.com/thumbnails/AaEBEa7OVvwB.30x30.jpg",
-          "score": "18-15",
-          "date": "",
-          "jornada": 5,
-          "url": "https://actawp.natacio.cat/ca/tournament/1317474/match/144027439/results"
-        }
-      ],
-      "form": [
-        "L",
-        "L",
-        "L",
-        "L",
-        "L"
-      ],
-      "form_string": "LLLLL",
-      "top_scorers": [
-        {
-          "name": "GERARD PRADAS PEIRON",
-          "goals": 61,
-          "games": 19,
-          "exclusions": 21,
-          "penalty_goals": 25,
-          "avg_goals": 3.21
-        },
-        {
-          "name": "ARES CEREZUELA CEREIJO",
-          "goals": 57,
-          "games": 19,
-          "exclusions": 7,
-          "penalty_goals": 7,
-          "avg_goals": 3.0
-        },
-        {
-          "name": "DANIEL DOMINGUEZ PEREZ",
-          "goals": 31,
-          "games": 19,
-          "exclusions": 9,
-          "penalty_goals": 2,
-          "avg_goals": 1.63
-        },
-        {
-          "name": "ERIC M. VAQUERO BAENA",
-          "goals": 28,
-          "games": 19,
-          "exclusions": 9,
-          "penalty_goals": 0,
-          "avg_goals": 1.47
-        },
-        {
-          "name": "NICOLAS SEOANE DORCA",
-          "goals": 28,
-          "games": 19,
-          "exclusions": 13,
-          "penalty_goals": 2,
-          "avg_goals": 1.47
-        }
-      ],
-      "stats": {
-        "total_gf": 63,
-        "total_gc": 86,
-        "avg_gf": 12.6,
-        "avg_gc": 17.2,
-        "matches_played": 5,
-        "wins": 0,
-        "draws": 0,
-        "losses": 5,
-        "trend": "cold",
-        "total_exclusions": 59
-      }
-    },
     "C.N. POBLE NOU A": {
       "team_id": "15623995",
       "last_results": [
@@ -1569,6 +1335,6 @@
       }
     }
   },
-  "last_update": "2026-05-04T18:08:25.088157+01:00",
-  "workflow_run": "4383"
+  "last_update": "2026-05-04T20:10:01.006987+01:00",
+  "workflow_run": "4384"
 }
