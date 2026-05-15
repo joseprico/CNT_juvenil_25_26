@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-05-15T19:00:01.065039",
+    "downloaded_at": "2026-05-15T20:16:41.292465",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -340,6 +340,27 @@
       "EP": 0,
       "P": 4,
       "PF": 6,
+      "O": 0,
+      "TM": 0,
+      "JL": 0,
+      "MVP": 0
+    },
+    {
+      "Nombre": "MAX CEREZO CAVERO",
+      "PJ": 0,
+      "GT": 0,
+      "G": 0,
+      "GP": 0,
+      "G5P": 0,
+      "TA": 0,
+      "TR": 0,
+      "EX": 0,
+      "ED": 0,
+      "EB": 0,
+      "EN": 0,
+      "EP": 0,
+      "P": 0,
+      "PF": 0,
       "O": 0,
       "TM": 0,
       "JL": 0,
@@ -1691,6 +1712,6 @@
       }
     }
   },
-  "last_update": "2026-05-15T20:02:27.310441+01:00",
-  "workflow_run": "4483"
+  "last_update": "2026-05-15T21:19:14.519609+01:00",
+  "workflow_run": "4484"
 }
