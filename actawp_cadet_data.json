@@ -5,7 +5,7 @@
     "team_id": "15621224",
     "team_name": "CN Terrassa Cadet",
     "coach": "Didac Cobacho",
-    "downloaded_at": "2026-08-14T10:48:15.907283",
+    "downloaded_at": "2026-08-14T12:36:42.128668",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -806,7 +806,48 @@
         "W"
       ],
       "form_string": "WWLWW",
-      "top_scorers": [],
+      "top_scorers": [
+        {
+          "name": "CESC AGUIRRE RUBIO",
+          "goals": 87,
+          "games": 22,
+          "exclusions": 7,
+          "penalty_goals": 27,
+          "avg_goals": 3.95
+        },
+        {
+          "name": "JOHN JOSEPH SHINSKE MARTIN",
+          "goals": 80,
+          "games": 21,
+          "exclusions": 14,
+          "penalty_goals": 18,
+          "avg_goals": 3.81
+        },
+        {
+          "name": "GRAYSON THEODORE TAYLOR",
+          "goals": 42,
+          "games": 12,
+          "exclusions": 13,
+          "penalty_goals": 0,
+          "avg_goals": 3.5
+        },
+        {
+          "name": "BIEL FONT SUAREZ",
+          "goals": 38,
+          "games": 22,
+          "exclusions": 17,
+          "penalty_goals": 6,
+          "avg_goals": 1.73
+        },
+        {
+          "name": "POL GINABREDA CABELLO",
+          "goals": 36,
+          "games": 22,
+          "exclusions": 14,
+          "penalty_goals": 0,
+          "avg_goals": 1.64
+        }
+      ],
       "stats": {
         "total_gf": 88,
         "total_gc": 62,
@@ -817,7 +858,7 @@
         "draws": 0,
         "losses": 1,
         "trend": "hot",
-        "total_exclusions": 0
+        "total_exclusions": 65
       }
     },
     "C.N. BARCELONA A": {
@@ -1523,6 +1564,6 @@
       }
     }
   },
-  "last_update": "2026-08-14T12:34:02.459482+01:00",
-  "workflow_run": "5268"
+  "last_update": "2026-08-14T13:37:58.740905+01:00",
+  "workflow_run": "5269"
 }
