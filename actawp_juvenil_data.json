@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-08-15T12:12:35.737058",
+    "downloaded_at": "2026-08-15T14:09:24.589289",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -535,7 +535,23 @@
       "MVP": 0
     }
   ],
-  "team_stats": {},
+  "team_stats": {
+    "Puntos": 30,
+    "A favor": 272,
+    "En contra": 279,
+    "Partidos jugados": 22,
+    "Partidos ganados": 10,
+    "Partidos empatados": 0,
+    "Partidos perdidos": 12,
+    "Goles de penalti": 24,
+    "Expulsiones por 20 segundos": 210,
+    "Tarjetas amarillas": 1,
+    "Goles": 248,
+    "Faltas por penalti": 46,
+    "Expulsiones definitivas, con sustitución disciplinaria": 2,
+    "Penaltis fallados": 12,
+    "Tiempos muertos": 32
+  },
   "upcoming_matches": [],
   "last_results": [
     {
@@ -936,7 +952,48 @@
         "L"
       ],
       "form_string": "WWWWL",
-      "top_scorers": [],
+      "top_scorers": [
+        {
+          "name": "TIAGO CARRIO MANDOLINI",
+          "goals": 52,
+          "games": 15,
+          "exclusions": 8,
+          "penalty_goals": 18,
+          "avg_goals": 3.47
+        },
+        {
+          "name": "GUILLEM NAVARRO PICAZO",
+          "goals": 47,
+          "games": 20,
+          "exclusions": 10,
+          "penalty_goals": 7,
+          "avg_goals": 2.35
+        },
+        {
+          "name": "DAAN KNIP SANCHEZ",
+          "goals": 36,
+          "games": 19,
+          "exclusions": 13,
+          "penalty_goals": 4,
+          "avg_goals": 1.89
+        },
+        {
+          "name": "GENIS BATISTA ALFONSO",
+          "goals": 30,
+          "games": 18,
+          "exclusions": 14,
+          "penalty_goals": 8,
+          "avg_goals": 1.67
+        },
+        {
+          "name": "EDGAR VILCHEZ RUIZ",
+          "goals": 28,
+          "games": 17,
+          "exclusions": 6,
+          "penalty_goals": 1,
+          "avg_goals": 1.65
+        }
+      ],
       "stats": {
         "total_gf": 61,
         "total_gc": 45,
@@ -947,7 +1004,7 @@
         "draws": 0,
         "losses": 1,
         "trend": "hot",
-        "total_exclusions": 0
+        "total_exclusions": 51
       }
     },
     "C.N. ATL BARCELONETA": {
@@ -1012,7 +1069,48 @@
         "W"
       ],
       "form_string": "WWWWW",
-      "top_scorers": [],
+      "top_scorers": [
+        {
+          "name": "ENZO FERNANDEZ PERRIER",
+          "goals": 58,
+          "games": 18,
+          "exclusions": 11,
+          "penalty_goals": 9,
+          "avg_goals": 3.22
+        },
+        {
+          "name": "DANIEL MERIDA OROZCO",
+          "goals": 52,
+          "games": 14,
+          "exclusions": 9,
+          "penalty_goals": 3,
+          "avg_goals": 3.71
+        },
+        {
+          "name": "MARCOS ELCHE HERNANDEZ",
+          "goals": 44,
+          "games": 18,
+          "exclusions": 10,
+          "penalty_goals": 7,
+          "avg_goals": 2.44
+        },
+        {
+          "name": "RICHARD ALEXANDRE CEREÑO MALDONADO",
+          "goals": 34,
+          "games": 21,
+          "exclusions": 8,
+          "penalty_goals": 3,
+          "avg_goals": 1.62
+        },
+        {
+          "name": "CESC AGUIRRE RUBIO",
+          "goals": 28,
+          "games": 20,
+          "exclusions": 5,
+          "penalty_goals": 8,
+          "avg_goals": 1.4
+        }
+      ],
       "stats": {
         "total_gf": 89,
         "total_gc": 41,
@@ -1023,7 +1121,7 @@
         "draws": 0,
         "losses": 0,
         "trend": "hot",
-        "total_exclusions": 0
+        "total_exclusions": 43
       }
     },
     "C.N. BARCELONA": {
@@ -1612,6 +1710,6 @@
       }
     }
   },
-  "last_update": "2026-08-15T14:47:54.882543+01:00",
-  "workflow_run": "5292"
+  "last_update": "2026-08-15T15:11:58.689181+01:00",
+  "workflow_run": "5293"
 }
