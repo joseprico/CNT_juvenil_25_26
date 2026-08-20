@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-08-20T16:56:48.471321",
+    "downloaded_at": "2026-08-20T17:20:31.152400",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -1069,7 +1069,48 @@
         "W"
       ],
       "form_string": "WWWWW",
-      "top_scorers": [],
+      "top_scorers": [
+        {
+          "name": "ENZO FERNANDEZ PERRIER",
+          "goals": 58,
+          "games": 18,
+          "exclusions": 11,
+          "penalty_goals": 9,
+          "avg_goals": 3.22
+        },
+        {
+          "name": "DANIEL MERIDA OROZCO",
+          "goals": 52,
+          "games": 14,
+          "exclusions": 9,
+          "penalty_goals": 3,
+          "avg_goals": 3.71
+        },
+        {
+          "name": "MARCOS ELCHE HERNANDEZ",
+          "goals": 44,
+          "games": 18,
+          "exclusions": 10,
+          "penalty_goals": 7,
+          "avg_goals": 2.44
+        },
+        {
+          "name": "RICHARD ALEXANDRE CEREÑO MALDONADO",
+          "goals": 34,
+          "games": 21,
+          "exclusions": 8,
+          "penalty_goals": 3,
+          "avg_goals": 1.62
+        },
+        {
+          "name": "CESC AGUIRRE RUBIO",
+          "goals": 28,
+          "games": 20,
+          "exclusions": 5,
+          "penalty_goals": 8,
+          "avg_goals": 1.4
+        }
+      ],
       "stats": {
         "total_gf": 89,
         "total_gc": 41,
@@ -1080,7 +1121,7 @@
         "draws": 0,
         "losses": 0,
         "trend": "hot",
-        "total_exclusions": 0
+        "total_exclusions": 43
       }
     },
     "C.N. BARCELONA": {
@@ -1669,6 +1710,6 @@
       }
     }
   },
-  "last_update": "2026-08-20T18:01:47.710493+01:00",
-  "workflow_run": "5428"
+  "last_update": "2026-08-20T18:25:03.140911+01:00",
+  "workflow_run": "5429"
 }
