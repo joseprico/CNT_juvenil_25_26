@@ -5,7 +5,7 @@
     "team_id": "15621223",
     "team_name": "CN Terrassa Juvenil",
     "coach": "Jordi Busquets",
-    "downloaded_at": "2026-08-20T11:47:47.494959",
+    "downloaded_at": "2026-08-20T12:19:52.312572",
     "parser_version": "6.3_calendar_dates"
   },
   "players": [
@@ -535,7 +535,23 @@
       "MVP": 0
     }
   ],
-  "team_stats": {},
+  "team_stats": {
+    "Puntos": 30,
+    "A favor": 272,
+    "En contra": 279,
+    "Partidos jugados": 22,
+    "Partidos ganados": 10,
+    "Partidos empatados": 0,
+    "Partidos perdidos": 12,
+    "Goles de penalti": 24,
+    "Expulsiones por 20 segundos": 210,
+    "Tarjetas amarillas": 1,
+    "Goles": 248,
+    "Faltas por penalti": 46,
+    "Expulsiones definitivas, con sustitución disciplinaria": 2,
+    "Penaltis fallados": 12,
+    "Tiempos muertos": 32
+  },
   "upcoming_matches": [],
   "last_results": [
     {
@@ -1694,6 +1710,6 @@
       }
     }
   },
-  "last_update": "2026-08-20T12:51:31.085748+01:00",
-  "workflow_run": "5421"
+  "last_update": "2026-08-20T13:22:56.491462+01:00",
+  "workflow_run": "5422"
 }
